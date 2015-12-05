@@ -57,7 +57,14 @@ void operatorControl() {
 		int channel=1;
 		int output;
 		output = analogRead(channel);
-		printf("%d /n",output);
+		printf("%d /n\r",output);
 		delay(20);
+		int speed=255/2;
+		void motorSet(channel,speed);
+		char address=0;
+		int value;
+		 imeGet(address, &value);
+		 printf("%d \n\r", value);
+
 	}
 }
