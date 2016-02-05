@@ -54,6 +54,23 @@
 void operatorControl() {
 
 	while (1) {
+		int axisRange4 = joystickGetAnalog(1, 4);
+		int axisRange3 = joystickGetAnalog(1, 3);
+		int motorValue1 = (axisRange3 - axisRange4) / 2;
+		int motorValue2 = (axisRange3 + axisRange4) / 2;
+		int button1 = joystickGetDigital(1, 8, JOY_RIGHT);
+		if(button1 == 1){
+			motorSet(9, 127);
+			motorSet(10, 127);
+		}
+		motorSet(1, motorValue1);
+		motorSet(2, -motorValue1);
+		motorSet(3, motorValue2);
+		motorSet(4, motorValue2);
+		motorSet(5, motorValue2);
+		motorSet(6, motorValue2);
+		motorSet(7, -motorValue1);
+		motorSet(8, -motorValue1);
 		delay(20);
 	}
 }
