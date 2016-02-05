@@ -32,29 +32,29 @@
 void operatorControl() {
 	while (true)
 	{
-		int axisRange4 = joystickGetAnalog(1, 4);
-		int axisRange3 = joystickGetAnalog(1, 3);
-		int motorValue1 = (axisRange3 - axisRange4)/2;
-		int motorValue2 = (axisRange3 + axisRange4)/2;
-		int button1 = joystickGetDigital(1, 8, JOY_RIGHT);
-		int button2 = joystickGetDigital(1, 8, JOY_DOWN);
-		motorSet(1, motorValue1);
-		motorSet(2, -motorValue1);
-		motorSet(3, motorValue2);
-		motorSet(4, motorValue2);
-		motorSet(5, motorValue2);
-		motorSet(6, motorValue2);
-		motorSet(7, -motorValue1);
-		motorSet(8, -motorValue1);
+		int axisRangeLX = joystickGetAnalog(1, JOYLX);
+		int axisRangeLY = joystickGetAnalog(1, JOYLY);
+		int speed1 = (axisRangeLY - axisRangeLX)/2;
+		int speed2 = (axisRangeLY + axisRangeLX)/2;
+		int buttonRIGHT = joystickGetDigital(1, BUTTONS_R, JOY_RIGHT);
+		int buttonDOWN = joystickGetDigital(1, BUTTONS_R, JOY_DOWN);
+		motorSet(1, speed1);
+		motorSet(2, -speed1);
+		motorSet(3, speed1);
+		motorSet(4, speed1);
+		motorSet(5, speed1);
+		motorSet(6, speed1);
+		motorSet(7, -speed1);
+		motorSet(8, -speed1);
 
-		if (button1 == true)
-			motorSet(9, 127);
-		else if (button1 == false)
+		if (buttonRIGHT == true)
+			motorSet(9, DRIVE_FORWARD);
+		else if (buttonRIGHT == false)
 			motorSet(9, 0);
 
-		if (button2 == true)
-			motorSet(10, 127);
-		else if (button2 == false)
+		if (buttonDOWN == true)
+			motorSet(10, DRIVE_FORWARD);
+		else if (buttonDOWN == false)
 			motorSet(10, 0);
 		delay(20);
 	}
