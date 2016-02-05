@@ -1,6 +1,0 @@
-21:48:30 **** Incremental Build of configuration Default for project testcode ****
-make all 
-make[1]: Nothing to be done for `all'.
-
-21:48:30 Build Finished (took 175ms)
-
