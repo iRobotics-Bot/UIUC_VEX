@@ -17,6 +17,11 @@
 
 #include "main.h"
 
+#define DRIVE_BACK 		0;
+#define STOP 			1;
+
+static int state = 0;
+
 /**
 * Runs the user autonomous code.
 *
@@ -27,4 +32,14 @@
 * The autonomous task may exit, unlike operatorControl() which should never exit. If it does so, the robot will await a switch to another mode or disable/enable cycle.
 */
 void autonomous() {
+	switch(state) {
+		case DRIVE_BACK:
+			motorSet(1, -127);
+			motorSet(2, -127);
+			break;
+		case STOP:
+			motorStop(1);
+			motorStop(2);
+			break;
+	}
 }

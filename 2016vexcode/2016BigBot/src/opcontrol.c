@@ -32,6 +32,12 @@
 void operatorControl() {
 	while (true)
 	{
+		/* Get the driver joystick values */
+		int djoyRY = joystickGetAnalog( 1, 3 );
+		int djoyRX = joystickGetAnalog( 1, 4 );
+
+
+
 		delay(25);
 	}
 }
