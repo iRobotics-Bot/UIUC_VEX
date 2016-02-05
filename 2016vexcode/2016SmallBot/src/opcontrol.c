@@ -37,7 +37,7 @@ void operatorControl() {
 		int motorValue1 = (axisRange3 - axisRange4)/2;
 		int motorValue2 = (axisRange3 + axisRange4)/2;
 		int button1 = joystickGetDigital(1, 8, JOY_RIGHT);
-
+		int button2 = joystickGetDigital(1, 8, JOY_DOWN);
 		motorSet(1, motorValue1);
 		motorSet(2, -motorValue1);
 		motorSet(3, motorValue2);
@@ -48,15 +48,14 @@ void operatorControl() {
 		motorSet(8, -motorValue1);
 
 		if (button1 == true)
-		{
 			motorSet(9, 127);
-			motorSet(10, 127);
-		}
 		else if (button1 == false)
-		{
 			motorSet(9, 0);
+
+		if (button2 == true)
+			motorSet(10, 127);
+		else if (button2 == false)
 			motorSet(10, 0);
-		}
 		delay(20);
 	}
 
