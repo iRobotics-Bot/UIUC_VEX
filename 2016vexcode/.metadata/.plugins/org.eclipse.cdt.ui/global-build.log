@@ -1,0 +1,162 @@
+21:29:29 **** Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src auto.c
+CC -I../include -I../src init.c
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:35:3: error: implicit declaration of function 'motorset' [-Werror=implicit-function-declaration]
+cc1.exe: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+21:30:38 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src opcontrol.c
+LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  12024	      0	   3840	  15864	   3df8	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+21:30:43 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+22:00:36 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src auto.c
+CC -I../include -I../src init.c
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:35:40: error: 'CONTROLLER_1' undeclared (first use in this function)
+opcontrol.c:35:40: note: each undeclared identifier is reported only once for each function it appears in
+opcontrol.c:35:54: error: 'RIGHT_BTNS' undeclared (first use in this function)
+opcontrol.c:36:3: error: implicit declaration of function 'test_shooter' [-Werror=implicit-function-declaration]
+cc1.exe: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+22:01:02 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:36:3: error: implicit declaration of function 'test_shooter' [-Werror=implicit-function-declaration]
+cc1.exe: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+22:01:06 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:36:3: error: implicit declaration of function 'test_shooter' [-Werror=implicit-function-declaration]
+cc1.exe: some warnings being treated as errors
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+22:01:26 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src opcontrol.c
+CC -I../include -I../src test_functions.c
+test_functions.c: In function 'test_shooter':
+test_functions.c:13:2: error: implicit declaration of function 'motorset' [-Werror=implicit-function-declaration]
+cc1.exe: some warnings being treated as errors
+make[1]: *** [../bin/test_functions.o] Error 1
+make: *** [src] Error 2
+22:01:38 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src test_functions.c
+test_functions.c: In function 'test_shooter':
+test_functions.c:13:2: error: implicit declaration of function 'motorset' [-Werror=implicit-function-declaration]
+cc1.exe: some warnings being treated as errors
+make[1]: *** [../bin/test_functions.o] Error 1
+make: *** [src] Error 2
+22:01:42 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src test_functions.c
+test_functions.c: In function 'test_shooter':
+test_functions.c:13:2: error: implicit declaration of function 'motorset' [-Werror=implicit-function-declaration]
+cc1.exe: some warnings being treated as errors
+make[1]: *** [../bin/test_functions.o] Error 1
+make: *** [src] Error 2
+22:02:11 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src test_functions.c
+LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./bin/test_functions.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  12136	      0	   3840	  15976	   3e68	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+22:02:38 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+22:02:46 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+22:07:01 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src test_functions.c
+LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./bin/test_functions.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  12140	      0	   3840	  15980	   3e6c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+22:11:05 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+22:12:49 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src auto.c
+CC -I../include -I../src init.c
+CC -I../include -I../src opcontrol.c
+CC -I../include -I../src test_functions.c
+LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./bin/test_functions.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  12140	      0	   3840	  15980	   3e6c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+22:12:52 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+22:15:27 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src test_functions.c
+LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./bin/test_functions.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  12168	      0	   3840	  16008	   3e88	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+22:15:30 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+22:15:44 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+22:17:17 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src test_functions.c
+LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./bin/test_functions.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  12172	      0	   3840	  16012	   3e8c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+22:17:32 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+23:05:29 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src test_functions.c
+LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./bin/test_functions.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  12172	      0	   3840	  16012	   3e8c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+23:05:36 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+19:33:43 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+19:33:45 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+21:48:12 **** Incremental Build of configuration Default for project testcode ****
+make all 
+CC -I../include -I../src test_functions.c
+LN ./bin/auto.o ./bin/init.o ./bin/opcontrol.o ./bin/test_functions.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  12172	      0	   3840	  16012	   3e8c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+21:48:21 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+21:48:30 **** Incremental Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
