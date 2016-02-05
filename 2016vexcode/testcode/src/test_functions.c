@@ -10,7 +10,7 @@
 void test_shooter(bool is_on)
 {
 	if(is_on) {
-		motorSet(1,-127);
+		motorSet(1,127);
 		motorSet(2,127);
 		motorSet(3,127);
 		motorSet(4,-127);
