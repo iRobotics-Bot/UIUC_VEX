@@ -16,6 +16,9 @@
  ********************************************************************************/
 
 #include "main.h"
+#include "camera.h"
+#include "helpers.h"
+#include "pid.h"
 
 
 /**
@@ -32,30 +35,21 @@
 void operatorControl() {
 	while (true)
 	{
-		int axisRangeLX = joystickGetAnalog(1, JOYLX);
-		int axisRangeLY = joystickGetAnalog(1, JOYLY);
-		int speed1 = (axisRangeLY - axisRangeLX)/2;
-		int speed2 = (axisRangeLY + axisRangeLX)/2;
-		int buttonRIGHT = joystickGetDigital(1, BUTTONS_R, JOY_RIGHT);
-		int buttonDOWN = joystickGetDigital(1, BUTTONS_R, JOY_DOWN);
-		motorSet(1, speed1);
-		motorSet(2, -speed1);
-		motorSet(3, speed1);
-		motorSet(4, speed1);
-		motorSet(5, speed1);
-		motorSet(6, speed1);
-		motorSet(7, -speed1);
-		motorSet(8, -speed1);
+		bool turn_to_ball = joystickGetDigital( DRIVER, TRIGGER_R, JOY_UP );
+		if(turn_to_ball)
+		{
+			findBall();
+		}
+		else
+		{
+			/* Get the driver joystick values */
+			int djoyLY = joystickGetAnalog( DRIVER, JOYLY );
+			int djoyRX = joystickGetAnalog( DRIVER, JOYRX );
 
-		if (buttonRIGHT == true)
-			motorSet(9, DRIVE_FORWARD);
-		else if (buttonRIGHT == false)
-			motorSet(9, 0);
+			/* Drive the wheels according to driver input */
+			Drive(djoyLY, djoyRX);
+		}
 
-		if (buttonDOWN == true)
-			motorSet(10, DRIVE_FORWARD);
-		else if (buttonDOWN == false)
-			motorSet(10, 0);
 		delay(20);
 	}
 
