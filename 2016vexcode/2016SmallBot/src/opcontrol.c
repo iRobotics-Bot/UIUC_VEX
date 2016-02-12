@@ -38,7 +38,8 @@ void operatorControl() {
 		bool turn_to_ball = joystickGetDigital( DRIVER, TRIGGER_R, JOY_UP );
 		if(turn_to_ball)
 		{
-			findBall();
+			Drive(DRIVE_OFF,DRIVE_OFF);
+			while(!turnViaCamera( 0 ));
 		}
 		else
 		{

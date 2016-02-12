@@ -9,7 +9,9 @@
 #define INCLUDE_CAMERA_H_
 
 void init_camera();
-void findBall();
+int findBall();
 void parse_frame_object();
+
+bool turnViaCamera( int camera_val );
 
 #endif /* INCLUDE_CAMERA_H_ */
