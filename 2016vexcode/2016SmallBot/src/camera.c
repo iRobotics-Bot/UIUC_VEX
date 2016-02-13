@@ -53,7 +53,7 @@ void parse_frame_object(void){
 	printf("CS: %d SN: %d X: %d Y: %d Wd: %d Ht: %d\r\n",pixy_check_sum, pixy_signature_number,pixy_object_x_center,pixy_object_y_center,pixy_object_width,pixy_object_height);
 }
 
-int findBall(){
+int findBallx(){
 	//Documentation for UART protocol here: http://cmucam.org/projects/cmucam5/wiki/Pixy_Serial_Protocol
 	int time_out = 0;
 	while(time_out < TIMEOUT_TIME){
@@ -79,21 +79,46 @@ int findBall(){
 	}
 	return -1;
 }
+int findBally(){
+	//Documentation for UART protocol here: http://cmucam.org/projects/cmucam5/wiki/Pixy_Serial_Protocol
+	int time_out = 0;
+	while(time_out < TIMEOUT_TIME){
+		read1 = fgetc(uart1);
+		if(read1 == 0x55)//get sync characters
+		{
+			read1 = fgetc(uart1);
+			if(read1 == 0xaa)
+			{
+				read1 = fgetc(uart1);
+				if(read1 == 0x55)//get sync characters
+				{
+					read1 = fgetc(uart1);
+					if(read1 == 0xaa)
+					{
+						parse_frame_object();
+						return pixy_object_y_center;
+					}
+				}
+			}
+		}
+		time_out++;
+	}
+	return -1;
+}
 
-bool turnViaCamera( int camera_val )
+bool turnViaCamera(int drive_val)
 {
 	/* The setpoint always center */
 	turn_PID.setpoint = CAMERA_CENTER;
 	/* Get the observed gyro value */
-	int ball_coord = findBall();
-	turn_PID.observed = findBall();
-//	printf("setpoint: %lf \n\r", desired);
-//	printf("observed: %lf \n\r", turn_PID.observed);
+	int ball_coord = findBallx();
+	if(ball_coord == -1)
+		return true;
+
+	turn_PID.observed = ball_coord;
 
 	/* Run the PID given the above setpoint and observed values */
 	int rotate = PID( &turn_PID );
-	// printf("rotate: %d \n\r", rotate);
-	printf("Gyro Value: %d \n\r", getAverageGyro());
 
 	/* Make sure the control is within the allowable range */
 	if( rotate > 127 )
@@ -107,7 +132,7 @@ bool turnViaCamera( int camera_val )
 
 	/* Apply the control */
 //	printf("rotate: %d \n\r", rotate);
-	Drive( DRIVE_OFF, rotate * 0.75 );  // half speed
+	Drive( drive_val, rotate * 0.9 );  // half speed
 
 	/* If the observed value is within a reasonable distance
 	 * of the desired value for a short period of time, then
@@ -132,4 +157,16 @@ bool turnViaCamera( int camera_val )
 	return done;
 }
 
+void camPursuit(){
+	int ball_y = findBally();
+	if(ball_y == -1)
+		return;
+	//range of readable distances is about 172-48 where the higher numbers are closer.
+	int drive_val = ball_y-48;
+	drive_val = HALF_SPEED+(drive_val/2);//roughly scales to HALF_SPEED to FULL_SPEED
+	if(drive_val < 0)
+		drive_val = HALF_SPEED;
+	Manipulate(true, false);
+	while(!turnViaCamera(drive_val));
+}
 

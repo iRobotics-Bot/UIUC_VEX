@@ -49,15 +49,11 @@
 #define		SHTERMTRS	 9
 #define		INTKMTRS	 10
 #define		MAX_SPEED	 127
+#define		HALF_SPEED	(127/2)
 /************************/
 
 /* GLOBAL VARIABLES */
 
-static bool dump_flag;
-static int i = 0;
-static bool flag2;
-static bool throw_flag = false;
-static int throw_counter = 0;
 static int turn_PID_counter = 0;
 static int goStraight_timer = 0;
 PID_t arm_PID_L, arm_PID_R, goStraight_PID, turn_PID;

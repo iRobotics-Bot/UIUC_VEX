@@ -42,7 +42,8 @@ void operatorControl() {
 		if(turn_to_ball)
 		{
 			Drive(DRIVE_OFF,DRIVE_OFF);
-			while(!turnViaCamera( 0 ));
+//			while(!turnViaCamera());
+			camPursuit();
 		}
 		else
 		{
