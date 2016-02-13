@@ -54,6 +54,8 @@ void operatorControl() {
 			Drive(djoyLY, djoyRX);
 		}
 
+		Manipulate(intake, shoot);
+
 		delay(20);
 	}
 
