@@ -36,6 +36,9 @@ void operatorControl() {
 	while (true)
 	{
 		bool turn_to_ball = joystickGetDigital( DRIVER, TRIGGER_R, JOY_UP );
+		bool intake = joystickGetDigital( DRIVER, TRIGGER_L, JOY_UP);
+		bool shoot = joystickGetDigital( DRIVER, TRIGGER_L, JOY_DOWN);
+
 		if(turn_to_ball)
 		{
 			Drive(DRIVE_OFF,DRIVE_OFF);

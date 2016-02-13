@@ -18,6 +18,7 @@ int pixy_object_width;//0-320
 int pixy_object_height;//0-200
 
 #define CAMERA_CENTER (320/2)
+#define TIMEOUT_TIME 100
 
 void init_camera(){
 	usartInit(uart1, 9600, 0x00);
@@ -54,7 +55,8 @@ void parse_frame_object(void){
 
 int findBall(){
 	//Documentation for UART protocol here: http://cmucam.org/projects/cmucam5/wiki/Pixy_Serial_Protocol
-	while(1){
+	int time_out = 0;
+	while(time_out < TIMEOUT_TIME){
 		read1 = fgetc(uart1);
 		if(read1 == 0x55)//get sync characters
 		{
@@ -73,7 +75,9 @@ int findBall(){
 				}
 			}
 		}
+		time_out++;
 	}
+	return -1;
 }
 
 bool turnViaCamera( int camera_val )
@@ -81,6 +85,7 @@ bool turnViaCamera( int camera_val )
 	/* The setpoint always center */
 	turn_PID.setpoint = CAMERA_CENTER;
 	/* Get the observed gyro value */
+	int ball_coord = findBall();
 	turn_PID.observed = findBall();
 //	printf("setpoint: %lf \n\r", desired);
 //	printf("observed: %lf \n\r", turn_PID.observed);
@@ -108,8 +113,8 @@ bool turnViaCamera( int camera_val )
 	 * of the desired value for a short period of time, then
 	 * we are done.
 	 */
-	if( turn_PID.observed < turn_PID.setpoint + 2 &&
-		turn_PID.observed > turn_PID.setpoint - 2 )
+	if( turn_PID.observed < turn_PID.setpoint + 10 &&
+		turn_PID.observed > turn_PID.setpoint - 10 )
 	{
 		turn_PID_counter++;
 	}
