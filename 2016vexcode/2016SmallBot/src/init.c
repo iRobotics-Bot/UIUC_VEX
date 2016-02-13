@@ -60,7 +60,7 @@ void initialize() {
 	turn_PID.setpoint = 0;
 	turn_PID.p_gain = 4.7;
 	turn_PID.i_gain = 0.00000;
-	turn_PID.d_gain = 0.0;
+	turn_PID.d_gain = 2.0;
 	turn_PID.p_frequency = 0;
 	turn_PID.i_frequency = 0;
 	turn_PID.d_frequency = 2;

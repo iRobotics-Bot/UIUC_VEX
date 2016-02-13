@@ -260,155 +260,22 @@ void Drive( int drive, int rotate )
 //	}
 }
 
-void Manipulate( int arm, bool throw, bool antenna, bool override, int override_val, bool recalibrate, bool hold_ball )
+void Manipulate( bool intake, bool shoot)
 {
-//	//motor( ARMMTRL, arm );
-//	//motor( ARMMTRR, arm );
-//
-//	/* Get the observed value from the potentiometers */
-//	arm_PID_L.observed = (double) analogReadCalibrated( LEFTPOT );
-//	arm_PID_R.observed = (double) analogReadCalibrated( RIGHTPOT );
-//	//printf("PID_L: %f \n\r", arm_PID_L.observed);   // read pot vals; uncomment when needed
-//	//printf("PID_R: %f \n\r", arm_PID_R.observed);
-//
-//	/* Change the setpoints based on input */
-//	if( arm < 100 )
-//	{
-//		i = 0;
-//	}
-//
-//	if( arm < -100 )
-//	{
-//		arm_PID_L.setpoint = LOWER_LIMIT_L;
-//		arm_PID_R.setpoint = LOWER_LIMIT_R;
-//
-//		dump_flag = FALSE;
-//	}
-//	else if( arm > 100 )
-//	{
-//		/* Debounce the "up" button */
-//		i++;
-//		if( i > 100/LOOP_TIME )
-//		{
-//			dump_flag = TRUE;
-//		}
-//		arm_PID_L.setpoint = UPPER_LIMIT_L;
-//		arm_PID_R.setpoint = UPPER_LIMIT_R;
-//	}
-//	else if( dump_flag == TRUE )
-//	{
-//		if( (arm_PID_L.observed > DUMP_LIMIT_L - 30) &&
-//			(arm_PID_R.observed > DUMP_LIMIT_R - 30) )
-//		{
-//			dump_flag = FALSE;
-//		}
-//		arm_PID_L.setpoint = DUMP_LIMIT_L;
-//		arm_PID_R.setpoint = DUMP_LIMIT_R;
-//	}
-//	else
-//	{
-//		arm_PID_L.setpoint = CARRY_LIMIT_L;
-//		arm_PID_R.setpoint = CARRY_LIMIT_R;
-//	}
-//	if( hold_ball == TRUE )
-//	{
-//		arm_PID_L.setpoint = DUMP_LIMIT_L;
-//		arm_PID_R.setpoint = DUMP_LIMIT_R;
-//	}
-//	if( throw_flag == TRUE )
-//	{
-//		arm_PID_L.setpoint = CARRY_LIMIT_L;
-//		arm_PID_R.setpoint = CARRY_LIMIT_R;
-//	}
-//
-//	/* Run the PID */
-//	int arm_l = -(int)PID( &arm_PID_L );
-//	int arm_r = -(int)PID( &arm_PID_R );
-//
-//	/* Verify that the control is inside the allowable range */
-//	if( arm_l > 127 )
-//	{
-//		arm_l = 127;
-//	}
-//	else if( arm_l < -127 )
-//	{
-//		arm_l = -127;
-//	}
-//	if( arm_r > 127 )
-//	{
-//		arm_r = 127;
-//	}
-//	else if( arm_r < -127 )
-//	{
-//		arm_r = -127;
-//	}
-//
-//	/* Apply the control */
-//	if( !override && !recalibrate )
-//	{
-//		motor( ARMMTRL, arm_l );
-//		motor( ARMMTRR, arm_r );
-//	}
-//	/* Emergency override control */
-//	else if( !recalibrate )
-//	{
-//		motor( ARMMTRL, override_val );
-//		motor( ARMMTRR, override_val );
-//	}
-//	/* Run recalibration */
-//	else
-//	{
-//		motor( ARMMTRL, 0 );
-//		motor( ARMMTRR, 0 );
-//		analogCalibrate( LEFTPOT );
-//		analogCalibrate( RIGHTPOT );
-//		delay( 500000 );
-//	}
-//
-//	/* Throw the ball if the arm is out of the way */
-//	if( !hold_ball )
-//	{
-//		if( throw )
-//		{
-//			throw_flag = TRUE;
-//		}
-//
-//		if( throw_flag && arm_PID_L.observed < CARRY_LIMIT_L + 40 && arm_PID_R.observed < CARRY_LIMIT_R + 40 )
-//		{
-//			if( throw_counter < 700/LOOP_TIME )
-//			{
-//				throw_counter++;
-//				digitalWrite(2, HIGH);
-//				digitalWrite(3, HIGH);
-//				digitalWrite(4, HIGH);
-//			}
-//			else
-//			{
-//				throw_counter = 0;
-//				throw_flag = FALSE;
-//				digitalWrite(2, LOW);
-//				digitalWrite(3, LOW);
-//				digitalWrite(4, LOW);
-//			}
-//		}
-//		else
-//		{
-//			digitalWrite(2, LOW);
-//			digitalWrite(3, LOW);
-//			digitalWrite(4, LOW);
-//		}
-//	}
-//	else
-//	{
-//		digitalWrite(2, HIGH);
-//		digitalWrite(3, LOW);
-//		digitalWrite(4, LOW);
-//	}
-//
-//	/* Release the antennas if the command is given */
-//	if( antenna )
-//	{
-//		printf("RELEASE ANTENNAS\n\r");
-//		digitalWrite( CYLINDER_ANTENNA, HIGH );
-//	}
+	if(intake)
+	{
+		motor( INTKMTRS, MAX_SPEED );
+	}
+	else
+	{
+		motor( INTKMTRS, DRIVE_OFF);
+	}
+	if(shoot)
+	{
+		motor( SHTERMTRS, MAX_SPEED );
+	}
+	else
+	{
+		motor( SHTERMTRS, DRIVE_OFF);
+	}
 }

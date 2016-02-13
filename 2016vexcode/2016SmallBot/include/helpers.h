@@ -48,6 +48,7 @@
 #define		DRIVEMTRR4	 8
 #define		SHTERMTRS	 9
 #define		INTKMTRS	 10
+#define		MAX_SPEED	 127
 /************************/
 
 /* GLOBAL VARIABLES */
@@ -154,7 +155,7 @@ void TankDrive( int left, int right );
  * @param override_val this simply changes the set point to a custom value I believe
  * @param recalibrate this allows the driver to recalibrate the potentiometers of the arm.
  */
-void Manipulate( int arm, bool throw, bool antenna, bool override, int override_val, bool recalibrate, bool hold_ball );
+void Manipulate( bool intake, bool shoot);
 
 
 #endif /* HELPERS_H_ */

@@ -36,9 +36,13 @@ void operatorControl() {
 	while (true)
 	{
 		bool turn_to_ball = joystickGetDigital( DRIVER, TRIGGER_R, JOY_UP );
+		bool intake = joystickGetDigital( DRIVER, TRIGGER_L, JOY_UP);
+		bool shoot = joystickGetDigital( DRIVER, TRIGGER_L, JOY_DOWN);
+
 		if(turn_to_ball)
 		{
-			findBall();
+			Drive(DRIVE_OFF,DRIVE_OFF);
+			while(!turnViaCamera( 0 ));
 		}
 		else
 		{
@@ -49,6 +53,8 @@ void operatorControl() {
 			/* Drive the wheels according to driver input */
 			Drive(djoyLY, djoyRX);
 		}
+
+		Manipulate(intake, shoot);
 
 		delay(20);
 	}
