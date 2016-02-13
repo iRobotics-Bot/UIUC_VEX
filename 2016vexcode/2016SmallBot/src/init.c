@@ -16,6 +16,9 @@
  */
 
 #include "main.h"
+#include "camera.h"
+#include "pid.h"
+#include "helpers.h"
 
  /**
   * Runs pre-initialization code.
@@ -25,6 +28,7 @@
   * The purpose of this function is solely to set the default pin modes (pinMode()) and port states (digitalWrite()) of limit switches, push buttons, and solenoids. It can also safely configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
   */
 void initializeIO() {
+	init_camera();
 }
 
 /**
@@ -37,4 +41,45 @@ void initializeIO() {
  * This function must exit relatively promptly, or the operatorControl() and autonomous() tasks will not start. An autonomous mode selection menu like the pre_auton() in other environments can be implemented in this task if desired.
  */
 void initialize() {
+	goStraight_PID.observed = 0;
+	goStraight_PID.setpoint = 0;
+	goStraight_PID.p_gain = 4.5;
+	goStraight_PID.i_gain = 0.00000;
+	goStraight_PID.d_gain = 1.0;
+	goStraight_PID.p_frequency = 0;
+	goStraight_PID.i_frequency = 0;
+	goStraight_PID.d_frequency = 2;
+	goStraight_PID.integrated_error = 0;
+	goStraight_PID.prev_error_for_d = 0;
+	goStraight_PID.p_count = 0;
+	goStraight_PID.i_count = 0;
+	goStraight_PID.d_count = 0;
+	goStraight_PID.prevSetpoint = 0;
+
+	turn_PID.observed = 0;
+	turn_PID.setpoint = 0;
+	turn_PID.p_gain = 4.7;
+	turn_PID.i_gain = 0.00000;
+	turn_PID.d_gain = 0.0;
+	turn_PID.p_frequency = 0;
+	turn_PID.i_frequency = 0;
+	turn_PID.d_frequency = 2;
+	turn_PID.integrated_error = 0;
+	turn_PID.prev_error_for_d = 0;
+	turn_PID.p_count = 0;
+	turn_PID.i_count = 0;
+	turn_PID.d_count = 0;
+	turn_PID.prevSetpoint = 0;
+
+
+	/* initialize all motors to 0 */
+	motor( DRIVEMTRL1, DRIVE_OFF );
+	motor( DRIVEMTRL2, DRIVE_OFF );
+	motor( DRIVEMTRL3, DRIVE_OFF );
+	motor( DRIVEMTRL4, DRIVE_OFF );
+
+	motor( DRIVEMTRR1, DRIVE_OFF );
+	motor( DRIVEMTRR2, DRIVE_OFF );
+	motor( DRIVEMTRR3, DRIVE_OFF );
+	motor( DRIVEMTRR4, DRIVE_OFF );
 }

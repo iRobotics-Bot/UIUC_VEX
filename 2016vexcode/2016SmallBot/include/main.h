@@ -50,20 +50,6 @@
 extern "C" {
 #endif
 
-/*** Joystick macros ***/
-#define		JOYLY		3
-#define		JOYLX		4
-#define		JOYRY		2
-#define		JOYRX		1
-
-#define		BUTTONS_L	7
-#define 	BUTTONS_R	8
-#define 	TRIGGER_L	5
-#define 	TRIGGER_R	6
-
-/*** Opcontrol macros ***/
-#define 	DRIVE_FORWARD 	127
-
 //#define AUTO_DEBUG
 
 // A function prototype looks exactly like its declaration, but with a semicolon instead of
