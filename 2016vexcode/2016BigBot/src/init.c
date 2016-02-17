@@ -108,6 +108,21 @@ void initialize() {
 		turn_PID.d_count = 0;
 		turn_PID.prevSetpoint = 0;
 
+		shooter_PID.observed = 0;
+		shooter_PID.setpoint = 0;
+		shooter_PID.p_gain = SHOOTER_P;
+		shooter_PID.i_gain = 0;
+		shooter_PID.d_gain = SHOOTER_D;
+		shooter_PID.p_frequency = 1;
+		shooter_PID.i_frequency = 0;
+		shooter_PID.d_frequency = 1;
+		shooter_PID.integrated_error = 0;
+		shooter_PID.prev_error_for_d = 0;
+		shooter_PID.p_count = 0;
+		shooter_PID.i_count = 0;
+		shooter_PID.d_count = 0;
+		shooter_PID.prevSetpoint = 0;
+
 		analogCalibrate( LEFTPOT );
 		analogCalibrate( RIGHTPOT );
 

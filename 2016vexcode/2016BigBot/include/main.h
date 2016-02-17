@@ -80,6 +80,10 @@ extern "C" {
 #define		ARMMTRR			10
 #define		CONVEYORMTRL	 7
 #define		CONVEYORMTRR	 2
+#define		CONVEYORMTR	 	 2
+#define 	SHOOTERMTR1 	 6
+#define 	SHOOTERMTR2		 7
+#define  	SHOOTERMTR3 	 8
 
 /* NOTE: Motors can be "inverted" in software
 		 using the inversion array in helpers.h */
@@ -134,6 +138,7 @@ extern "C" {
 #define RECALIBRATE_OFF		0
 #define	LIFTUP_OFF			0
 #define	LIFTDOWN_OFF		0
+#define SHOOTER_SPIT 		127
 /**********************************/
 
 /***   OTHER MACROS  ***/
@@ -157,10 +162,12 @@ extern "C" {
 #define		TURN_P_RIGHT		5.0
 #define		TURN_I_RIGHT		0.5
 #define		TURN_D_RIGHT		15.0
+#define 	SHOOTER_P		    1.0
+#define 	SHOOTER_D 			1.0
 
 /* GLOBAL VARIABLES */
 
-PID_t arm_PID_L, arm_PID_R, goStraight_PID, turn_PID;
+PID_t arm_PID_L, arm_PID_R, goStraight_PID, turn_PID, shooter_PID;
 Gyro gyro1, gyro2;
 
 //#define AUTO_DEBUG

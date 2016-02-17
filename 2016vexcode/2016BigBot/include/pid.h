@@ -13,11 +13,11 @@
 typedef struct PID_t
 {
 	/* user inputs */
-	double observed;
-	double setpoint;
-	double p_gain;
+	double observed; 	//observed motor speed
+	double setpoint; 	//desired motor speed
+	double p_gain; 		//factor multiplied by error
 	double i_gain;
-	double d_gain;
+	double d_gain; 		//factor multiplied by derivative
 	int p_frequency;
 	int i_frequency;
 	int d_frequency;
@@ -33,7 +33,7 @@ typedef struct PID_t
 
 
 /* FUNCTION PROTOTYPES */
-double PID( PID_t * data );
+double PID( PID_t * data ); 	//add on to desired motor to adjust speed
 
 
 #endif /* PID_H_ */

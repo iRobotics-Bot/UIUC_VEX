@@ -20,6 +20,7 @@
 #include "helpers.h"
 #include "pid.h"
 #include "math.h"
+#include "shooter.h"
 
 
 /**
@@ -65,6 +66,7 @@ void operatorControl() {
 //				bool marmdown = joystickGetDigital( MANIP, 6, JOY_DOWN );
 //				bool mconveyorout = joystickGetDigital( MANIP, 5, JOY_UP );
 //				bool mconveyorin = joystickGetDigital( MANIP, 5, JOY_DOWN );
+				bool mconveyor = joystickGetDigital(DRIVER, BUTTONS_L, JOY_UP);
 //				bool moverride = joystickGetDigital( MANIP, 8, JOY_DOWN );
 //				int mjoyLY = joystickGetAnalog( MANIP, JOYLY );
 //				bool mrecalibrate = joystickGetDigital( MANIP, 8, JOY_RIGHT );
@@ -93,6 +95,10 @@ void operatorControl() {
 				//Manipulate( arm, conveyor, moverride, arm, mrecalibrate, mliftup, mliftdown ); 	/* ONE DRIVER */
 //				Manipulate( arm, conveyor, moverride, mjoyLY, mrecalibrate , mliftup, mliftdown );	/* TWO DRIVERS */
 
+				int conveyor = CONVEY_SUCK;
+				if (mconveyor)
+					motor( CONVEYORMTR, conveyor );
+
 				/* Stuff to use for tuning */
 				//int joy = joystickGetAnalog( DRIVER, JOYLY );
 				//motor( 7, joy );
@@ -107,6 +113,9 @@ void operatorControl() {
 				//	resetAverageGyro();
 				//printf("gyro1 = %d |||| gyro2 = %d |||| average = %d\n\r", gyroGet(gyro1), gyroGet(gyro2), getAverageGyro());
 				/* DO NOT COMMENT THIS OUT */
+
+				shooter(&shooter_PID, SHOOTER_SPIT);
+
 				delay(LOOP_TIME);
 	}
 }

@@ -1,0 +1,17 @@
+!SESSION 2016-02-12 19:52:24.659 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_71
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product edu.purdue.sigbots.ros.eclipse.branding.prosproduct
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product edu.purdue.sigbots.ros.eclipse.branding.prosproduct
+
+!ENTRY org.eclipse.ui 4 4 2016-02-12 19:52:42.583
+!MESSAGE Conflicting handlers for edu.purdue.sigbots.ros.eclipse.wizard.commands.updateCommand: {edu.purdue.sigbots.ros.eclipse.wizard.commands.UpgradeProjectCommand} vs {edu.purdue.sigbots.ros.eclipse.wizard.commands.UpgradeProjectCommand}
+
+!ENTRY org.eclipse.egit.ui 2 0 2016-02-12 19:52:44.773
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Kin Man'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
