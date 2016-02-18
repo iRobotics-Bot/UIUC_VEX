@@ -36,6 +36,7 @@ void operatorControl() {
 	while (true)
 	{
 		bool turn_to_ball = joystickGetDigital( DRIVER, TRIGGER_R, JOY_UP );
+		bool turn_to_tower = joystickGetDigital( DRIVER, TRIGGER_R, JOY_DOWN );
 		bool intake = joystickGetDigital( DRIVER, TRIGGER_L, JOY_UP);
 		bool shoot = joystickGetDigital( DRIVER, TRIGGER_L, JOY_DOWN);
 
@@ -44,6 +45,11 @@ void operatorControl() {
 			Drive(DRIVE_OFF,DRIVE_OFF);
 //			while(!turnViaCamera());
 			camPursuit();
+		}
+		else if(turn_to_tower)
+		{
+			Drive(DRIVE_OFF,DRIVE_OFF);
+			camAim();
 		}
 		else
 		{
