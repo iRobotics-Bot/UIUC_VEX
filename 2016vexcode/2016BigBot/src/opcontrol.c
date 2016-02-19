@@ -95,7 +95,7 @@ void operatorControl() {
 				//Manipulate( arm, conveyor, moverride, arm, mrecalibrate, mliftup, mliftdown ); 	/* ONE DRIVER */
 //				Manipulate( arm, conveyor, moverride, mjoyLY, mrecalibrate , mliftup, mliftdown );	/* TWO DRIVERS */
 
-				int conveyor = CONVEY_SUCK;
+				int conveyor = CONVEYOR_SUCK;
 				if (mconveyor)
 					motor( CONVEYORMTR, conveyor );
 

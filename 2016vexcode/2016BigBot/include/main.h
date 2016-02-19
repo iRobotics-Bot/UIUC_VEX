@@ -84,6 +84,7 @@ extern "C" {
 #define 	SHOOTERMTR1 	 6
 #define 	SHOOTERMTR2		 7
 #define  	SHOOTERMTR3 	 8
+#define 	SHOOTERMTR4		 9
 
 /* NOTE: Motors can be "inverted" in software
 		 using the inversion array in helpers.h */
