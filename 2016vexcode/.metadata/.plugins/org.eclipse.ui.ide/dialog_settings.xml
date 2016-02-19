@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="installedFeatures">
+		<item value="gnu.io.rxtx.sdk:2.1.7.4_v20071016-417C7DP1Bh_eEaQJBrHBHg"/>
+		<item value="gnu.io.rxtx:2.1.7.4_v20071016-7B57e7UAXMAAqGAGf"/>
+		<item value="org.eclipse.cdt.gdb:8.8.0.201509131935"/>
+		<item value="org.eclipse.cdt:8.8.0.201509131935"/>
+		<item value="org.eclipse.egit:4.1.1.201511131810-r"/>
+		<item value="org.eclipse.emf.common:2.11.0.v20150805-0538"/>
+		<item value="org.eclipse.emf.ecore:2.11.1.v20150805-0538"/>
+		<item value="org.eclipse.help:2.1.1.v20150904-0015"/>
+		<item value="org.eclipse.jgit:4.1.1.201511131810-r"/>
+		<item value="org.eclipse.platform:4.5.1.v20150904-0015"/>
+		<item value="org.eclipse.rcp:4.5.1.v20150904-0015"/>
+		<item value="org.eclipse.tm.terminal.control.feature:4.0.0.201506040610"/>
+		<item value="org.eclipse.tm.terminal.feature:4.0.0.201506040610"/>
+		<item value="org.eclipse.tm.terminal.view.feature:4.0.0.201506040610"/>
+	</list>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="658" key="DIALOG_X_ORIGIN"/>
+		<item value="341" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

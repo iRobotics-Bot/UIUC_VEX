@@ -1,0 +1,6 @@
+19:41:21 **** Build of configuration Default for project testcode ****
+make all 
+make[1]: Nothing to be done for `all'.
+
+19:41:21 Build Finished (took 342ms)
+
