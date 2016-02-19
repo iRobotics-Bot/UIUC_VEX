@@ -69,22 +69,25 @@ extern "C" {
 #define 	TRIGGER_R	6
 /***********************/
 
-/***     Motor Macros     ***/
-#define		DRIVEMTRR1		 3
-#define		DRIVEMTRL1		 8
-#define		DRIVEMTRL2		 4
-#define		DRIVEMTRL3		 5
-#define		DRIVEMTRR2		 1
-#define		DRIVEMTRR3		 9
-#define		ARMMTRL			 6
-#define		ARMMTRR			10
-#define		CONVEYORMTRL	 7
-#define		CONVEYORMTRR	 2
-#define		CONVEYORMTR	 	 2
-#define 	SHOOTERMTR1 	 6
-#define 	SHOOTERMTR2		 7
-#define  	SHOOTERMTR3 	 8
-#define 	SHOOTERMTR4		 9
+/***     Motor Macros (looking from behind)     ***/
+//#define		DRIVEMTRR1		 3
+//#define		DRIVEMTRL1		 8
+//#define		DRIVEMTRL2		 4
+//#define		DRIVEMTRL3		 5
+//#define		DRIVEMTRR2		 1
+//#define		DRIVEMTRR3		 9
+//#define		ARMMTRL			 6
+//#define		ARMMTRR			10
+#define 	DRIVEMTRL 		 1 		//front lefthand drive motor
+#define 	DRIVEMTRR 		 9 		//front righthand drive motor
+#define 	DRIVEMTRC 		10 	 	//back centered drive motor
+#define 	INTAKEMTR		 8
+#define		CONVEYORMTR1	 2 		//front conveyor motor
+#define		CONVEYORMTR2	 3		//back conveyor motor
+#define 	SHOOTERMTRL1 	 5 		//left front shooter motor
+#define 	SHOOTERMTRL2	 4 		//left back shooter motor
+#define  	SHOOTERMTRR1 	 6 		//right front shooter motor
+#define 	SHOOTERMTRR2	 7		//right back shooter motor
 
 /* NOTE: Motors can be "inverted" in software
 		 using the inversion array in helpers.h */
@@ -111,8 +114,9 @@ extern "C" {
 #define		RIGHTPOT	2
 #define		GYRO1		3
 #define		GYRO2		4
-#define		LEFT_IME	0
-#define		RIGHT_IME	1
+//#define		LEFT_IME	0
+//#define		RIGHT_IME	1
+#define 	IME_ADDR 	0
 #define		LEFT_IR		5
 #define		MIDDLE_IR	6
 #define		RIGHT_IR	7
@@ -139,6 +143,7 @@ extern "C" {
 #define RECALIBRATE_OFF		0
 #define	LIFTUP_OFF			0
 #define	LIFTDOWN_OFF		0
+#define INTAKE_BALLS 		127
 #define SHOOTER_SPIT 		127
 /**********************************/
 
@@ -170,6 +175,7 @@ extern "C" {
 
 PID_t arm_PID_L, arm_PID_R, goStraight_PID, turn_PID, shooter_PID;
 Gyro gyro1, gyro2;
+int override;
 
 //#define AUTO_DEBUG
 

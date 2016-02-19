@@ -76,13 +76,18 @@ void resetAverageGyro()
 /* UNUSED */
 void tankDrive( int left, int right )
 {
-	motor( DRIVEMTRL1, left );
-	motor( DRIVEMTRL2, left );
-	motor( DRIVEMTRL3, left );
+//	motor( DRIVEMTRL1, left );
+//	motor( DRIVEMTRL2, left );
+//	motor( DRIVEMTRL3, left );
+//
+//	motor( DRIVEMTRR1, right );
+//	motor( DRIVEMTRR2, right );
+//	motor( DRIVEMTRR3, right );
 
-	motor( DRIVEMTRR1, right );
-	motor( DRIVEMTRR2, right );
-	motor( DRIVEMTRR3, right );
+	motor( DRIVEMTRL, left );
+	motor( DRIVEMTRC, left);
+
+	motor( DRIVEMTRR, right);
 }
 
 int scaleJoysticks( int input )
@@ -175,13 +180,18 @@ void arcadeDrive( int drive, int rotate )
     	rightmotors = -127;
     }
 
-	motor( DRIVEMTRL1, leftmotors );
-	motor( DRIVEMTRL2, leftmotors );
-	motor( DRIVEMTRL3, leftmotors );
+//	motor( DRIVEMTRL1, leftmotors );
+//	motor( DRIVEMTRL2, leftmotors );
+//	motor( DRIVEMTRL3, leftmotors );
+//
+//	motor( DRIVEMTRR1, rightmotors );
+//	motor( DRIVEMTRR2, rightmotors );
+//	motor( DRIVEMTRR3, rightmotors );
 
-	motor( DRIVEMTRR1, rightmotors );
-	motor( DRIVEMTRR2, rightmotors );
-	motor( DRIVEMTRR3, rightmotors );
+    motor( DRIVEMTRL, leftmotors );
+    motor( DRIVEMTRC, leftmotors );
+
+    motor( DRIVEMTRR, rightmotors );
 }
 
 bool followLine( int speed ) // Black/gray = 0, white = 1
@@ -379,132 +389,132 @@ void Drive( int drive, int rotate )
 /***                MANIPULATOR HELPERS                ***/
 /*********************************************************/
 
-void Manipulate( int arm, int conveyor, bool override, int armoverride, bool recalibrate, bool mliftup, bool mliftdown )
-{
-	/*** ARM CONTROL ***/
-
-	/* Get the observed value from the potentiometers */
-	arm_PID_L.observed = (double) analogReadCalibrated( LEFTPOT );
-	arm_PID_R.observed = (double) analogReadCalibrated( RIGHTPOT );
-	//double leftpot = analogReadCalibrated( LEFTPOT );
-	//double rightpot = analogReadCalibrated( RIGHTPOT );
-	//printf("leftpot: %d\n\r rightpot: %d\n\r", leftpot, rightpot );
-
-	/* Change the setpoints based on input */
-	if( flag && (arm_PID_L.observed < PICK_LIMIT_L - 500) &&
-				(arm_PID_R.observed < PICK_LIMIT_R - 500) )
-	{
-		flag = FALSE;
-	}
-
-	if( arm > 100 )
-	{
-		flag = TRUE;
-		arm_PID_L.setpoint = UPPER_LIMIT_L;
-		arm_PID_R.setpoint = UPPER_LIMIT_R;
-		arm_PID_L.p_gain = UPPER_LIMIT_P;
-		arm_PID_R.p_gain = UPPER_LIMIT_P;
-		arm_PID_L.d_gain = UPPER_LIMIT_D;
-		arm_PID_R.d_gain = UPPER_LIMIT_D;
-	}
-	else if( (arm == 0) && (flag == TRUE)  )
-	{
-		arm_PID_L.setpoint = PICK_LIMIT_L;
-		arm_PID_R.setpoint = PICK_LIMIT_R;
-		arm_PID_L.p_gain = PICK_LIMIT_P;
-		arm_PID_R.p_gain = PICK_LIMIT_P;
-		arm_PID_L.d_gain = PICK_LIMIT_D;
-		arm_PID_R.d_gain = PICK_LIMIT_D;
-	}
-	else if( arm < -100 )
-	{
-		arm_PID_L.setpoint = LOWER_LIMIT_L;
-		arm_PID_R.setpoint = LOWER_LIMIT_R;
-		arm_PID_L.p_gain = LOWER_LIMIT_P;
-		arm_PID_R.p_gain = LOWER_LIMIT_P;
-		arm_PID_L.d_gain = LOWER_LIMIT_D;
-		arm_PID_R.d_gain = LOWER_LIMIT_D;
-	}
-
-	if( arm_PID_L.observed > PICK_LIMIT_L - 20 || arm_PID_R.observed > PICK_LIMIT_R - 20 )
-	{
-		if( arm < 0 )
-		{
-			arm_PID_L.p_gain = BOTTOM_P;
-			arm_PID_L.d_gain = BOTTOM_D;
-			arm_PID_R.p_gain = BOTTOM_P;
-			arm_PID_R.d_gain = BOTTOM_D;
-		}
-		else if( arm == 0 )
-		{
-			arm_PID_L.p_gain = 0.00;
-			arm_PID_L.d_gain = 0.00;
-			arm_PID_R.p_gain = 0.00;
-			arm_PID_R.d_gain = 0.00;
-		}
-	}
-
-	/* Run the PID */
-	int arm_l = (int) PID( &arm_PID_L );
-	int arm_r = (int) PID( &arm_PID_R );
-
-	/* Verify that the control is inside the allowable range */
-	if( arm_l > 127 )
-		arm_l = 127;
-	else if( arm_l < -127 )
-		arm_l = -127;
-
-	if( arm_r > 127 )
-		arm_r = 127;
-	else if( arm_r < -127 )
-		arm_r = -127;
-
-	/* Apply the control */
-	if( !override && !recalibrate )
-	{
-		motor( ARMMTRL, arm_l );
-		motor( ARMMTRR, arm_r );
-	}
-	/* Emergency override control */
-	else if( !recalibrate )
-	{
-		motor( ARMMTRL, armoverride );
-		motor( ARMMTRR, armoverride );
-	}
-	/* Run recalibration */
-	else
-	{
-		motor( ARMMTRL, 0 );
-		motor( ARMMTRR, 0 );
-		analogCalibrate( LEFTPOT );
-		analogCalibrate( RIGHTPOT );
-		delay( 500000 );
-	}
-
-
-	/*** CONVEYOR CONTROL ***/
-
-	motor( CONVEYORMTRL, conveyor );
-	motor( CONVEYORMTRR, conveyor );
-
-
-	/* Lift control */
-
-	if( mliftup )
-	{
-		digitalWrite( CYLINDER_BACKRIGHT, HIGH );
-		digitalWrite( CYLINDER_BACKLEFT, HIGH );
-		digitalWrite( CYLINDER_FRONTRIGHT, HIGH );
-		digitalWrite( CYLINDER_FRONTLEFT, HIGH );
-	}
-	else if( mliftdown )
-	{
-		digitalWrite( CYLINDER_BACKRIGHT, LOW );
-		digitalWrite( CYLINDER_BACKLEFT, LOW );
-		digitalWrite( CYLINDER_FRONTRIGHT, LOW );
-		digitalWrite( CYLINDER_FRONTLEFT, LOW );
-	}
-}
+//void Manipulate( int arm, int conveyor, bool override, int armoverride, bool recalibrate, bool mliftup, bool mliftdown )
+//{
+//	/*** ARM CONTROL ***/
+//
+//	/* Get the observed value from the potentiometers */
+//	arm_PID_L.observed = (double) analogReadCalibrated( LEFTPOT );
+//	arm_PID_R.observed = (double) analogReadCalibrated( RIGHTPOT );
+//	//double leftpot = analogReadCalibrated( LEFTPOT );
+//	//double rightpot = analogReadCalibrated( RIGHTPOT );
+//	//printf("leftpot: %d\n\r rightpot: %d\n\r", leftpot, rightpot );
+//
+//	/* Change the setpoints based on input */
+//	if( flag && (arm_PID_L.observed < PICK_LIMIT_L - 500) &&
+//				(arm_PID_R.observed < PICK_LIMIT_R - 500) )
+//	{
+//		flag = FALSE;
+//	}
+//
+//	if( arm > 100 )
+//	{
+//		flag = TRUE;
+//		arm_PID_L.setpoint = UPPER_LIMIT_L;
+//		arm_PID_R.setpoint = UPPER_LIMIT_R;
+//		arm_PID_L.p_gain = UPPER_LIMIT_P;
+//		arm_PID_R.p_gain = UPPER_LIMIT_P;
+//		arm_PID_L.d_gain = UPPER_LIMIT_D;
+//		arm_PID_R.d_gain = UPPER_LIMIT_D;
+//	}
+//	else if( (arm == 0) && (flag == TRUE)  )
+//	{
+//		arm_PID_L.setpoint = PICK_LIMIT_L;
+//		arm_PID_R.setpoint = PICK_LIMIT_R;
+//		arm_PID_L.p_gain = PICK_LIMIT_P;
+//		arm_PID_R.p_gain = PICK_LIMIT_P;
+//		arm_PID_L.d_gain = PICK_LIMIT_D;
+//		arm_PID_R.d_gain = PICK_LIMIT_D;
+//	}
+//	else if( arm < -100 )
+//	{
+//		arm_PID_L.setpoint = LOWER_LIMIT_L;
+//		arm_PID_R.setpoint = LOWER_LIMIT_R;
+//		arm_PID_L.p_gain = LOWER_LIMIT_P;
+//		arm_PID_R.p_gain = LOWER_LIMIT_P;
+//		arm_PID_L.d_gain = LOWER_LIMIT_D;
+//		arm_PID_R.d_gain = LOWER_LIMIT_D;
+//	}
+//
+//	if( arm_PID_L.observed > PICK_LIMIT_L - 20 || arm_PID_R.observed > PICK_LIMIT_R - 20 )
+//	{
+//		if( arm < 0 )
+//		{
+//			arm_PID_L.p_gain = BOTTOM_P;
+//			arm_PID_L.d_gain = BOTTOM_D;
+//			arm_PID_R.p_gain = BOTTOM_P;
+//			arm_PID_R.d_gain = BOTTOM_D;
+//		}
+//		else if( arm == 0 )
+//		{
+//			arm_PID_L.p_gain = 0.00;
+//			arm_PID_L.d_gain = 0.00;
+//			arm_PID_R.p_gain = 0.00;
+//			arm_PID_R.d_gain = 0.00;
+//		}
+//	}
+//
+//	/* Run the PID */
+//	int arm_l = (int) PID( &arm_PID_L );
+//	int arm_r = (int) PID( &arm_PID_R );
+//
+//	/* Verify that the control is inside the allowable range */
+//	if( arm_l > 127 )
+//		arm_l = 127;
+//	else if( arm_l < -127 )
+//		arm_l = -127;
+//
+//	if( arm_r > 127 )
+//		arm_r = 127;
+//	else if( arm_r < -127 )
+//		arm_r = -127;
+//
+//	/* Apply the control */
+//	if( !override && !recalibrate )
+//	{
+//		motor( ARMMTRL, arm_l );
+//		motor( ARMMTRR, arm_r );
+//	}
+//	/* Emergency override control */
+//	else if( !recalibrate )
+//	{
+//		motor( ARMMTRL, armoverride );
+//		motor( ARMMTRR, armoverride );
+//	}
+//	/* Run recalibration */
+//	else
+//	{
+//		motor( ARMMTRL, 0 );
+//		motor( ARMMTRR, 0 );
+//		analogCalibrate( LEFTPOT );
+//		analogCalibrate( RIGHTPOT );
+//		delay( 500000 );
+//	}
+//
+//
+//	/*** CONVEYOR CONTROL ***/
+//
+//	motor( CONVEYORMTRL, conveyor );
+//	motor( CONVEYORMTRR, conveyor );
+//
+//
+//	/* Lift control */
+//
+//	if( mliftup )
+//	{
+//		digitalWrite( CYLINDER_BACKRIGHT, HIGH );
+//		digitalWrite( CYLINDER_BACKLEFT, HIGH );
+//		digitalWrite( CYLINDER_FRONTRIGHT, HIGH );
+//		digitalWrite( CYLINDER_FRONTLEFT, HIGH );
+//	}
+//	else if( mliftdown )
+//	{
+//		digitalWrite( CYLINDER_BACKRIGHT, LOW );
+//		digitalWrite( CYLINDER_BACKLEFT, LOW );
+//		digitalWrite( CYLINDER_FRONTRIGHT, LOW );
+//		digitalWrite( CYLINDER_FRONTLEFT, LOW );
+//	}
+//}
 
 
 /*********************************************************/
