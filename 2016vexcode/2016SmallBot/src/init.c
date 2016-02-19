@@ -29,6 +29,7 @@
   */
 void initializeIO() {
 	init_camera();
+	pinMode(BALL_DETECT,INPUT);
 }
 
 /**

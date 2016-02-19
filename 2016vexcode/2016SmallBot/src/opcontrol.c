@@ -33,12 +33,37 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 void operatorControl() {
+	//TEST LOOP
+//	int i = 0;
+//	while (true)
+//	{
+//		i++;
+////		printf("HEARTBEAT%d\r\n",i);
+//		findTowerx();
+////		findBallx();
+//		delay(20);
+//	}
+
 	while (true)
 	{
 		bool turn_to_ball = joystickGetDigital( DRIVER, TRIGGER_R, JOY_UP );
 		bool turn_to_tower = joystickGetDigital( DRIVER, TRIGGER_R, JOY_DOWN );
 		bool intake = joystickGetDigital( DRIVER, TRIGGER_L, JOY_UP);
 		bool shoot = joystickGetDigital( DRIVER, TRIGGER_L, JOY_DOWN);
+		bool reverse_intake = joystickGetDigital( DRIVER, BUTTONS_L, JOY_DOWN);
+		bool reverse_shoot = joystickGetDigital( DRIVER, BUTTONS_R, JOY_DOWN);
+
+		//jank logic to determine manipulator execution if both trigger and button are pressed no execution occurs
+		int intake_val = 0;
+		int shoot_val = 0;
+		if(intake)
+			intake_val = FORWARD;
+		if(shoot)
+			shoot_val = FORWARD;
+		if(reverse_intake)
+			intake_val = REVERSE;
+		if(reverse_shoot)
+			shoot_val = REVERSE;
 
 		if(turn_to_ball)
 		{

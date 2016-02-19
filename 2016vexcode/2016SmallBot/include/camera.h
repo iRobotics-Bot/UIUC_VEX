@@ -15,8 +15,8 @@ int findTowerx();
 void parse_frame_object_color();
 void parse_frame_object_code();
 
-bool turnViaCamera_Ball(int drive_val);
-bool turnViaCamera_Tower(int drive_val);
+int turnViaCamera_Ball(int drive_val);
+int turnViaCamera_Tower(int drive_val);
 
 void camPursuit();
 void camAim();

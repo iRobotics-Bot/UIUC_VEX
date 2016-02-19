@@ -52,6 +52,12 @@
 #define		HALF_SPEED	(127/2)
 /************************/
 
+/*** MANIP MACROS ***/
+#define	REVERSE  (-1)
+#define	FORWARD	1
+#define BALL_DETECT 1
+/********************/
+
 /* GLOBAL VARIABLES */
 
 static int turn_PID_counter = 0;
@@ -151,7 +157,7 @@ void TankDrive( int left, int right );
  * @param override_val this simply changes the set point to a custom value I believe
  * @param recalibrate this allows the driver to recalibrate the potentiometers of the arm.
  */
-void Manipulate( bool intake, bool shoot);
+void Manipulate( int intake, int shoot);
 
 
 #endif /* HELPERS_H_ */
