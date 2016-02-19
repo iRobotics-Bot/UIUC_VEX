@@ -13,9 +13,11 @@
 #define SHOOT_TIME 100
 
 void status_auto(){
+	find_ball_general();
 	camPursuit();
 	if(digitalRead(BALL_DETECT))
 	{
+		find_tower_general();
 		camAim();
 //		auto_shoot();
 	}

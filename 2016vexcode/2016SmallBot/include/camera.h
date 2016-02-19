@@ -20,5 +20,7 @@ int turnViaCamera_Tower(int drive_val);
 
 void camPursuit();
 void camAim();
+int find_ball_general();
+int find_tower_general();
 
 #endif /* INCLUDE_CAMERA_H_ */

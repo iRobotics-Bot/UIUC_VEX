@@ -279,7 +279,6 @@ int camPursuit(){
 	int ball_y = findBally();
 	if(ball_y == -1)
 	{
-		Drive(DRIVE_OFF,MAX_SPEED);
 		return -1;
 	}
 	//range of readable distances is about 172-48 where the higher numbers are closer.
@@ -296,13 +295,25 @@ int camAim(){
 	int bot_x = findTowerx();
 	if(bot_x == -1)
 	{
-		Drive(DRIVE_OFF,MAX_SPEED);
 		return -1;
 	}
 //	Manipulate(false, true);
 	while(!turnViaCamera_Tower(DRIVE_OFF));
 	return 0;
 }
+
+int find_ball_general()
+{
+	while(camPursuit() == -1)
+		Drive(DRIVE_OFF,MAX_SPEED);
+}
+
+int find_tower_general()
+{
+	while(camAim() == -1)
+		Drive(DRIVE_OFF,MAX_SPEED);
+}
+
 
 //bool camFind()
 //{
