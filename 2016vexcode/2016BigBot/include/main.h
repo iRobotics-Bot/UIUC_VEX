@@ -116,10 +116,10 @@ extern "C" {
 #define		GYRO2		4
 //#define		LEFT_IME	0
 //#define		RIGHT_IME	1
-#define 	IME_ADDR 	0
-#define		LEFT_IR		5
-#define		MIDDLE_IR	6
-#define		RIGHT_IR	7
+#define 	SHOOTER_IME 	0
+#define		LEFT_IR			5
+#define		MIDDLE_IR		6
+#define		RIGHT_IR		7
 
 /*** UNIVERSAL AUTONOMOUS MACROS ***/
 #define	DRIVE_FORWARD		100
@@ -144,7 +144,7 @@ extern "C" {
 #define	LIFTUP_OFF			0
 #define	LIFTDOWN_OFF		0
 #define INTAKE_BALLS 		127
-#define SHOOTER_SPIT 		127
+#define SHOOTER_SPIT 		70
 /**********************************/
 
 /***   OTHER MACROS  ***/
@@ -175,6 +175,7 @@ extern "C" {
 
 PID_t arm_PID_L, arm_PID_R, goStraight_PID, turn_PID, shooter_PID;
 Gyro gyro1, gyro2;
+int prev_pos;
 
 //#define AUTO_DEBUG
 

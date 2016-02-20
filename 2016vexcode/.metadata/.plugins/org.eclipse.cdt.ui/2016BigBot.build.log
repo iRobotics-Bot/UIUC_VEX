@@ -1,6 +1,6 @@
-20:39:03 **** Incremental Build of configuration Default for project 2016BigBot ****
+03:03:27 **** Incremental Build of configuration Default for project 2016BigBot ****
 make all 
 make[1]: Nothing to be done for `all'.
 
-20:39:03 Build Finished (took 226ms)
+03:03:28 Build Finished (took 231ms)
 

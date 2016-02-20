@@ -23,6 +23,7 @@
 #include "shooter.h"
 
 //int  override = 0;
+int count = 0;
 
 /**
  * Runs the user operator control code.
@@ -79,6 +80,25 @@ void operatorControl() {
 				/* shooter code */
 //				if (mshooter)
 //					shooter(&shooter_PID, SHOOTER_SPIT);
+				if(mshooter){
+					 motor(SHOOTERMTRL1, 70);
+					 motor(SHOOTERMTRL2, 70);
+					 motor(SHOOTERMTRR1, 70);
+					motor(SHOOTERMTRR2, 70);
+					count++;
+//					int shooter_spd;
+//					if(count == 4){
+//						shooter(&shooter_PID, SHOOTER_SPIT);
+//						count = 0;
+//					}
+//					printf("Shooter Speed: %d \r\n", shooter_spd);
+				} else {
+					 motor(SHOOTERMTRL1, 0);
+					 motor(SHOOTERMTRL2, 0);
+					 motor(SHOOTERMTRR1, 0);
+					motor(SHOOTERMTRR2, 0);
+				}
+				
 
 //				if (override && joystickGetDigital(DRIVER, BUTTONS_L, JOY_DOWN))
 //					override = OVERRIDE_OFF;

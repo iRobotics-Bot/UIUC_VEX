@@ -45,18 +45,18 @@ void autonomous() {
 //			motorStop(2);
 //			break;
 //	}
-	while (ime_velocity > 10){
-		imeGetVelocity(IME_ADDR, &ime_velocity);
-		motorSet(DRIVEMTRL, DRIVE_REVERSE);
-		motorSet(DRIVEMTRR, DRIVE_REVERSE);
-		motorSet(DRIVEMTRC, DRIVE_REVERSE);
-	}
-
-	/* For driver controlled override, press down on the left buttons  */
-	while (1) {
-		motor( INTAKEMTR, INTAKE_BALLS );
-		motor( CONVEYORMTR1, CONVEYOR_SUCK );
-		motor( CONVEYORMTR2, CONVEYOR_SUCK );
-		shooter( &shooter_PID, SHOOTER_SPIT );
-	}
+//	while (ime_velocity > 10){
+//		imeGetVelocity(IME_ADDR, &ime_velocity);
+//		motorSet(DRIVEMTRL, DRIVE_REVERSE);
+//		motorSet(DRIVEMTRR, DRIVE_REVERSE);
+//		motorSet(DRIVEMTRC, DRIVE_REVERSE);
+//	}
+//
+//	/* For driver controlled override, press down on the left buttons  */
+//	while (1) {
+//		motor( INTAKEMTR, INTAKE_BALLS );
+//		motor( CONVEYORMTR1, CONVEYOR_SUCK );
+//		motor( CONVEYORMTR2, CONVEYOR_SUCK );
+//		shooter( &shooter_PID, SHOOTER_SPIT );
+//	}
 }

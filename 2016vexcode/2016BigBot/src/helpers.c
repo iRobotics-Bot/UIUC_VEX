@@ -380,6 +380,19 @@ void Drive( int drive, int rotate )
 	}
 }
 
+void getVelocity(unsigned char address, int *value) {
+	int curr_pos;
+	int velocity;
+	imeGet(address, &curr_pos);
+	if (curr_pos >= prev_pos)
+		velocity = (curr_pos-prev_pos)/2;
+	else
+		velocity = (prev_pos-curr_pos)/2;
+	prev_pos = curr_pos;
+	*value = velocity;
+	printf("Shooter Speed: %d \r\n", velocity);
+}
+
 
 /*********************************************************/
 /*********************************************************/

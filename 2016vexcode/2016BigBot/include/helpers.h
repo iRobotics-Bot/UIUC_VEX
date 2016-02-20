@@ -14,10 +14,10 @@
 static unsigned char invertMotor[10] = { 1,
 										 0,
 										 0,
+										 1,
+										 1,
 										 0,
-										 1,
-										 1,
-										 1,
+										 0,
 								  	  	 1,
 								  	  	 1,
 								  	  	 0 };
@@ -45,5 +45,6 @@ void Manipulate( int arm, int conveyor, bool override, int armoverride, bool rec
 
 /****last minute functions *****/
 // void quickDrive( int drive, int rotate );
+void getVelocity(unsigned char address, int *value);
 
 #endif /* HELPERS_H_ */
