@@ -14,6 +14,7 @@ void shooter (PID_t * data, double speed) {
 
 		/* Add output onto desired motor speed */
 		double desired = data->setpoint + output;
+//		printf("(Total, Setpoint, PID output) = (%f, %f, %f) \r\n", desired, data->setpoint, output);
 		motor( SHOOTERMTRL1,  desired);
 		motor( SHOOTERMTRL2,  desired);
 		motor( SHOOTERMTRR1,  desired);

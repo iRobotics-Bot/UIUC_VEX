@@ -23,7 +23,6 @@
 #define STOP 			1;
 
 //static int state = 1;
-int ime_velocity = 100;
 
 /**
 * Runs the user autonomous code.
@@ -45,18 +44,24 @@ void autonomous() {
 //			motorStop(2);
 //			break;
 //	}
-//	while (ime_velocity > 10){
-//		imeGetVelocity(IME_ADDR, &ime_velocity);
-//		motorSet(DRIVEMTRL, DRIVE_REVERSE);
-//		motorSet(DRIVEMTRR, DRIVE_REVERSE);
-//		motorSet(DRIVEMTRC, DRIVE_REVERSE);
-//	}
+
+
+	int curr_pos = 0;
+	while ( curr_pos < FIELD_RANGE ) {
+		imeGet( DRIVE_IME, &curr_pos );
+		arcadeDrive(DRIVE_REVERSE, 0);
+	}
+	arcadeDrive(0,0);
+
 //
-//	/* For driver controlled override, press down on the left buttons  */
-//	while (1) {
-//		motor( INTAKEMTR, INTAKE_BALLS );
-//		motor( CONVEYORMTR1, CONVEYOR_SUCK );
-//		motor( CONVEYORMTR2, CONVEYOR_SUCK );
-//		shooter( &shooter_PID, SHOOTER_SPIT );
-//	}
+//	/* For driver controlled override, press JOY_DOWN on the left buttons  */
+	while (1) {
+		motor( INTAKEMTR, INTAKE_BALLS );
+		motor( CONVEYORMTR1, CONVEYOR_SUCK );
+		motor( CONVEYORMTR2, CONVEYOR_SUCK );
+		motor( SHOOTERMTRL1, 70 );
+		motor( SHOOTERMTRL2, 70 );
+		motor( SHOOTERMTRR1, 70 );
+		motor( SHOOTERMTRR2, 70 );
+	}
 }

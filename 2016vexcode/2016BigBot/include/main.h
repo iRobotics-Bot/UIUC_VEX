@@ -117,6 +117,7 @@ extern "C" {
 //#define		LEFT_IME	0
 //#define		RIGHT_IME	1
 #define 	SHOOTER_IME 	0
+#define 	DRIVE_IME 		1
 #define		LEFT_IR			5
 #define		MIDDLE_IR		6
 #define		RIGHT_IR		7
@@ -125,7 +126,7 @@ extern "C" {
 #define	DRIVE_FORWARD		100
 #define	DRIVE_FORWARD_MEDIUM	80
 #define	DRIVE_FORWARD_SLOW	70
-#define	DRIVE_REVERSE		-90
+#define	DRIVE_REVERSE		-127
 #define	DRIVE_OFF			0
 #define ROTATE_RIGHT		90
 #define	ROTATE_LEFT			-90
@@ -144,7 +145,7 @@ extern "C" {
 #define	LIFTUP_OFF			0
 #define	LIFTDOWN_OFF		0
 #define INTAKE_BALLS 		127
-#define SHOOTER_SPIT 		70
+#define SHOOTER_SPIT 		68
 /**********************************/
 
 /***   OTHER MACROS  ***/
@@ -153,6 +154,7 @@ extern "C" {
 #define		FALSE		0
 #define		RED			1
 #define		BLUE		2
+#define 	FIELD_RANGE 	1180
 
 /*** SOLENOID MACROS ***/
 #define		CYLINDER_BACKLEFT	1

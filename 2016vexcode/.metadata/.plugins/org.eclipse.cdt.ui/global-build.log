@@ -1170,3 +1170,1274 @@ make[1]: Nothing to be done for `all'.
 03:03:27 **** Incremental Build of configuration Default for project 2016BigBot ****
 make all 
 make[1]: Nothing to be done for `all'.
+03:12:30 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17468	      0	   4816	  22284	   570c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+03:12:46 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+03:14:01 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17468	      0	   4816	  22284	   570c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+03:14:08 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+03:14:54 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17468	      0	   4816	  22284	   570c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+03:15:00 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+03:15:55 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17468	      0	   4816	  22284	   570c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+03:16:18 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:63:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17432	      0	   4816	  22248	   56e8	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+03:16:19 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+03:19:06 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:63:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17432	      0	   4816	  22248	   56e8	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+03:19:08 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+03:19:48 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:63:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17432	      0	   4816	  22248	   56e8	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+03:19:49 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+04:45:23 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:107:43: error: 'speedCount' undeclared (first use in this function)
+opcontrol.c:107:43: note: each undeclared identifier is reported only once for each function it appears in
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+04:45:40 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:112:7: error: 'speedCount' undeclared (first use in this function)
+opcontrol.c:112:7: note: each undeclared identifier is reported only once for each function it appears in
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+04:45:51 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:120:6: error: 'speedCount' undeclared (first use in this function)
+opcontrol.c:120:6: note: each undeclared identifier is reported only once for each function it appears in
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+make[1]: *** [../bin/opcontrol.o] Error 1
+make: *** [src] Error 2
+04:45:57 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17636	      0	   4816	  22452	   57b4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+04:46:03 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+04:47:07 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+04:47:42 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+04:49:34 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17636	      0	   4816	  22452	   57b4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+04:49:35 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+04:51:16 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17636	      0	   4816	  22452	   57b4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+04:51:17 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+04:56:54 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17636	      0	   4816	  22452	   57b4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+04:56:59 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+04:58:15 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17604	      0	   4816	  22420	   5794	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+04:58:17 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:00:44 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17636	      0	   4816	  22452	   57b4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:00:53 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:03:16 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17636	      0	   4816	  22452	   57b4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:03:23 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:08:46 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17660	      0	   4816	  22476	   57cc	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:08:49 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:12:06 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:64:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17652	      0	   4816	  22468	   57c4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:12:11 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:14:05 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:65:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17652	      0	   4824	  22476	   57cc	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:14:15 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:19:02 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:65:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17660	      0	   4824	  22484	   57d4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:19:10 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:20:13 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:65:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17660	      0	   4824	  22484	   57d4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:20:19 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:20:53 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:65:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17652	      0	   4824	  22476	   57cc	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:20:54 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:21:32 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:65:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17660	      0	   4824	  22484	   57d4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:21:40 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:21:54 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:22:01 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:22:12 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:40:36 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:65:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20012	      0	   4824	  24836	   6104	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:43:32 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+opcontrol.c: In function 'operatorControl':
+opcontrol.c:66:10: warning: unused variable 'mshooter' [-Wunused-variable]
+In file included from opcontrol.c:20:0:
+opcontrol.c: At top level:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20036	      0	   4824	  24860	   611c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:44:15 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20068	      0	   4824	  24892	   613c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:44:32 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:44:39 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20052	      0	   4824	  24876	   612c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:44:40 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:47:38 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20044	      0	   4824	  24868	   6124	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:47:43 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:48:55 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:51:34 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17692	      0	   4824	  22516	   57f4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:52:10 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17692	      0	   4824	  22516	   57f4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:52:12 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:53:22 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17692	      0	   4824	  22516	   57f4	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:53:37 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:56:02 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20060	      0	   4824	  24884	   6134	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:56:08 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:57:52 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:57:54 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:58:58 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20060	      0	   4824	  24884	   6134	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+05:59:15 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:59:16 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:59:20 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+05:59:35 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:00:00 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:00:03 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:00:47 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:01:17 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:03:59 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:05:17 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20060	      0	   4824	  24884	   6134	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:05:36 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:06:28 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20044	      0	   4824	  24868	   6124	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:06:37 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:06:57 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:08:22 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20052	      0	   4824	  24876	   612c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:08:53 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20052	      0	   4824	  24876	   612c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:08:55 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:09:25 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:09:28 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:10:33 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  20052	      0	   4824	  24876	   612c	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:10:38 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:12:54 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17700	      0	   4824	  22524	   57fc	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:12:56 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:13:47 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17708	      0	   4824	  22532	   5804	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:13:48 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:14:37 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17708	      0	   4824	  22532	   5804	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:14:40 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:15:51 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17708	      0	   4824	  22532	   5804	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:15:53 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:17:12 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:17:22 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17708	      0	   4824	  22532	   5804	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:17:23 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:18:05 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17708	      0	   4824	  22532	   5804	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:18:09 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:18:38 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+CC -I../include -I../src auto.c
+In file included from auto.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src helpers.c
+In file included from helpers.c:10:0:
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+CC -I../include -I../src init.c
+In file included from init.c:19:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src opcontrol.c
+In file included from opcontrol.c:20:0:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+CC -I../include -I../src pid.c
+CC -I../include -I../src shooter.c
+In file included from ../include/shooter.h:13:0,
+                 from shooter.c:1:
+../include/helpers.h:14:22: warning: 'invertMotor' defined but not used [-Wunused-variable]
+../include/helpers.h:24:13: warning: 'flag' defined but not used [-Wunused-variable]
+../include/helpers.h:25:13: warning: 'flag2' defined but not used [-Wunused-variable]
+../include/helpers.h:26:12: warning: 'turn_PID_counter' defined but not used [-Wunused-variable]
+../include/helpers.h:27:12: warning: 'goStraight_timer' defined but not used [-Wunused-variable]
+LN ./bin/auto.o ./bin/helpers.o ./bin/init.o ./bin/opcontrol.o ./bin/pid.o ./bin/shooter.o ./firmware/libccos.a -lgcc -lm to bin/output.elf
+   text	   data	    bss	    dec	    hex	filename
+  17708	      0	   4824	  22532	   5804	./bin/output.elf
+arm-none-eabi-objcopy ./bin/output.elf -O binary ./bin/output.bin
+06:19:08 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+06:19:11 **** Incremental Build of configuration Default for project 2016BigBot ****
+make all 
+make[1]: Nothing to be done for `all'.

@@ -23,7 +23,10 @@
 #include "shooter.h"
 
 //int  override = 0;
-int count = 0;
+int loopCtUp = 0;
+int loopCtDown = 0;
+int speedCt = 0;
+int cur = 0;
 
 /**
  * Runs the user operator control code.
@@ -55,12 +58,14 @@ void operatorControl() {
 
 			/* Drive the wheels according to driver input */
 			//printf("djoyRX = %d\n\r", djoyRX);
-			arcadeDrive( djoyLY, djoyRX );   // sticks are reversed, find a solution later 
+			arcadeDrive( djoyLY, djoyRX );
 
 				/* Get the manipulator joystick values */
 				bool mintake = joystickGetDigital(DRIVER, BUTTONS_R, JOY_DOWN);
 				bool mconveyor = joystickGetDigital(DRIVER, BUTTONS_R, JOY_RIGHT);
 				bool mshooter = joystickGetDigital(DRIVER, BUTTONS_R, JOY_UP);
+				bool revSpeed = joystickGetDigital(DRIVER, BUTTONS_L, JOY_UP);
+				bool revDown = joystickGetDigital(DRIVER, BUTTONS_L, JOY_DOWN);
 
 				/* Intake code */
 				if (mintake) {
@@ -81,11 +86,11 @@ void operatorControl() {
 //				if (mshooter)
 //					shooter(&shooter_PID, SHOOTER_SPIT);
 				if(mshooter){
-					 motor(SHOOTERMTRL1, 70);
-					 motor(SHOOTERMTRL2, 70);
-					 motor(SHOOTERMTRR1, 70);
-					motor(SHOOTERMTRR2, 70);
-					count++;
+					motor(SHOOTERMTRL1, SHOOTER_SPIT+speedCt);
+					motor(SHOOTERMTRL2, SHOOTER_SPIT+speedCt);
+					motor(SHOOTERMTRR1, SHOOTER_SPIT+speedCt);
+					motor(SHOOTERMTRR2, SHOOTER_SPIT+speedCt);
+//					count++;
 //					int shooter_spd;
 //					if(count == 4){
 //						shooter(&shooter_PID, SHOOTER_SPIT);
@@ -99,6 +104,32 @@ void operatorControl() {
 					motor(SHOOTERMTRR2, 0);
 				}
 				
+				/* if shooter speed needs to be manually increased */
+				if (revSpeed) {
+					if (loopCtUp == 7) {
+						speedCt++;
+						loopCtUp = 0;
+					} else
+						loopCtUp++;
+				} else {
+					loopCtUp = 0;
+				}
+				/* shooter slowdown */
+				if (revDown) {
+					if (loopCtDown == 7) {
+						speedCt--;
+						loopCtDown = 0;
+					} else
+						loopCtDown++;
+				} else {
+					loopCtDown = 0;
+				}
+
+
+//				motor(1, 50);
+//				imeGet( 1, &cur );
+//				printf("curr_pos = %d \r\n", cur);
+
 
 //				if (override && joystickGetDigital(DRIVER, BUTTONS_L, JOY_DOWN))
 //					override = OVERRIDE_OFF;
