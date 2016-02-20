@@ -1,0 +1,62 @@
+/*
+ * current_sensor.c
+ *
+ *  Created on: Feb 18, 2016
+ *      Author: Kin Man
+ */
+#include "current_sensor.h"
+
+int read_current(unsigned char motorChannel)
+{
+	int current;
+	if ( motorChannel > 4 ) {
+		switch ( motorChannel ){
+		case 5:
+			digitalWrite( CURRENT_SELECT_1, LOW );
+			digitalWrite( CURRENT_SELECT_2, LOW );
+			digitalWrite( CURRENT_SELECT_3, LOW );
+			printf("code gets here \r\n");
+			break;
+		case 11:
+			digitalWrite( CURRENT_SELECT_1, HIGH );
+			digitalWrite( CURRENT_SELECT_2, LOW );
+			digitalWrite( CURRENT_SELECT_3, LOW );
+			break;
+		case 7:
+			digitalWrite( CURRENT_SELECT_1, LOW );
+			digitalWrite( CURRENT_SELECT_2, HIGH );
+			digitalWrite( CURRENT_SELECT_3, LOW );
+			break;
+		case 8:
+			digitalWrite( CURRENT_SELECT_1, HIGH );
+			digitalWrite( CURRENT_SELECT_2, HIGH );
+			digitalWrite( CURRENT_SELECT_3, LOW );
+			break;
+		case 9:
+			digitalWrite( CURRENT_SELECT_1, LOW );
+			digitalWrite( CURRENT_SELECT_2, LOW );
+			digitalWrite( CURRENT_SELECT_3, HIGH );
+			break;
+		case 10:
+			digitalWrite( CURRENT_SELECT_1, HIGH );
+			digitalWrite( CURRENT_SELECT_2, LOW );
+			digitalWrite( CURRENT_SELECT_3, HIGH );
+			break;
+		case 11:
+			digitalWrite( CURRENT_SELECT_1, LOW );
+			digitalWrite( CURRENT_SELECT_2, HIGH );
+			digitalWrite( CURRENT_SELECT_3, HIGH );
+			break;
+		case 12:
+			digitalWrite( CURRENT_SELECT_1, HIGH );
+			digitalWrite( CURRENT_SELECT_2, HIGH );
+			digitalWrite( CURRENT_SELECT_3, HIGH );
+			break;
+		default:
+			break;
+		}
+		current = analogRead(CURRENT_MUX_OUT);
+	} else
+		current = analogRead( motorChannel );
+	return current;
+}

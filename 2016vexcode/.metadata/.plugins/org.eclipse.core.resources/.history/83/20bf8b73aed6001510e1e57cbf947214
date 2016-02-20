@@ -1,0 +1,17 @@
+/*
+ * current_sensor.h
+ *
+ *  Created on: Feb 18, 2016
+ *      Author: Kin Man
+ */
+
+#ifndef INCLUDE_CURRENT_SENSOR_H_
+#define INCLUDE_CURRENT_SENSOR_H_
+
+#include "main.h"
+
+
+void read_current();
+
+
+#endif /* INCLUDE_CURRENT_SENSOR_H_ */

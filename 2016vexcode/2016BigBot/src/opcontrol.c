@@ -16,12 +16,13 @@
  ********************************************************************************/
 
 #include "main.h"
-#include "opcontrol.h"
+//#include "opcontrol.h"
 #include "helpers.h"
 #include "pid.h"
-#include "math.h"
+//#include "math.h"
 #include "shooter.h"
 
+//int  override = 0;
 
 /**
  * Runs the user operator control code.
@@ -35,35 +36,54 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 void operatorControl() {
-	while (override)
-	{
+	while(true){
+//	while (!override)
+//	{
+//		if (joystickGetDigital(DRIVER, BUTTONS_L, JOY_DOWN))
+//			override = OVERRIDE_ON;
+//	}
+//	while (override)
+//	{
 				/* Get the driver joystick values */
-				int djoyLY = joystickDeadband( joystickGetAnalog( DRIVER, JOYLY ), 0.05 );
-				//int djoyRY = joystickDeadband( joystickGetAnalog( DRIVER, JOYRY ), 0.05 );
-				int djoyRX = joystickDeadband( joystickGetAnalog( DRIVER, JOYRX ), 0.05 );
+//				printf("code gets here!\r\n");
+	//	arcadeDrive();
+//		Drive(100,100);
+			int djoyLY = joystickDeadband( joystickGetAnalog( DRIVER, JOYLY ), 0.05 );
+			//int djoyRY = joystickDeadband( joystickGetAnalog( DRIVER, JOYRY ), 0.05 );
+			int djoyRX = joystickDeadband( joystickGetAnalog( DRIVER, JOYRX ), 0.05 );
 
-				/* Drive the wheels according to driver input */
-				//printf("djoyRX = %d\n\r", djoyRX);
-				Drive( djoyLY, djoyRX );
+			/* Drive the wheels according to driver input */
+			//printf("djoyRX = %d\n\r", djoyRX);
+			arcadeDrive( djoyLY, djoyRX );   // sticks are reversed, find a solution later 
 
 				/* Get the manipulator joystick values */
 				bool mintake = joystickGetDigital(DRIVER, BUTTONS_R, JOY_DOWN);
 				bool mconveyor = joystickGetDigital(DRIVER, BUTTONS_R, JOY_RIGHT);
 				bool mshooter = joystickGetDigital(DRIVER, BUTTONS_R, JOY_UP);
 
+				/* Intake code */
 				if (mintake) {
 					motor( INTAKEMTR, INTAKE_BALLS);
+				} else {
+					motor( INTAKEMTR, LOW);
 				}
+				/* Conveyor Code */
 				if (mconveyor) {
 					motor( CONVEYORMTR1, CONVEYOR_SUCK );
 					motor( CONVEYORMTR2, CONVEYOR_SUCK );
+				} else {
+					motor( CONVEYORMTR1, LOW );
+					motor( CONVEYORMTR2, LOW );
 				}
-				if (mshooter)
-					shooter(&shooter_PID, SHOOTER_SPIT);
 
-				if (override && joystickGetDigital(DRIVER, BUTTONS_L, JOY_DOWN))
-					override = OVERRIDE_OFF;
+				/* shooter code */
+//				if (mshooter)
+//					shooter(&shooter_PID, SHOOTER_SPIT);
 
-				delay(LOOP_TIME);
+//				if (override && joystickGetDigital(DRIVER, BUTTONS_L, JOY_DOWN))
+//					override = OVERRIDE_OFF;
+
+				delay(25);
+				//}
 	}
 }

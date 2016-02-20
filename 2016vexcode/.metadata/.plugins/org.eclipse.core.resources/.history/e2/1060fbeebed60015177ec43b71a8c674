@@ -1,0 +1,22 @@
+/*
+ * current_sensor.c
+ *
+ *  Created on: Feb 18, 2016
+ *      Author: Kin Man
+ */
+#include "current_sensor.h"
+
+int read_current(unsigned char motorChannel)
+{
+	int current;
+	if ( motorChannel > 4 ) {
+		switch ( motorChannel ){
+		case 5:
+			digitalWrite( );
+			digitalWrite();
+			digitalWrite();
+		}
+	} else
+		current = analogRead(analogChannel);
+	return current;
+}

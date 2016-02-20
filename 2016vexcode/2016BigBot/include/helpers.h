@@ -11,7 +11,7 @@
 /* GLOBAL VARIABLES */
 
 // Use this array to invert the motors (0 = normal, 1 = invert)
-static unsigned char invertMotor[10] = { 0,
+static unsigned char invertMotor[10] = { 1,
 										 0,
 										 0,
 										 0,
@@ -20,7 +20,7 @@ static unsigned char invertMotor[10] = { 0,
 										 1,
 								  	  	 1,
 								  	  	 1,
-								  	  	 1 };
+								  	  	 0 };
 static bool flag;
 static bool flag2;
 static int turn_PID_counter = 0;
@@ -43,5 +43,7 @@ bool Turn( int degrees );
 void Drive(int drive, int rotate);
 void Manipulate( int arm, int conveyor, bool override, int armoverride, bool recalibrate, bool mliftup, bool mliftdown );
 
+/****last minute functions *****/
+// void quickDrive( int drive, int rotate );
 
 #endif /* HELPERS_H_ */

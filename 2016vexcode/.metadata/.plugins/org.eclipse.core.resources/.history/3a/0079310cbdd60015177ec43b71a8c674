@@ -1,0 +1,14 @@
+/*
+ * current_sensor.c
+ *
+ *  Created on: Feb 18, 2016
+ *      Author: Kin Man
+ */
+#include "current_sensor.h"
+
+int read_current(unsigned char analogChannel)
+{
+	int current = analogRead(analogChannel);
+	return current;
+}
+

@@ -1,0 +1,12 @@
+/*
+ * current_sensor.c
+ *
+ *  Created on: Feb 18, 2016
+ *      Author: Kin Man
+ */
+
+void read_current(unsigned char analogChannel)
+{
+	int current = analogRead(analogChannel);
+}
+

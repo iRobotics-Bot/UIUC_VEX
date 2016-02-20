@@ -1,0 +1,6 @@
+01:18:01 **** Incremental Build of configuration Default for project 2016SmallBot ****
+make all 
+make[1]: Nothing to be done for `all'.
+
+01:18:01 Build Finished (took 228ms)
+

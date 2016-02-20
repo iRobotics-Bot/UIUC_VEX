@@ -58,7 +58,5 @@ void autonomous() {
 		motor( CONVEYORMTR1, CONVEYOR_SUCK );
 		motor( CONVEYORMTR2, CONVEYOR_SUCK );
 		shooter( &shooter_PID, SHOOTER_SPIT );
-		if (!override && joystickGetDigital(DRIVER, BUTTONS_L, JOY_DOWN))
-				override = OVERRIDE_ON; 	//set flag for operatorControl() to take over
 	}
 }

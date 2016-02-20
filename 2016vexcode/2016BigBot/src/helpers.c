@@ -188,10 +188,10 @@ void arcadeDrive( int drive, int rotate )
 //	motor( DRIVEMTRR2, rightmotors );
 //	motor( DRIVEMTRR3, rightmotors );
 
-    motor( DRIVEMTRL, leftmotors );
-    motor( DRIVEMTRC, leftmotors );
+     motor( DRIVEMTRL, leftmotors );
+    motor( DRIVEMTRC, rightmotors );
 
-    motor( DRIVEMTRR, rightmotors );
+     motor( DRIVEMTRR, rightmotors );
 }
 
 bool followLine( int speed ) // Black/gray = 0, white = 1
@@ -380,6 +380,7 @@ void Drive( int drive, int rotate )
 	}
 }
 
+
 /*********************************************************/
 /*********************************************************/
 /*********************************************************/
@@ -479,7 +480,7 @@ void Drive( int drive, int rotate )
 //	else if( !recalibrate )
 //	{
 //		motor( ARMMTRL, armoverride );
-//		motor( ARMMTRR, armoverride );
+//		motor( ARMMTRR, arm` );
 //	}
 //	/* Run recalibration */
 //	else
