@@ -30,6 +30,6 @@
 void autonomous() {
 	while(true)
 	{
-		//do shit
+		status_auto();
 	}
 }

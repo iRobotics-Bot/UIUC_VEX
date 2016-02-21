@@ -55,7 +55,8 @@
 /*** MANIP MACROS ***/
 #define	REVERSE  (-1)
 #define	FORWARD	1
-#define BALL_DETECT 1
+#define BALL_DETECT 5
+#define BALL_DETECT2 5
 /********************/
 
 /* GLOBAL VARIABLES */

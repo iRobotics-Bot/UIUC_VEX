@@ -20,6 +20,8 @@ int pixy_object_angle;//0-200?
 
 #define CAMERA_CENTER (320/2)
 #define TIMEOUT_TIME 50
+#define BALL_TOLERANCE 20
+#define TOWER_TOLERANCE 20
 
 void init_camera(){
 	usartInit(uart1, 9600, 0x00);
@@ -105,6 +107,8 @@ int findBallx(){
 					if(read1 == 0xaa)
 					{
 						parse_frame_object_color();
+//						if(pixy_object_width < 5)
+//							return -1;
 						return pixy_object_x_center;
 					}
 				}
@@ -131,6 +135,8 @@ int findBally(){
 					if(read1 == 0xaa)
 					{
 						parse_frame_object_color();
+//						if(pixy_object_width < 5)
+//							return -1;
 						return pixy_object_y_center;
 					}
 				}
@@ -205,8 +211,8 @@ int turnViaCamera_Ball(int drive_val)
 	 * of the desired value for a short period of time, then
 	 * we are done.
 	 */
-	if( turn_PID.observed < turn_PID.setpoint + 10 &&
-		turn_PID.observed > turn_PID.setpoint - 10 )
+	if( turn_PID.observed < turn_PID.setpoint + BALL_TOLERANCE &&
+		turn_PID.observed > turn_PID.setpoint - BALL_TOLERANCE )
 	{
 		turn_PID_counter++;
 	}
@@ -250,14 +256,14 @@ int turnViaCamera_Tower(int drive_val)
 
 	/* Apply the control */
 //	printf("rotate: %d \n\r", rotate);
-	Drive( drive_val, rotate * 0.9 );  // half speed
+	Drive( drive_val, rotate * 0.75 );  // half speed
 
 	/* If the observed value is within a reasonable distance
 	 * of the desired value for a short period of time, then
 	 * we are done.
 	 */
-	if( turn_PID.observed < turn_PID.setpoint + 10 &&
-		turn_PID.observed > turn_PID.setpoint - 10 )
+	if( turn_PID.observed < turn_PID.setpoint + TOWER_TOLERANCE &&
+		turn_PID.observed > turn_PID.setpoint - TOWER_TOLERANCE )
 	{
 		turn_PID_counter++;
 	}
@@ -283,9 +289,10 @@ int camPursuit(){
 	}
 	//range of readable distances is about 172-48 where the higher numbers are closer.
 	int drive_val = ball_y-48;
-	drive_val = 0.75*HALF_SPEED+(drive_val/2);//roughly scales to HALF_SPEED to FULL_SPEED
+	drive_val = 0.9*HALF_SPEED+(drive_val/2);//roughly scales to HALF_SPEED to FULL_SPEED
 	if(drive_val < 0)
 		drive_val = HALF_SPEED;
+	drive_val = MAX_SPEED;
 	Manipulate(FORWARD, REVERSE);
 	while(!turnViaCamera_Ball(drive_val));
 	return 0;
@@ -306,12 +313,14 @@ int find_ball_general()
 {
 	while(camPursuit() == -1)
 		Drive(DRIVE_OFF,MAX_SPEED);
+	return 0;
 }
 
 int find_tower_general()
 {
 	while(camAim() == -1)
 		Drive(DRIVE_OFF,MAX_SPEED);
+	return 0;
 }
 
 

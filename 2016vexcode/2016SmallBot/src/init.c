@@ -19,6 +19,7 @@
 #include "camera.h"
 #include "pid.h"
 #include "helpers.h"
+#include "status_auto.h"
 
  /**
   * Runs pre-initialization code.
@@ -30,6 +31,7 @@
 void initializeIO() {
 	init_camera();
 	pinMode(BALL_DETECT,INPUT);
+	pinMode(BALL_DETECT2,INPUT);
 }
 
 /**
@@ -61,7 +63,7 @@ void initialize() {
 	turn_PID.setpoint = 0;
 	turn_PID.p_gain = 4.7;
 	turn_PID.i_gain = 0.00000;
-	turn_PID.d_gain = 2.0;
+	turn_PID.d_gain = 3.0;
 	turn_PID.p_frequency = 0;
 	turn_PID.i_frequency = 0;
 	turn_PID.d_frequency = 2;
@@ -83,4 +85,7 @@ void initialize() {
 	motor( DRIVEMTRR2, DRIVE_OFF );
 	motor( DRIVEMTRR3, DRIVE_OFF );
 	motor( DRIVEMTRR4, DRIVE_OFF );
+
+	/*initialize interrupt handler*/
+	status_auto_init();
 }

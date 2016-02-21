@@ -38,9 +38,9 @@ void operatorControl() {
 //	while (true)
 //	{
 //		i++;
-////		printf("HEARTBEAT%d\r\n",i);
+//		printf("HEARTBEAT%d\r\n",i);
 //		findTowerx();
-////		findBallx();
+//		findBallx();
 //		delay(20);
 //	}
 
@@ -86,7 +86,7 @@ void operatorControl() {
 			Drive(djoyLY, djoyRX);
 		}
 
-		Manipulate(intake, shoot);
+		Manipulate(intake_val, shoot_val);
 
 		delay(20);
 	}
