@@ -54,6 +54,9 @@
 void operatorControl() {
 
 	while (1) {
+		// intake should always be left = -right
+		int joystickrighty = joystickGetAnalog(1, 3);
+		motorSet(shooter, joystickrighty);
 		delay(20);
 	}
 }
