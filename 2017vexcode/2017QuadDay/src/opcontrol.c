@@ -33,6 +33,13 @@
  */
 
 #include "main.h"
+int shooter = 2;
+int intaker = 3;
+int wheelfr = 4;
+int shooterl = 5;
+int wheelbr = 6;
+int wheelfl = 7;
+int wheelbl = 8;
 
 /*
  * Runs the user operator control code. This function will be started in its own task with the
@@ -49,14 +56,17 @@
  * the scheduler is operational. However, proper use of delay() or taskDelayUntil() is highly
  * recommended to give other tasks (including system tasks such as updating LCDs) time to run.
  *
+ *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 void operatorControl() {
 
 	while (1) {
+
 		// intake should always be left = -right
 		int joystickrighty = joystickGetAnalog(1, 3);
 		motorSet(shooter, joystickrighty);
+		motorSet(shooterl, -joystickrighty);
 		delay(20);
 	}
 }

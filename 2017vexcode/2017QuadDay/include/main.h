@@ -55,13 +55,13 @@ extern "C" {
 
 // Prototypes for initialization, operator control and autonomous
 
-extern int shooter = 2;
-extern int intaker = 3;
-extern int wheelfr = 4;
-extern int intakel = 5;
-extern int wheelbr = 6;
-extern int wheelfl = 7;
-extern int wheelbl = 8;
+//extern int shooter = 2;
+//extern int intaker = 3;
+//extern int wheelfr = 4;
+//extern int shooterl = 5;
+//extern int wheelbr = 6;
+//extern int wheelfl = 7;
+//extern int wheelbl = 8;
 
 /**
  * Runs the user autonomous code. This function will be started in its own task with the default
