@@ -16,6 +16,8 @@
  */
 
 #include "main.h"
+#include "helpers.h"
+#include "pid.h"
 
  /**
   * Runs pre-initialization code.
@@ -25,6 +27,15 @@
   * The purpose of this function is solely to set the default pin modes (pinMode()) and port states (digitalWrite()) of limit switches, push buttons, and solenoids. It can also safely configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
   */
 void initializeIO() {
+//	pinMode( CYLINDER_BACKRIGHT, OUTPUT );
+//	pinMode( CYLINDER_BACKLEFT, OUTPUT );
+//	pinMode( CYLINDER_FRONTRIGHT, OUTPUT );
+//	pinMode( CYLINDER_FRONTLEFT, OUTPUT );
+//
+//	digitalWrite( CYLINDER_BACKRIGHT, LOW );
+//	digitalWrite( CYLINDER_BACKLEFT, LOW );
+//	digitalWrite( CYLINDER_FRONTRIGHT, LOW );
+//	digitalWrite( CYLINDER_FRONTLEFT, LOW );
 }
 
 /**
@@ -37,4 +48,71 @@ void initializeIO() {
  * This function must exit relatively promptly, or the operatorControl() and autonomous() tasks will not start. An autonomous mode selection menu like the pre_auton() in other environments can be implemented in this task if desired.
  */
 void initialize() {
+//		arm_PID_L.observed = 0;
+//		arm_PID_L.setpoint = LOWER_LIMIT_L;
+//		arm_PID_L.p_gain = 0.45;
+//		arm_PID_L.i_gain = 0.00000;
+//		arm_PID_L.d_gain = 0.05;
+//		arm_PID_L.p_frequency = 0;
+//		arm_PID_L.i_frequency = 0;
+//		arm_PID_L.d_frequency = 2;
+//		arm_PID_L.integrated_error = 0;
+//		arm_PID_L.prev_error_for_d = 0;
+//		arm_PID_L.p_count = 0;
+//		arm_PID_L.i_count = 0;
+//		arm_PID_L.d_count = 0;
+//		arm_PID_L.prevSetpoint = 0;
+//
+//		arm_PID_R.observed = 0;
+//		arm_PID_R.setpoint = LOWER_LIMIT_R;
+//		arm_PID_R.p_gain = 0.45;
+//		arm_PID_R.i_gain = 0.00000;
+//		arm_PID_R.d_gain = 0.05;
+//		arm_PID_R.p_frequency = 0;
+//		arm_PID_R.i_frequency = 0;
+//		arm_PID_R.d_frequency = 2;
+//		arm_PID_R.integrated_error = 0;
+//		arm_PID_R.prev_error_for_d = 0;
+//		arm_PID_R.p_count = 0;
+//		arm_PID_R.i_count = 0;
+//		arm_PID_R.d_count = 0;
+//		arm_PID_R.prevSetpoint = 0;
+
+		goStraight_PID.observed = 0;
+		goStraight_PID.setpoint = 0;
+		goStraight_PID.p_gain = 5.5;
+		goStraight_PID.i_gain = 0.00000;
+		goStraight_PID.d_gain = 1.0;
+		goStraight_PID.p_frequency = 0;
+		goStraight_PID.i_frequency = 0;
+		goStraight_PID.d_frequency = 2;
+		goStraight_PID.integrated_error = 0;
+		goStraight_PID.prev_error_for_d = 0;
+		goStraight_PID.p_count = 0;
+		goStraight_PID.i_count = 0;
+		goStraight_PID.d_count = 0;
+		goStraight_PID.prevSetpoint = 0;
+
+		turn_PID.observed = 0;
+		turn_PID.setpoint = 0;
+		turn_PID.p_gain = TURN_P_LEFT;
+		turn_PID.i_gain = TURN_I_LEFT;
+		turn_PID.d_gain = TURN_D_LEFT;
+		turn_PID.p_frequency = 0;
+		turn_PID.i_frequency = 0;
+		turn_PID.d_frequency = 1;
+		turn_PID.integrated_error = 0;
+		turn_PID.prev_error_for_d = 0;
+		turn_PID.p_count = 0;
+		turn_PID.i_count = 0;
+		turn_PID.d_count = 0;
+		turn_PID.prevSetpoint = 0;
+
+		analogCalibrate( LEFTPOT );
+		analogCalibrate( RIGHTPOT );
+
+		imeInitializeAll();
+
+//		gyro1 = gyroInit(GYRO1, 196);//196 is a magic constant that is for the sensitivity
+//		gyro2 = gyroInit(GYRO2, 196);
 }
