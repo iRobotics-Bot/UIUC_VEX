@@ -16,10 +16,6 @@
  ********************************************************************************/
 
 #include "main.h"
-#include "opcontrol.h"
-#include "helpers.h"
-#include "pid.h"
-#include "math.h"
 
 
 /**
@@ -36,77 +32,12 @@
 void operatorControl() {
 	while (true)
 	{
-				/* Get the driver joystick values */
-				int djoyLY = joystickDeadband( joystickGetAnalog( DRIVER, JOYLY ), 0.05 );
-				//int djoyRY = joystickDeadband( joystickGetAnalog( DRIVER, JOYRY ), 0.05 );
-				int djoyRX = joystickDeadband( joystickGetAnalog( DRIVER, JOYRX ), 0.05 );
+		/* Get the driver joystick values */
+		int djoyRY = joystickGetAnalog( 1, 3 );
+		int djoyRX = joystickGetAnalog( 1, 4 );
 
-				/* Drive the wheels according to driver input */
-				//printf("djoyRX = %d\n\r", djoyRX);
-				Drive( djoyLY, djoyRX );
 
-				/* Get the manipulator joystick values */
-				/*** ONE DRIVER ***/
-				//bool marmup = joystickGetDigital( DRIVER, 6, JOY_UP );
-				//bool marmdown = joystickGetDigital( DRIVER, 6, JOY_DOWN );
-				//bool mconveyorout = joystickGetDigital( DRIVER, 5, JOY_UP );
-				//bool mconveyorin = joystickGetDigital( DRIVER, 5, JOY_DOWN );
-				//bool moverride = joystickGetDigital( DRIVER, 8, JOY_DOWN );
-				//bool mrecalibrate = joystickGetDigital( DRIVER, 8, JOY_RIGHT );
-				//bool mliftup = joystickGetDigital( DRIVER, 7, JOY_UP );
-				//bool mliftdown = joystickGetDigital( DRIVER, 7, JOY_DOWN);
 
-				//bool resetgyro1 = joystickGetDigital( DRIVER, 7, JOY_LEFT );
-				//bool resetgyro2 = joystickGetDigital( DRIVER, 7, JOY_RIGHT );
-				//bool resetgyroboth = joystickGetDigital( DRIVER, 7, JOY_DOWN );
-
-				/*** TWO DRIVERS ***/
-//				bool marmup = joystickGetDigital( MANIP, 6, JOY_UP );
-//				bool marmdown = joystickGetDigital( MANIP, 6, JOY_DOWN );
-//				bool mconveyorout = joystickGetDigital( MANIP, 5, JOY_UP );
-//				bool mconveyorin = joystickGetDigital( MANIP, 5, JOY_DOWN );
-//				bool moverride = joystickGetDigital( MANIP, 8, JOY_DOWN );
-//				int mjoyLY = joystickGetAnalog( MANIP, JOYLY );
-//				bool mrecalibrate = joystickGetDigital( MANIP, 8, JOY_RIGHT );
-//				bool mliftup = joystickGetDigital( DRIVER, 8, JOY_UP );
-//				bool mliftdown = joystickGetDigital( DRIVER, 8, JOY_DOWN);
-
-				/* Control the arm according to driver input */
-//				int arm = 0, conveyor = 0;
-//				if( marmup )
-//				{
-//					arm = 127;
-//				}
-//				else if( marmdown )
-//				{
-//					arm = -127;
-//				}
-//				if( mconveyorout )
-//				{
-//					conveyor = 127;
-//				}
-//				else if( mconveyorin )
-//				{
-//					conveyor = -127;
-//				}
-
-				//Manipulate( arm, conveyor, moverride, arm, mrecalibrate, mliftup, mliftdown ); 	/* ONE DRIVER */
-//				Manipulate( arm, conveyor, moverride, mjoyLY, mrecalibrate , mliftup, mliftdown );	/* TWO DRIVERS */
-
-				/* Stuff to use for tuning */
-				//int joy = joystickGetAnalog( DRIVER, JOYLY );
-				//motor( 7, joy );
-				//printf("joystick = %d\n", joy);
-				//printf("left pot = %d\n\r",  analogReadCalibrated( LEFTPOT ) );
-				//printf("right pot = %d\n\r",  analogReadCalibrated( RIGHTPOT ) );
-				//if(resetgyro1)
-				//	gyroReset(gyro1);
-				//if(resetgyro2)
-				//	gyroReset(gyro2);
-				//if(resetgyroboth)
-				//	resetAverageGyro();
-				//printf("gyro1 = %d |||| gyro2 = %d |||| average = %d\n\r", gyroGet(gyro1), gyroGet(gyro2), getAverageGyro());
-				/* DO NOT COMMENT THIS OUT */
-				delay(LOOP_TIME);
+		delay(25);
 	}
 }
