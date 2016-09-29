@@ -49,15 +49,18 @@
 #define		SHTERMTRS	 9
 #define		INTKMTRS	 10
 #define		MAX_SPEED	 127
+#define		HALF_SPEED	(127/2)
 /************************/
+
+/*** MANIP MACROS ***/
+#define	REVERSE  (-1)
+#define	FORWARD	1
+#define BALL_DETECT 5
+#define BALL_DETECT2 5
+/********************/
 
 /* GLOBAL VARIABLES */
 
-static bool dump_flag;
-static int i = 0;
-static bool flag2;
-static bool throw_flag = false;
-static int throw_counter = 0;
 static int turn_PID_counter = 0;
 static int goStraight_timer = 0;
 PID_t arm_PID_L, arm_PID_R, goStraight_PID, turn_PID;
@@ -155,7 +158,7 @@ void TankDrive( int left, int right );
  * @param override_val this simply changes the set point to a custom value I believe
  * @param recalibrate this allows the driver to recalibrate the potentiometers of the arm.
  */
-void Manipulate( bool intake, bool shoot);
+void Manipulate( int intake, int shoot);
 
 
 #endif /* HELPERS_H_ */

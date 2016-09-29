@@ -260,19 +260,28 @@ void Drive( int drive, int rotate )
 //	}
 }
 
-void Manipulate( bool intake, bool shoot)
+void Manipulate( int intake, int shoot)
 {
-	if(intake)
+	if(intake == FORWARD)
 	{
 		motor( INTKMTRS, MAX_SPEED );
+	}
+	else if(intake == REVERSE)
+	{
+		motor( INTKMTRS, -MAX_SPEED );
 	}
 	else
 	{
 		motor( INTKMTRS, DRIVE_OFF);
 	}
-	if(shoot)
+
+	if(shoot == FORWARD)
 	{
 		motor( SHTERMTRS, MAX_SPEED );
+	}
+	else if(shoot == REVERSE)
+	{
+		motor( SHTERMTRS, -MAX_SPEED );
 	}
 	else
 	{
