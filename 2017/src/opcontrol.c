@@ -17,6 +17,11 @@
 
 #include "main.h"
 
+int driveF1 = 1;
+int driveF2 = 2;
+int driveR1 = 3;
+int driveR2 = 4;
+int driveH = 5;
 
 /**
  * Runs the user operator control code.
@@ -32,6 +37,51 @@
 void operatorControl() {
 	while (true)
 	{
+		setDrive();
 		delay(25);
 	}
+}
+
+void setDrive()
+{
+	int joyLX = joystickGetAnalog(1, 4);
+	int joyLY = joystickGetAnalog(1, 3);
+	int joyRX = joystickGetAnalog(1, 1);
+	int fOut;
+	int rOut;
+	int hOut;
+
+	if(abs(joyLX) < 10) joyLX = 0;
+	if(abs(joyLY) < 10) joyLY = 0;
+	if(abs(joyRX) < 10) joyRX = 0;
+
+	fOut = (joyLX - joyRX);
+	rOut = (joyLX + joyRX);
+	hOut = joyLY;
+
+	if(joyLX == 0)
+	{
+		fOut = -joyRX;
+		rOut = joyRX;
+	}
+	if(joyRX == 0)
+	{
+		fOut = joyLX;
+		rOut = joyLX;
+	}
+
+	if(fOut > 127 || fOut < -127)
+	{
+		fOut = (fOut/abs(fOut))*127;
+	}
+	if(rOut > 127 || rOut < -127)
+	{
+		rOut = (rOut/abs(rOut))*127;
+	}
+
+	motorSet(driveF1, fOut);
+	motorSet(driveF2, fOut);
+	motorSet(driveR1, rOut);
+	motorSet(driveR2, rOut);
+	motorSet(driveH, hOut);
 }
