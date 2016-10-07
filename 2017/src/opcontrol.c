@@ -34,13 +34,7 @@ int driveH = 6;
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
-void operatorControl() {
-	while (true)
-	{
-		setDrive();
-		delay(25);
-	}
-}
+
 
 void setDrive()
 {
@@ -84,4 +78,12 @@ void setDrive()
 	motorSet(driveR1, rOut);
 	motorSet(driveR2, rOut);
 	motorSet(driveH, hOut);
+}
+
+void operatorControl() {
+	while (true)
+	{
+		setDrive();
+		delay(25);
+	}
 }
