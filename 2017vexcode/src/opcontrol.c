@@ -46,45 +46,12 @@ void operatorControl() {
 
 	while (true)
 	{
-		bool turn_to_ball = joystickGetDigital( DRIVER, TRIGGER_R, JOY_UP );
-		bool turn_to_tower = joystickGetDigital( DRIVER, TRIGGER_R, JOY_DOWN );
-		bool intake = joystickGetDigital( DRIVER, TRIGGER_L, JOY_UP);
-		bool shoot = joystickGetDigital( DRIVER, TRIGGER_L, JOY_DOWN);
-		bool reverse_intake = joystickGetDigital( DRIVER, BUTTONS_L, JOY_DOWN);
-		bool reverse_shoot = joystickGetDigital( DRIVER, BUTTONS_R, JOY_DOWN);
+		/* Get the driver joystick values */
+		int djoyLY = joystickGetAnalog( DRIVER, JOYLY );
+		int djoyRX = joystickGetAnalog( DRIVER, JOYRX );
 
-		//jank logic to determine manipulator execution if both trigger and button are pressed no execution occurs
-		int intake_val = 0;
-		int shoot_val = 0;
-		if(intake)
-			intake_val = FORWARD;
-		if(shoot)
-			shoot_val = FORWARD;
-		if(reverse_intake)
-			intake_val = REVERSE;
-		if(reverse_shoot)
-			shoot_val = REVERSE;
-
-		if(turn_to_ball)
-		{
-			Drive(DRIVE_OFF,DRIVE_OFF);
-//			while(!turnViaCamera());
-			camPursuit();
-		}
-		else if(turn_to_tower)
-		{
-			Drive(DRIVE_OFF,DRIVE_OFF);
-			camAim();
-		}
-		else
-		{
-			/* Get the driver joystick values */
-			int djoyLY = joystickGetAnalog( DRIVER, JOYLY );
-			int djoyRX = joystickGetAnalog( DRIVER, JOYRX );
-
-			/* Drive the wheels according to driver input */
-			Drive(djoyLY, djoyRX);
-		}
+		/* Drive the wheels according to driver input */
+		Drive(djoyLY, djoyRX);
 
 		Manipulate(intake_val, shoot_val);
 
