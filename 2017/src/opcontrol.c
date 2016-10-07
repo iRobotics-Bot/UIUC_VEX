@@ -17,11 +17,11 @@
 
 #include "main.h"
 
-int driveF1 = 1;
-int driveF2 = 2;
-int driveR1 = 3;
-int driveR2 = 4;
-int driveH = 5;
+int driveF1 = 2;
+int driveF2 = 3;
+int driveR1 = 4;
+int driveR2 = 5;
+int driveH = 6;
 
 /**
  * Runs the user operator control code.
