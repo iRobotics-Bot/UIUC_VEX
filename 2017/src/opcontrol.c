@@ -22,6 +22,8 @@ int driveF2 = 3;
 int driveR1 = 4;
 int driveR2 = 5;
 int driveH = 6;
+int launchIn = 2; // Port controls launch for inner 2 pistons
+int launchOut = 3; // Port controls launch for outer 2 pistons
 
 /**
  * Runs the user operator control code.
@@ -34,7 +36,26 @@ int driveH = 6;
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
+void setLaunch()
+{
+	bool but6U = joystickGetDigital(1, 6, JOY_UP);
+	bool but6D = joystickGetDigital(1, 6, JOY_DOWN); // launches all pistons
+	if (but6U)
+	{
+		digitalWrite(launchIn, true);
+		delay(1000);
+		digitalWrite(launchIn, false);
+	}
+	if (but6D)
+	{
+		digitalWrite(launchIn, true);
+		digitalWrite(launchOut, true);
+		delay(1000);
+		digitalWrite(launchIn, false);
+		digitalWrite(launchOut, false);
+	}
 
+}
 
 void setDrive()
 {
@@ -84,6 +105,7 @@ void operatorControl() {
 	while (true)
 	{
 		setDrive();
+		setLaunch();
 		delay(25);
 	}
 }
