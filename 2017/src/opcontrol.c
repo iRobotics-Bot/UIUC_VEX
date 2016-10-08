@@ -22,8 +22,14 @@ int driveF2 = 3;
 int driveR1 = 4;
 int driveR2 = 5;
 int driveH = 6;
+int armPivot = 7;
+int clawPivot = 8;
 int launchIn = 2; // Port controls launch for inner 2 pistons
 int launchOut = 3; // Port controls launch for outer 2 pistons
+/**
+ * Controller Mapping
+ *
+ */
 
 /**
  * Runs the user operator control code.
@@ -36,6 +42,40 @@ int launchOut = 3; // Port controls launch for outer 2 pistons
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
+void setArmSpeed()
+{
+	bool but7L = joystickGetDigital(1, 7, JOY_LEFT);
+	bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
+	bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
+	bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
+
+	if (but7L)
+	{
+		motorSet(armPivot, 127);
+	}
+	else if (but7D)
+	{
+		motorSet(armPivot, -127);
+	}
+	else
+	{
+		motorSet(armPivot, 0);
+	}
+
+	if (but8R)
+	{
+		motorSet(clawPivot, 127);
+	}
+	else if (but8D)
+	{
+		motorSet(clawPivot, -127);
+	}
+	else
+	{
+		motorSet(clawPivot, 0);
+	}
+}
+
 void setLaunch()
 {
 	bool but6U = joystickGetDigital(1, 6, JOY_UP);
@@ -101,11 +141,13 @@ void setDrive()
 	motorSet(driveH, hOut);
 }
 
-void operatorControl() {
+void operatorControl()
+{
 	while (true)
 	{
 		setDrive();
 		setLaunch();
+		setArmSpeed();
 		delay(25);
 	}
 }
