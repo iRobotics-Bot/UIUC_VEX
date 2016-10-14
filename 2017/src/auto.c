@@ -15,7 +15,8 @@
 * Purdue Robotics OS contains FreeRTOS (http://www.freertos.org) whose source code may be obtained from http://sourceforge.net/projects/freertos/files/ or on request.
 ********************************************************************************/
 
-#include "main.h"
+#include "../include/main.h"
+#include "math.h"
 
 /**
 * Runs the user autonomous code.
@@ -26,5 +27,23 @@
 *
 * The autonomous task may exit, unlike operatorControl() which should never exit. If it does so, the robot will await a switch to another mode or disable/enable cycle.
 */
+
+//NOTE: 393 Integrated encoder has 627.2 counts/revolution in torque config, 392 in speed config
+// Chain assignments in main.h: (This is the order that the motors should be connected in the daisy chain)
+// #define FRONT_LEFT_ENCODER 0
+// #define FRONT_RIGHT_ENCODER 1
+// #define REAR_LEFT_ENCODER 2
+// #define REAR_RIGHT_ENCODER 3
+// #define H_ENCODER 4
+// #define DRIVE_RATIO 1
+// #define ENCODER_TICKS 627.2
+// #define WHEEL_DIA 4
 void autonomous() {
+}
+
+void drive(int distX, int distY)
+{
+  //distX & distY in inches
+  //drive gear ratio assumed to be 1:1. Change factor in main declaration
+int countDist = (DRIVE_RATIO*WHEEL_DIA*M_PI)/ENCODER_TICKS;
 }
