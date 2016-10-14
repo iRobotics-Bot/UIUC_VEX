@@ -18,6 +18,8 @@
 #include "../include/main.h"
 #include "math.h"
 
+#define DRIVE_DEADBAND 1
+
 /**
 * Runs the user autonomous code.
 *
@@ -38,12 +40,78 @@
 // #define DRIVE_RATIO 1
 // #define ENCODER_TICKS 627.2
 // #define WHEEL_DIA 4
-void autonomous() {
+
+void setDriveMotors(int Left, int Right, int H)
+{
+  motorSet(driveF1, Right);
+  motorSet(driveF2, Right);
+  motorSet(driveR1, Left);
+  motorSet(driveR2, Left);
+  motorSet(driveH, H);
 }
 
-void drive(int distX, int distY)
+void resetDriveEncoders()
+{
+  imeReset(FRONT_LEFT_ENCODER);
+  imeReset(FRONT_RIGHT_ENCODER);
+  imeReset(H_ENCODER);
+}
+
+void AutoDrive(float distX, float distY, int speed)
 {
   //distX & distY in inches
   //drive gear ratio assumed to be 1:1. Change factor in main declaration
-int countDist = (DRIVE_RATIO*WHEEL_DIA*M_PI)/ENCODER_TICKS;
+const float countDist = (DRIVE_RATIO*WHEEL_DIA*M_PI)/ENCODER_TICKS;
+int FL_Count, FR_Count, H_Count;
+float FL_Dist = 0, FR_Dist = 0, H_Dist = 0;
+resetDriveEncoders();
+//while any drive is not yet at the final distance
+while((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)) || ((fabsf(H_Dist) - fabsf(distY)) > DRIVE_DEADBAND))
+{
+  //take cumulative distance for all encoders
+imeGet(FRONT_LEFT_ENCODER, &FL_Count);
+imeGet(FRONT_RIGHT_ENCODER, &FR_Count);
+imeGet(H_ENCODER, &H_Count);
+FL_Dist = (FL_Count*countDist);
+FR_Dist = (FR_Count*countDist);
+H_Dist = (H_Count*countDist);
+//check to see if all drive directions need to be driven, or if only one axis needs to move still, to prevent overdriving one axis
+if((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)) && ((fabsf(H_Dist) - fabsf(distY)) > DRIVE_DEADBAND))
+{
+  setDriveMotors((int)speed*distX/fabsf(distX), (int)speed*distX/fabsf(distX), (int)speed*distY/fabsf(distY));
+}
+else if((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)))
+{
+  setDriveMotors((int)speed*distX/fabsf(distX), (int)speed*distX/fabsf(distX), 0);
+}
+else setDriveMotors(0, 0, (int)speed*distY/fabsf(distY));
+}
+setDriveMotors(0, 0, 0);
+}
+
+void AutoRotate(float degrees)
+{
+//use IMU for digital compass/gyro
+}
+
+void Launch(bool strength)
+{
+  long startTime = millis();
+	if (!strength)
+	{
+		digitalWrite(launchIn, true);
+		while(millis()  < (startTime + 1000)){}
+		digitalWrite(launchIn, false);
+	}
+	else
+	{
+		digitalWrite(launchIn, true);
+		digitalWrite(launchOut, true);
+		while(millis()  < (startTime + 1000)){}
+		digitalWrite(launchIn, false);
+		digitalWrite(launchOut, false);
+	}
+}
+
+void autonomous() {
 }

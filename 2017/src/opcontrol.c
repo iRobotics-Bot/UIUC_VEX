@@ -15,17 +15,17 @@
  * Purdue Robotics OS contains FreeRTOS (http://www.freertos.org) whose source code may be obtained from http://sourceforge.net/projects/freertos/files/ or on request.
  ********************************************************************************/
 
-#include "main.h"
+#include "../include/main.h"
 
-int driveF1 = 2;
-int driveF2 = 3;
-int driveR1 = 4;
-int driveR2 = 5;
-int driveH = 6;
-int armPivot = 7;
-int clawPivot = 8;
-int launchIn = 2; // Port controls launch for inner 2 pistons
-int launchOut = 3; // Port controls launch for outer 2 pistons
+// int driveF1 = 2;
+// int driveF2 = 3;
+// int driveR1 = 4;
+// int driveR2 = 5;
+// int driveH = 6;
+// int armPivot = 7;
+// int clawPivot = 8;
+// int launchIn = 2; // Port controls launch for inner 2 pistons
+// int launchOut = 3; // Port controls launch for outer 2 pistons
 /**
  * Controller Mapping
  *

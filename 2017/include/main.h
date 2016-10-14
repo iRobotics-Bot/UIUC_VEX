@@ -45,12 +45,23 @@
 
 #define FRONT_LEFT_ENCODER 0
 #define FRONT_RIGHT_ENCODER 1
-#define REAR_LEFT_ENCODER 2
-#define REAR_RIGHT_ENCODER 3
-#define H_ENCODER 4
+// #define REAR_LEFT_ENCODER 2
+// #define REAR_RIGHT_ENCODER 3
+#define H_ENCODER 2
 #define DRIVE_RATIO 1
 #define ENCODER_TICKS 627.2
 #define WHEEL_DIA 4
+
+//motor declarations
+int driveF1 = 2;
+int driveF2 = 3;
+int driveR1 = 4;
+int driveR2 = 5;
+int driveH = 6;
+int armPivot = 7;
+int clawPivot = 8;
+int launchIn = 2; // Port controls launch for inner 2 pistons
+int launchOut = 3; // Port controls launch for outer 2 pistons
 
 #include "API.h"
 
