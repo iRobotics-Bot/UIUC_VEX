@@ -17,8 +17,10 @@
 
 #include "../include/main.h"
 #include "math.h"
-
+//autonomous drive distance deadband = 1 inch
 #define DRIVE_DEADBAND 1
+//arm control deadband = 5 degrees
+#define ARM_DEADBAND 5
 
 /**
 * Runs the user autonomous code.
@@ -111,6 +113,18 @@ void Launch(bool strength)
 		digitalWrite(launchIn, false);
 		digitalWrite(launchOut, false);
 	}
+}
+
+void setArmAngle(float angle, int speed)
+{
+  float targetV = (angle/360)*1023;
+  float deltaV = analogRead(1)-targetV;
+  float analogDeadband = (ARM_DEADBAND/360)*1023;
+  while(fabsf(deltaV) > analogDeadband)
+  {
+    motorSet(armPivot, speed * (deltaV/fabsf(deltaV)));
+  }
+  motorSet(armPivot, 0);
 }
 
 void autonomous() {

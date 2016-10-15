@@ -51,6 +51,8 @@
 #define DRIVE_RATIO 1
 #define ENCODER_TICKS 627.2
 #define WHEEL_DIA 4
+#define POT_LOW 0
+#define POT_HIGH 1.5
 
 //motor declarations
 int driveF1 = 2;
