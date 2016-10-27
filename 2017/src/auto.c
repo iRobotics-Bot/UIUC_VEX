@@ -15,8 +15,9 @@
 * Purdue Robotics OS contains FreeRTOS (http://www.freertos.org) whose source code may be obtained from http://sourceforge.net/projects/freertos/files/ or on request.
 ********************************************************************************/
 
-#include "../include/main.h"
+#include "main.h"
 #include "math.h"
+#include <API.h>
 //autonomous drive distance deadband = 1 inch
 #define DRIVE_DEADBAND 1
 //arm control deadband = 5 degrees
@@ -42,6 +43,16 @@
 // #define DRIVE_RATIO 1
 // #define ENCODER_TICKS 627.2
 // #define WHEEL_DIA 4
+
+//int driveF1 = 2;
+//int driveF2 = 3;
+//int driveR1 = 4;
+//int driveR2 = 5;
+//int driveH = 6;
+//int armPivot = 7;
+//int armPivot2 = 8;
+//int launchIn = 2; // Port controls launch for inner 2 pistons
+//int launchOut = 3; // Port controls launch for outer 2 pistons
 
 void setDriveMotors(int Left, int Right, int H)
 {

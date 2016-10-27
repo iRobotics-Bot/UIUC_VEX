@@ -55,15 +55,15 @@
 #define POT_HIGH 1.5
 
 //motor declarations
-int driveF1 = 2;
-int driveF2 = 3;
-int driveR1 = 4;
-int driveR2 = 5;
-int driveH = 6;
-int armPivot = 7;
-int clawPivot = 8;
-int launchIn = 2; // Port controls launch for inner 2 pistons
-int launchOut = 3; // Port controls launch for outer 2 pistons
+#define driveF1 2
+#define driveF2 3
+#define driveR1 4
+#define driveR2 5
+#define driveH 6
+#define armPivot 7
+#define armPivot2 8
+#define launchIn 2 // Port controls launch for inner 2 pistons
+#define launchOut 3 // Port controls launch for outer 2 pistons
 
 #include "API.h"
 
