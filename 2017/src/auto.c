@@ -116,7 +116,7 @@ void AutoRotate(float degrees, int speed)
     else                      { rad_r *= -1; }
 	resetDriveEncoders();
 	//while any drive is not yet at the final distance
-	while(fabsf(rad_l) - fabsf(arcLength) > DRIVE_DEADBAND || fabsf(rad_r) - fabsf(arcLength) > DRIVE_DEADBAND)
+	while(fabsf(FL_Dist) - fabsf(arcLength) > DRIVE_DEADBAND || fabsf(FR_Dist) - fabsf(arcLength) > DRIVE_DEADBAND)
 	{
 	  //take cumulative distance for all encoders
 	  imeGet(FRONT_LEFT_ENCODER, &count_l);
