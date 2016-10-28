@@ -102,9 +102,33 @@ else setDriveMotors(0, 0, (int)speed*distY/fabsf(distY));
 setDriveMotors(0, 0, 0);
 }
 
-void AutoRotate(float degrees)
+void AutoRotate(float degrees, int speed)
 {
-//use IMU for digital compass/gyro
+    //use IMU for digital compass/gyro
+	float radians = 25.014*M_PI*degrees/360; //25.014 = diameter of turning circle
+	float rad_l = radians, rad_r = radians;
+		
+	//drive gear ratio assumed to be 1:1. Change factor in main declaration
+	const float COUNTDIST = (DRIVE_RATIO*WHEEL_DIA*M_PI)/ENCODER_TICKS;
+	int count_l, count_r;
+	if(math.sin(degrees) > 0) { rad_l *= -1; }
+    else                      { rad_r *= -1; }
+	resetDriveEncoders();
+	//while any drive is not yet at the final distance
+	while(fabsf(rad_l) - fabsf(radians) > DRIVE_DEADBAND || fabsf(rad_r) - fabsf(radians) > DRIVE_DEADBAND)
+	{
+	  //take cumulative distance for all encoders
+	  imeGet(FRONT_LEFT_ENCODER, &count_l);
+	  imeGet(FRONT_RIGHT_ENCODER, &count_r);
+	  rad_l = (count_l*COUNTDIST);
+  	  rad_r = (count_r*COUNTDIST);
+ 	  //check to see if all drive directions need to be driven, or if only one axis needs to move still, to prevent overdriving one axis
+	  if(fabsf(rad_l) - fabsf(radians) > DRIVE_DEADBAND) || fabsf(rad_r) - fabsf(radians) > DRIVE_DEADBAND)
+	  {
+	    setDriveMotors((int)speed*radians/fabsf(radians), (int)speed*radians/fabsf(radians), 0);
+	  }
+	}
+	setDriveMotors(0, 0, 0);
 }
 
 void Launch(bool strength)
