@@ -37,10 +37,10 @@
 //int launchOut = 3; // Port controls launch for outer 2 pistons
 
 void initializeIO() {
-//  digitalWrite(launchIn, LOW);
-//  digitalWrite(launchOut, LOW);
-//  pinMode(launchIn, OUTPUT);
-//  pinMode(launchOut, OUTPUT);
+  digitalWrite(launchIn, LOW);
+  digitalWrite(launchOut, LOW);
+  pinMode(launchIn, OUTPUT);
+  pinMode(launchOut, OUTPUT);
 }
 
 /**

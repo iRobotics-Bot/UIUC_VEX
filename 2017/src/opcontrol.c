@@ -66,18 +66,21 @@ void setArmSpeed()
 		motorSet(armPivot2, 0);
 	}
 
-//	if (but8R)
-//	{
-//		motorSet(clawPivot, 127);
-//	}
-//	else if (but8D)
-//	{
-//		motorSet(clawPivot, -127);
-//	}
-//	else
-//	{
-//		motorSet(clawPivot, 0);
-//	}
+	if (but8R)
+	{
+		motorSet(elevator1, -127);
+		motorSet(elevator2, 127);
+	}
+	else if (but8D)
+	{
+		motorSet(elevator1, -127);
+		motorSet(elevator2, 127);
+	}
+	else
+	{
+		motorSet(elevator1, 0);
+		motorSet(elevator2, 0);
+	}
 }
 
 void setLaunch()

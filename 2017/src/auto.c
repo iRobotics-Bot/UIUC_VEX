@@ -105,7 +105,7 @@ setDriveMotors(0, 0, 0);
 void AutoRotate(float degrees, int speed)
 {
     //use IMU for digital compass/gyro
-	float arcLength = 25.014*M_PI*degrees/360; //25.014 = diameter of turning circle
+	float arcLength = 16.5*pow(2, 0.5)*M_PI*degrees/360; //25.014 = diameter of turning circle
 	float rad_l = arcLength, rad_r = arcLength;
 	float FL_Dist = 0, FR_Dist = 0;
 		

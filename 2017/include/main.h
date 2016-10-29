@@ -62,6 +62,9 @@
 #define driveH 6
 #define armPivot 7
 #define armPivot2 8
+#define cubePincer 9
+#define elevator1 1
+#define elevator2 10
 #define launchIn 2 // Port controls launch for inner 2 pistons
 #define launchOut 3 // Port controls launch for outer 2 pistons
 
