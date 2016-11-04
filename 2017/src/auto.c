@@ -171,5 +171,62 @@ void setArmAngle(float angle, int speed)
   motorSet(armPivot, 0);
 }
 
+void setArmAngleSketchy(bool state)
+{
+	long startTime = millis();
+	if(state)
+	{
+		while(millis() < startTime + 3000)
+		{
+			motorSet(armPivot, 127);
+			motorSet(armPivot2, -127);
+		}
+	}
+	else
+	{
+		while(millis() < startTime + 3000)
+		{
+			motorSet(armPivot, -127);
+			motorSet(armPivot2, 127);
+		}
+	}
+}
+
+void clawSet(bool state)
+{
+	if(state)
+	{
+		while(!digitalRead(clawSensor))
+		{
+			motorSet(cubePincer, 100);
+		}
+	}
+	else
+	{
+		long startTime = millis();
+		while(millis() < startTime + 1000)
+		{
+			motorSet(cubePincer, -100);
+		}
+	}
+}
+
 void autonomous() {
+	AutoDrive(-36, 0, 127);
+	clawSet(true);
+	AutoDrive(0, 30, 127);
+	clawSet(false);
+	setArmAngleSketchy(true);
+	clawSet(true);
+	AutoDrive(0, 5, 127);
+	Launch(true);
+	AutoRotate(180, 127);
+	setArmAngleSketchy(false);
+	clawSet(false);
+	AutoDrive(24, 0, 127);
+	AutoDrive(0, 33, 127);
+	setArmAngleSketchy(true);
+	AutoDrive(0, -35, 127);
+	AutoRotate(180, 127);
+	Launch(false);
 }

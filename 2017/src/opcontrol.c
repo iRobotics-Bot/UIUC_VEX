@@ -17,16 +17,18 @@
 
 #include "main.h"
 
-//int driveF1 = 2;
-//int driveF2 = 3;
-//int driveR1 = 4;
-//int driveR2 = 5;
-//int driveH = 6;
-//int armPivot = 7;
-//int armPivot2 = 8;
-//int launchIn = 2; // Port controls launch for inner 2 pistons
-//int launchOut = 3; // Port controls launch for outer 2 pistons
-//int randomvariabletoforcecompile = 0;
+//#define driveF1 2
+//#define driveF2 3
+//#define driveR1 4
+//#define driveR2 5
+//#define driveH 6
+//#define armPivot 7
+//#define armPivot2 8
+//#define cubePincer 9
+//#define elevator1 1
+//#define elevator2 10
+//#define launchIn 2 // Port controls launch for inner 2 pistons
+//#define launchOut 3 // Port controls launch for outer 2 pistons
 /**
  * Controller Mapping
  *
@@ -49,6 +51,8 @@ void setArmSpeed()
 	bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
 	bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
 	bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
+	bool but6U = joystickGetDigital(1, 6, JOY_UP);
+	bool but6D = joystickGetDigital(1, 6, JOY_DOWN);
 
 	if (but7L)
 	{
@@ -66,12 +70,25 @@ void setArmSpeed()
 		motorSet(armPivot2, 0);
 	}
 
-	if (but8R)
+		if (but8R && !digitalRead(clawSensor))
+		{
+			motorSet(cubePincer, 64);
+		}
+		else if (but8D)
+		{
+			motorSet(cubePincer, -64);
+		}
+		else
+		{
+			motorSet(cubePincer, 0);
+		}
+
+	if (but6U)
 	{
 		motorSet(elevator1, -127);
 		motorSet(elevator2, 127);
 	}
-	else if (but8D)
+	else if (but6D)
 	{
 		motorSet(elevator1, -127);
 		motorSet(elevator2, 127);
@@ -113,9 +130,9 @@ void setDrive()
 	int rOut;
 	int hOut;
 
-	if(abs(joyLX) < 10) joyLX = 0;
-	if(abs(joyLY) < 10) joyLY = 0;
-	if(abs(joyRX) < 10) joyRX = 0;
+	if(abs(joyLX) < 20) joyLX = 0;
+	if(abs(joyLY) < 20) joyLY = 0;
+	if(abs(joyRX) < 20) joyRX = 0;
 
 	fOut = (joyLX - joyRX);
 	rOut = (joyLX + joyRX);
@@ -155,6 +172,7 @@ void operatorControl()
 		setDrive();
 		setLaunch();
 		setArmSpeed();
+//		if(!isJoystickConnected(1)) motorSet(driveF1, 10);
 		delay(25);
 	}
 }
