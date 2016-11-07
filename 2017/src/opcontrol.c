@@ -16,7 +16,14 @@
  ********************************************************************************/
 
 #include "main.h"
+#include "math.h"
 
+//autonomous drive distance deadband = 1 inch
+#define DRIVE_DEADBAND 1
+//arm control deadband = 5 degrees
+#define ARM_DEADBAND 5
+
+bool runAutoDrive = false;
 //#define driveF1 2
 //#define driveF2 3
 //#define driveR1 4
@@ -54,12 +61,12 @@ void setArmSpeed()
 	bool but6U = joystickGetDigital(1, 6, JOY_UP);
 	bool but6D = joystickGetDigital(1, 6, JOY_DOWN);
 
-	if (but7L)
+	if (but7D/* && digitalRead(armStop)*/)
 	{
 		motorSet(armPivot, 127);
 		motorSet(armPivot2, -127);
 	}
-	else if (but7D)
+	else if (but7L)
 	{
 		motorSet(armPivot, -127);
 		motorSet(armPivot2, 127);
@@ -70,7 +77,7 @@ void setArmSpeed()
 		motorSet(armPivot2, 0);
 	}
 
-		if (but8R && !digitalRead(clawSensor))
+		if (but8R && digitalRead(clawSensor))
 		{
 			motorSet(cubePincer, 64);
 		}
@@ -129,6 +136,9 @@ void setDrive()
 	int fOut;
 	int rOut;
 	int hOut;
+//	float fOut;
+//	float rOut;
+//	float hOut;
 
 	if(abs(joyLX) < 20) joyLX = 0;
 	if(abs(joyLY) < 20) joyLY = 0;
@@ -152,18 +162,83 @@ void setDrive()
 	if(fOut > 127 || fOut < -127)
 	{
 		fOut = (fOut/abs(fOut))*127;
+//		fOut = (fOut/fabsf(fOut))*127;
 	}
 	if(rOut > 127 || rOut < -127)
 	{
 		rOut = (rOut/abs(rOut))*127;
+//		rOut = (rOut/fabsf(rOut))*127;
 	}
 
-	motorSet(driveF1, fOut);
-	motorSet(driveF2, fOut);
-	motorSet(driveR1, rOut);
-	motorSet(driveR2, rOut);
-	motorSet(driveH, hOut);
+//	rOut = rOut * (100/127);
+
+//	motorSet(driveF1, floor(rOut));
+//	motorSet(driveF2, floor(rOut));
+//	motorSet(driveR1, floor(-fOut));
+//	motorSet(driveR2, floor(-fOut));
+//	motorSet(driveH, floor(hOut));
+	motorSet(driveF1, (rOut));
+	motorSet(driveF2, (rOut));
+	motorSet(driveR1, (-fOut));
+	motorSet(driveR2, (-fOut));
+	motorSet(driveH, (hOut));
 }
+
+void setDriveMotors2(int Left, int Right, int H)
+{
+  motorSet(driveF1, Right);
+  motorSet(driveF2, Right);
+  motorSet(driveR1, Left);
+  motorSet(driveR2, Left);
+  motorSet(driveH, H);
+}
+
+void resetDriveEncoders2()
+{
+  imeReset(FRONT_LEFT_ENCODER);
+  imeReset(FRONT_RIGHT_ENCODER);
+  imeReset(H_ENCODER);
+}
+
+void AutoDrive2(float distX, float distY, int speed)
+{
+  //distX & distY in inches
+  //drive gear ratio assumed to be 1:1. Change factor in main declaration
+	bool but5U = joystickGetDigital(1, 5, JOY_UP);
+if(but5U) runAutoDrive = true;
+if(runAutoDrive)
+{
+const float countDist = (DRIVE_RATIO*WHEEL_DIA*M_PI)/ENCODER_TICKS;
+int FL_Count, FR_Count, H_Count;
+float FL_Dist = 0, FR_Dist = 0, H_Dist = 0;
+resetDriveEncoders2();
+//while any drive is not yet at the final distance
+while((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)) || ((fabsf(H_Dist) - fabsf(distY)) > DRIVE_DEADBAND))
+{
+  //take cumulative distance for all encoders
+imeGet(FRONT_LEFT_ENCODER, &FL_Count);
+imeGet(FRONT_RIGHT_ENCODER, &FR_Count);
+imeGet(H_ENCODER, &H_Count);
+FL_Dist += (FL_Count*countDist);
+FR_Dist += (FR_Count*countDist);
+H_Dist += (H_Count*countDist);
+//check to see if all drive directions need to be driven, or if only one axis needs to move still, to prevent overdriving one axis
+if((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)) && ((fabsf(H_Dist) - fabsf(distY)) > DRIVE_DEADBAND))
+{
+  setDriveMotors2((int)speed*distX/fabsf(distX), (int)speed*distX/fabsf(distX), (int)speed*distY/fabsf(distY));
+}
+else if((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)))
+{
+  setDriveMotors2((int)speed*distX/fabsf(distX), (int)speed*distX/fabsf(distX), 0);
+}
+else setDriveMotors2(0, 0, (int)speed*distY/fabsf(distY));
+}
+setDriveMotors2(0, 0, 0);
+}
+runAutoDrive = false;
+}
+
+
 
 void operatorControl()
 {
@@ -172,7 +247,7 @@ void operatorControl()
 		setDrive();
 		setLaunch();
 		setArmSpeed();
-//		if(!isJoystickConnected(1)) motorSet(driveF1, 10);
+//		AutoDrive2(10, 0, 100);
 		delay(25);
 	}
 }

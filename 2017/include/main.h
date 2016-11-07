@@ -70,6 +70,7 @@
 
 //sensor declarations
 #define clawSensor 1
+#define armStop 2
 
 #include "API.h"
 
