@@ -138,10 +138,12 @@ void setDrive()
 		rOut = (rOut/abs(rOut))*127;
 	}
 
-	motorSet(driveF1, fOut);
-	motorSet(driveF2, fOut);
-	motorSet(driveR1, rOut);
-	motorSet(driveR2, rOut);
+//	fOut = fOut * (100/127);
+
+	motorSet(driveF1, rOut);
+	motorSet(driveF2, rOut);
+	motorSet(driveR1, -fOut);
+	motorSet(driveR2, -fOut);
 	motorSet(driveH, hOut);
 }
 
