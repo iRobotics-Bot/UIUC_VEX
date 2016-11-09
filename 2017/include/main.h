@@ -43,11 +43,11 @@
 // This prevents multiple inclusion, which isn't bad for this file but is good practice
 #define MAIN_H_
 
-#define FRONT_LEFT_ENCODER 0
-#define FRONT_RIGHT_ENCODER 1
+#define FRONT_LEFT_ENCODER 1
+#define FRONT_RIGHT_ENCODER 2
 // #define REAR_LEFT_ENCODER 2
 // #define REAR_RIGHT_ENCODER 3
-#define H_ENCODER 2
+#define H_ENCODER 0
 #define DRIVE_RATIO 1
 #define ENCODER_TICKS 627.2
 #define WHEEL_DIA 4
@@ -62,8 +62,15 @@
 #define driveH 6
 #define armPivot 7
 #define armPivot2 8
+#define cubePincer 9
+#define elevator1 1
+#define elevator2 10
 #define launchIn 2 // Port controls launch for inner 2 pistons
 #define launchOut 3 // Port controls launch for outer 2 pistons
+
+//sensor declarations
+#define clawSensor 1
+#define armStop 2
 
 #include "API.h"
 
