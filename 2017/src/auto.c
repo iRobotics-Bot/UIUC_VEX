@@ -196,15 +196,14 @@ void clawSet(bool state)
 {
 	if(state)
 	{
-		while(!digitalRead(clawSensor))
+		while(!digitalRead(clawOut))
 		{
 			motorSet(cubePincer, 100);
 		}
 	}
 	else
 	{
-		long startTime = millis();
-		while(millis() < startTime + 1000)
+		while(!digitalRead(clawIn))
 		{
 			motorSet(cubePincer, -100);
 		}
@@ -213,20 +212,20 @@ void clawSet(bool state)
 
 void autonomous() {
 	AutoDrive(-36, 0, 127);
-	clawSet(true);
-	AutoDrive(0, 30, 127);
-	clawSet(false);
-	setArmAngleSketchy(true);
-	clawSet(true);
-	AutoDrive(0, 5, 127);
-	Launch(true);
-	AutoRotate(180, 127);
-	setArmAngleSketchy(false);
-	clawSet(false);
-	AutoDrive(24, 0, 127);
-	AutoDrive(0, 33, 127);
-	setArmAngleSketchy(true);
-	AutoDrive(0, -35, 127);
-	AutoRotate(180, 127);
-	Launch(false);
+//	clawSet(true);
+//	AutoDrive(0, 30, 127);
+//	clawSet(false);
+//	setArmAngleSketchy(true);
+//	clawSet(true);
+//	AutoDrive(0, 5, 127);
+//	Launch(true);
+//	AutoRotate(180, 127);
+//	setArmAngleSketchy(false);
+//	clawSet(false);
+//	AutoDrive(24, 0, 127);
+//	AutoDrive(0, 33, 127);
+//	setArmAngleSketchy(true);
+//	AutoDrive(0, -35, 127);
+//	AutoRotate(180, 127);
+//	Launch(false);
 }

@@ -58,10 +58,10 @@ void setArmSpeed()
 	bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
 	bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
 	bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
-	bool but6U = joystickGetDigital(1, 6, JOY_UP);
-	bool but6D = joystickGetDigital(1, 6, JOY_DOWN);
+	bool but5U = joystickGetDigital(1, 5, JOY_UP);
+	bool but5D = joystickGetDigital(1, 5, JOY_DOWN);
 
-	if (but7D/* && digitalRead(armStop)*/)
+	if (but7D && digitalRead(armStop))
 	{
 		motorSet(armPivot, 127);
 		motorSet(armPivot2, -127);
@@ -77,11 +77,11 @@ void setArmSpeed()
 		motorSet(armPivot2, 0);
 	}
 
-		if (but8R && digitalRead(clawSensor))
+		if (but8R && digitalRead(clawOut))
 		{
 			motorSet(cubePincer, 64);
 		}
-		else if (but8D)
+		else if (but8D && digitalRead(clawIn))
 		{
 			motorSet(cubePincer, -64);
 		}
@@ -90,12 +90,12 @@ void setArmSpeed()
 			motorSet(cubePincer, 0);
 		}
 
-	if (but6U)
+	if (but5U)
 	{
 		motorSet(elevator1, -127);
 		motorSet(elevator2, 127);
 	}
-	else if (but6D)
+	else if (but5D)
 	{
 		motorSet(elevator1, -127);
 		motorSet(elevator2, 127);
@@ -184,62 +184,6 @@ void setDrive()
 	motorSet(driveH, (hOut));
 }
 
-void setDriveMotors2(int Left, int Right, int H)
-{
-  motorSet(driveF1, Right);
-  motorSet(driveF2, Right);
-  motorSet(driveR1, Left);
-  motorSet(driveR2, Left);
-  motorSet(driveH, H);
-}
-
-void resetDriveEncoders2()
-{
-  imeReset(FRONT_LEFT_ENCODER);
-  imeReset(FRONT_RIGHT_ENCODER);
-  imeReset(H_ENCODER);
-}
-
-void AutoDrive2(float distX, float distY, int speed)
-{
-  //distX & distY in inches
-  //drive gear ratio assumed to be 1:1. Change factor in main declaration
-	bool but5U = joystickGetDigital(1, 5, JOY_UP);
-if(but5U) runAutoDrive = true;
-if(runAutoDrive)
-{
-const float countDist = (DRIVE_RATIO*WHEEL_DIA*M_PI)/ENCODER_TICKS;
-int FL_Count, FR_Count, H_Count;
-float FL_Dist = 0, FR_Dist = 0, H_Dist = 0;
-resetDriveEncoders2();
-//while any drive is not yet at the final distance
-while((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)) || ((fabsf(H_Dist) - fabsf(distY)) > DRIVE_DEADBAND))
-{
-  //take cumulative distance for all encoders
-imeGet(FRONT_LEFT_ENCODER, &FL_Count);
-imeGet(FRONT_RIGHT_ENCODER, &FR_Count);
-imeGet(H_ENCODER, &H_Count);
-FL_Dist += (FL_Count*countDist);
-FR_Dist += (FR_Count*countDist);
-H_Dist += (H_Count*countDist);
-//check to see if all drive directions need to be driven, or if only one axis needs to move still, to prevent overdriving one axis
-if((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)) && ((fabsf(H_Dist) - fabsf(distY)) > DRIVE_DEADBAND))
-{
-  setDriveMotors2((int)speed*distX/fabsf(distX), (int)speed*distX/fabsf(distX), (int)speed*distY/fabsf(distY));
-}
-else if((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)))
-{
-  setDriveMotors2((int)speed*distX/fabsf(distX), (int)speed*distX/fabsf(distX), 0);
-}
-else setDriveMotors2(0, 0, (int)speed*distY/fabsf(distY));
-}
-setDriveMotors2(0, 0, 0);
-}
-runAutoDrive = false;
-}
-
-
-
 void operatorControl()
 {
 	while (true)
@@ -247,7 +191,7 @@ void operatorControl()
 		setDrive();
 		setLaunch();
 		setArmSpeed();
-//		AutoDrive2(10, 0, 100);
+//		autonomous();
 		delay(25);
 	}
 }

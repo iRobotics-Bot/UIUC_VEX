@@ -69,8 +69,11 @@
 #define launchOut 3 // Port controls launch for outer 2 pistons
 
 //sensor declarations
-#define clawSensor 1
+#define clawOut 1
 #define armStop 2
+#define clawIn 3
+
+#define pot 8
 
 #include "API.h"
 

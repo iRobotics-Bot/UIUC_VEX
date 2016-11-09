@@ -26,21 +26,11 @@
   * The purpose of this function is solely to set the default pin modes (pinMode()) and port states (digitalWrite()) of limit switches, push buttons, and solenoids. It can also safely configure a UART port (usartOpen()) but cannot set up an LCD (lcdInit()).
   */
 
-//int driveF1 = 2;
-//int driveF2 = 3;
-//int driveR1 = 4;
-//int driveR2 = 5;
-//int driveH = 6;
-//int armPivot = 7;
-//int armPivot2 = 8;
-//int launchIn = 2; // Port controls launch for inner 2 pistons
-//int launchOut = 3; // Port controls launch for outer 2 pistons
-
 void initializeIO() {
-  digitalWrite(launchIn, LOW);
-  digitalWrite(launchOut, LOW);
-  pinMode(launchIn, OUTPUT);
-  pinMode(launchOut, OUTPUT);
+//  pinMode(launchIn, OUTPUT);
+//  pinMode(launchOut, OUTPUT);
+//  digitalWrite(launchIn, LOW);
+//  digitalWrite(launchOut, LOW);
 }
 
 /**
