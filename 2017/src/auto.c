@@ -85,9 +85,9 @@ while((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - 
 imeGet(FRONT_LEFT_ENCODER, &FL_Count);
 imeGet(FRONT_RIGHT_ENCODER, &FR_Count);
 imeGet(H_ENCODER, &H_Count);
-FL_Dist = (FL_Count*countDist);
-FR_Dist = (FR_Count*countDist);
-H_Dist = (H_Count*countDist);
+FL_Dist += (FL_Count*countDist);
+FR_Dist += (FR_Count*countDist);
+H_Dist += (H_Count*countDist);
 //check to see if all drive directions need to be driven, or if only one axis needs to move still, to prevent overdriving one axis
 if((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)) && ((fabsf(H_Dist) - fabsf(distY)) > DRIVE_DEADBAND))
 {
@@ -102,9 +102,42 @@ else setDriveMotors(0, 0, (int)speed*distY/fabsf(distY));
 setDriveMotors(0, 0, 0);
 }
 
-void AutoRotate(float degrees)
+void AutoRotate(float degrees, int speed)
 {
-//use IMU for digital compass/gyro
+    //use IMU for digital compass/gyro
+	float arcLength = 16.5*pow(2, 0.5)*M_PI*degrees/360; //25.014 = diameter of turning circle
+	float rad_l = arcLength, rad_r = arcLength;
+	float FL_Dist = 0, FR_Dist = 0;
+
+	//drive gear ratio assumed to be 1:1. Change factor in main declaration
+	const float COUNTDIST = (DRIVE_RATIO*WHEEL_DIA*M_PI)/ENCODER_TICKS;
+	int count_l, count_r;
+	if(sin(degrees) > 0) { rad_l *= -1; }
+    else                      { rad_r *= -1; }
+	resetDriveEncoders();
+	//while any drive is not yet at the final distance
+	while(fabsf(FL_Dist) - fabsf(arcLength) > DRIVE_DEADBAND || fabsf(FR_Dist) - fabsf(arcLength) > DRIVE_DEADBAND)
+	{
+	  //take cumulative distance for all encoders
+	  imeGet(FRONT_LEFT_ENCODER, &count_l);
+	  imeGet(FRONT_RIGHT_ENCODER, &count_r);
+	  FL_Dist += (count_l*COUNTDIST);
+  	  FR_Dist += (count_r*COUNTDIST);
+ 	  //check to see if all drive directions need to be driven, or if only one axis needs to move still, to prevent overdriving one axis
+	  if((fabsf(FL_Dist) - fabsf(arcLength) > DRIVE_DEADBAND) && (fabsf(FR_Dist) - fabsf(arcLength) > DRIVE_DEADBAND))
+	  {
+	    setDriveMotors((int)speed*rad_l/fabsf(rad_l), (int)speed*rad_r/fabsf(rad_r), 0);
+	  }
+	  else if((fabsf(FL_Dist) - fabsf(arcLength) > DRIVE_DEADBAND))
+	  {
+		  setDriveMotors((int)speed*rad_l/fabsf(rad_l), 0, 0);
+	  }
+	  else if((fabsf(FR_Dist) - fabsf(arcLength) > DRIVE_DEADBAND))
+	  {
+		  setDriveMotors(0, (int)speed*rad_r/fabsf(rad_r), 0);
+	  }
+	}
+	setDriveMotors(0, 0, 0);
 }
 
 void Launch(bool strength)
@@ -138,5 +171,62 @@ void setArmAngle(float angle, int speed)
   motorSet(armPivot, 0);
 }
 
+void setArmAngleSketchy(bool state)
+{
+	long startTime = millis();
+	if(state)
+	{
+		while(millis() < startTime + 3000)
+		{
+			motorSet(armPivot, 127);
+			motorSet(armPivot2, -127);
+		}
+	}
+	else
+	{
+		while(millis() < startTime + 3000)
+		{
+			motorSet(armPivot, -127);
+			motorSet(armPivot2, 127);
+		}
+	}
+}
+
+void clawSet(bool state)
+{
+	if(state)
+	{
+		while(!digitalRead(clawSensor))
+		{
+			motorSet(cubePincer, 100);
+		}
+	}
+	else
+	{
+		long startTime = millis();
+		while(millis() < startTime + 1000)
+		{
+			motorSet(cubePincer, -100);
+		}
+	}
+}
+
 void autonomous() {
+	AutoDrive(-36, 0, 127);
+	clawSet(true);
+	AutoDrive(0, 30, 127);
+	clawSet(false);
+	setArmAngleSketchy(true);
+	clawSet(true);
+	AutoDrive(0, 5, 127);
+	Launch(true);
+	AutoRotate(180, 127);
+	setArmAngleSketchy(false);
+	clawSet(false);
+	AutoDrive(24, 0, 127);
+	AutoDrive(0, 33, 127);
+	setArmAngleSketchy(true);
+	AutoDrive(0, -35, 127);
+	AutoRotate(180, 127);
+	Launch(false);
 }
