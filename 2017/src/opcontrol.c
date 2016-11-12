@@ -153,9 +153,9 @@ void setDrive()
 	if(abs(joyLY) < 20) joyLY = 0;
 	if(abs(joyRX) < 20) joyRX = 0;
 
-	fOut = (joyLX - joyRX);
-	rOut = (joyLX + joyRX);
-	hOut = joyLY;
+	fOut = (joyLY - joyRX);
+	rOut = (joyLY + joyRX);
+	hOut = joyLX;
 
 	if(joyLX == 0)
 	{
@@ -186,6 +186,7 @@ void setDrive()
 	motorSet(driveF, (rOut));
 	motorSet(driveR, (-fOut));
 	motorSet(driveH, (hOut));
+	motorSet(cam1, -hOut);
 }
 
 void operatorControl()
