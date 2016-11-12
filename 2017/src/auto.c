@@ -200,23 +200,23 @@ void timeDrive(int speedX, int speedY, int time)
 	setDriveMotors(0, 0, 0);
 }
 
-void clawSet(bool state)
-{
-	if(state)
-	{
-		while(!digitalRead(clawOut))
-		{
-			motorSet(cubePincer, 100);
-		}
-	}
-	else
-	{
-		while(!digitalRead(clawIn))
-		{
-			motorSet(cubePincer, -100);
-		}
-	}
-}
+//void clawSet(bool state)
+//{
+//	if(state)
+//	{
+//		while(!digitalRead(clawOut))
+//		{
+//			motorSet(cubePincer, 100);
+//		}
+//	}
+//	else
+//	{
+//		while(!digitalRead(clawIn))
+//		{
+//			motorSet(cubePincer, -100);
+//		}
+//	}
+//}
 
 void autonomous() {
 setArmAngleSketchy(true, 2000);

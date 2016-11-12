@@ -70,10 +70,10 @@
 #define camRelease 12
 
 //sensor declarations
-#define clawOut 1
-#define armStop 2
-#define clawIn 3
-#define catapultDown 4
+//#define clawOut 1
+//#define armStop 2
+//#define clawIn 3
+//#define catapultDown 4
 
 //#define pot 8
 

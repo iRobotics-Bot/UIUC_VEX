@@ -56,7 +56,6 @@ void setArmSpeed()
 {
 	bool but7L = joystickGetDigital(1, 7, JOY_LEFT);
 	bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
-	bool but7R = joystickGetDigital(1, 7, JOY_RIGHT);
 	bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
 	bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
 	bool but5U = joystickGetDigital(1, 5, JOY_UP);
@@ -64,18 +63,13 @@ void setArmSpeed()
 
 	if (but7D/* && digitalRead(armStop)*/)
 	{
-		motorSet(armPivot, 64);
-		motorSet(armPivot2, -64);
+		motorSet(armPivot, 127);
+		motorSet(armPivot2, -127);
 	}
 	else if (but7L)
 	{
-		motorSet(armPivot, -64);
-		motorSet(armPivot2, 64);
-	}
-	if (but7R/* && digitalRead(armStop)*/)
-	{
-		motorSet(armPivot, 20);
-		motorSet(armPivot2, -20);
+		motorSet(armPivot, -127);
+		motorSet(armPivot2, 127);
 	}
 	else
 	{
@@ -115,25 +109,25 @@ void setArmSpeed()
 
 void setLaunch()
 {
-	bool but6U = joystickGetDigital(1, 6, JOY_UP); // tensions cam
-	bool but6D = joystickGetDigital(1, 6, JOY_DOWN); // releases cam
-	if (but6U /*&& digitalRead(catapultDown)*/)
-	{
-		motorSet(cam1, 127);
-		motorSet(cam2, -127);
-	}
-	else
-	{
-		motorSet(cam1, 0);
-		motorSet(cam2, 0);
-	}
-
-	if(but6D)
-	{
-		digitalWrite(camRelease, HIGH);
-		delay(750);
-		digitalWrite(camRelease, LOW);
-	}
+//	bool but6U = joystickGetDigital(1, 6, JOY_UP); // tensions cam
+//	bool but6D = joystickGetDigital(1, 6, JOY_DOWN); // releases cam
+//	if (but6U /*&& digitalRead(catapultDown)*/)
+//	{
+//		motorSet(cam1, 127);
+//		motorSet(cam2, -127);
+//	}
+//	else
+//	{
+//		motorSet(cam1, 0);
+//		motorSet(cam2, 0);
+//	}
+//
+//	if(but6D)
+//	{
+//		digitalWrite(camRelease, HIGH);
+//		delay(750);
+//		digitalWrite(camRelease, LOW);
+//	}
 
 }
 
@@ -149,12 +143,12 @@ void setDrive()
 //	float rOut;
 //	float hOut;
 
-	if(abs(joyLX) < 20) joyLX = 0;
-	if(abs(joyLY) < 20) joyLY = 0;
-	if(abs(joyRX) < 20) joyRX = 0;
+	if(abs(joyLX) < 10) joyLX = 0;
+	if(abs(joyLY) < 10) joyLY = 0;
+	if(abs(joyRX) < 10) joyRX = 0;
 
-	fOut = (joyLY - joyRX);
-	rOut = (joyLY + joyRX);
+	fOut = (joyLX - joyRX);
+	rOut = (joyLX + joyRX);
 	hOut = joyLX;
 
 	if(joyLX == 0)
@@ -164,8 +158,8 @@ void setDrive()
 	}
 	if(joyRX == 0)
 	{
-		fOut = joyLX;
-		rOut = joyLX;
+		fOut = joyLY;
+		rOut = joyLY;
 	}
 
 	if(fOut > 127 || fOut < -127)
@@ -178,15 +172,15 @@ void setDrive()
 		rOut = (rOut/abs(rOut))*127;
 //		rOut = (rOut/fabsf(rOut))*127;
 	}
-	int divisor = 4;
-	int driveOffset;
-	driveOffset = (rOut - (rOut % divisor))/divisor;
-	rOut -= driveOffset;
+//	int divisor = 4;
+//	int driveOffset;
+//	driveOffset = (rOut - (rOut % divisor))/divisor;
+//	rOut -= driveOffset;
 
 	motorSet(driveF, (rOut));
 	motorSet(driveR, (-fOut));
 	motorSet(driveH, (hOut));
-	motorSet(cam1, -hOut);
+//	motorSet(cam1, -hOut);
 }
 
 void operatorControl()
