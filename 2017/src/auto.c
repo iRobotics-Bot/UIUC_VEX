@@ -190,6 +190,16 @@ void setArmAngleSketchy(bool state, long runTime)
 	}
 }
 
+void timeDrive(int speedX, int speedY, int time)
+{
+	long startTime = millis();
+	while(millis() < startTime + time)
+	{
+		setDriveMotors(speedX, -speedX, speedY);
+	}
+	setDriveMotors(0, 0, 0);
+}
+
 void clawSet(bool state)
 {
 	if(state)
@@ -209,10 +219,10 @@ void clawSet(bool state)
 }
 
 void autonomous() {
-	setArmAngleSketchy(true, 2000);
-	setArmAngleSketchy(false, 1000);
-	AutoDrive(0, 36, 127);
-	AutoDrive(-120, -0, 127);
+//	setArmAngleSketchy(true, 2000);
+//	setArmAngleSketchy(false, 1000);
+//	timeDrive(0, 127, 3000);
+//	timeDrive(-127, 0, 6000);
 }
 
 //	AutoDrive(-36, 0, 127);

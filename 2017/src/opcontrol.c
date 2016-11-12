@@ -77,11 +77,11 @@ void setArmSpeed()
 		motorSet(armPivot2, 0);
 	}
 
-		if (but8R && digitalRead(clawOut))
+		if (but8R/* && digitalRead(clawOut)*/)
 		{
 			motorSet(cubePincer, 64);
 		}
-		else if (but8D && digitalRead(clawIn))
+		else if (but8D/* && digitalRead(clawIn)*/)
 		{
 			motorSet(cubePincer, -64);
 		}
