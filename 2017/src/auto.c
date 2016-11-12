@@ -209,7 +209,12 @@ void clawSet(bool state)
 }
 
 void autonomous() {
-	AutoDrive(-36, 0, 127);
+	setArmAngleSketchy(true);
+	AutoDrive(0, 36, 127);
+	AutoDrive(-120, -0, 127);
+}
+
+//	AutoDrive(-36, 0, 127);
 //	clawSet(true);
 //	AutoDrive(0, 30, 127);
 //	clawSet(false);
@@ -226,4 +231,3 @@ void autonomous() {
 //	AutoDrive(0, -35, 127);
 //	AutoRotate(180, 127);
 //	Launch(false);
-}

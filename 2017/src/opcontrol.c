@@ -97,8 +97,8 @@ void setArmSpeed()
 	}
 	else if (but5D)
 	{
-		motorSet(elevator1, -127);
-		motorSet(elevator2, 127);
+		motorSet(elevator2, -127);
+		motorSet(elevator1, 127);
 	}
 	else
 	{

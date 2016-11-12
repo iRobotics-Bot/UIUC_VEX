@@ -75,7 +75,7 @@
 #define clawIn 3
 #define catapultDown 4
 
-#define pot 8
+//#define pot 8
 
 #include "API.h"
 
