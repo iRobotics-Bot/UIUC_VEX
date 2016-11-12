@@ -63,13 +63,13 @@ void setArmSpeed()
 
 	if (but7D/* && digitalRead(armStop)*/)
 	{
-		motorSet(armPivot, 127);
-		motorSet(armPivot2, -127);
+		motorSet(armPivot, 64);
+		motorSet(armPivot2, -64);
 	}
 	else if (but7L)
 	{
-		motorSet(armPivot, -127);
-		motorSet(armPivot2, 127);
+		motorSet(armPivot, -64);
+		motorSet(armPivot2, 64);
 	}
 	else
 	{
