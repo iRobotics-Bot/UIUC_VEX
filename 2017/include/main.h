@@ -55,23 +55,25 @@
 #define POT_HIGH 1.5
 
 //motor declarations
-#define driveF1 2
-#define driveF2 3
-#define driveR1 4
-#define driveR2 5
+#define driveF 2
+#define driveR 3
 #define driveH 6
 #define armPivot 7
 #define armPivot2 8
 #define cubePincer 9
 #define elevator1 1
 #define elevator2 10
-#define launchIn 11 // Port controls launch for inner 2 pistons
-#define launchOut 12 // Port controls launch for outer 2 pistons
+#define cam1 4
+#define cam2 5
+//#define launchIn 11 // Port controls launch for inner 2 pistons
+//#define launchOut 12 // Port controls launch for outer 2 pistons
+#define camRelease 12
 
 //sensor declarations
 #define clawOut 1
 #define armStop 2
 #define clawIn 3
+#define catapultDown 4
 
 #define pot 8
 

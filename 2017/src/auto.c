@@ -56,10 +56,8 @@
 
 void setDriveMotors(int Left, int Right, int H)
 {
-  motorSet(driveF1, Right);
-  motorSet(driveF2, Right);
-  motorSet(driveR1, Left);
-  motorSet(driveR2, Left);
+  motorSet(driveF, Right);
+  motorSet(driveR, Left);
   motorSet(driveH, H);
 }
 
@@ -140,24 +138,24 @@ void AutoRotate(float degrees, int speed)
 	setDriveMotors(0, 0, 0);
 }
 
-void Launch(bool strength)
-{
-  long startTime = millis();
-	if (!strength)
-	{
-		digitalWrite(launchIn, true);
-		while(millis()  < (startTime + 1000)){}
-		digitalWrite(launchIn, false);
-	}
-	else
-	{
-		digitalWrite(launchIn, true);
-		digitalWrite(launchOut, true);
-		while(millis()  < (startTime + 1000)){}
-		digitalWrite(launchIn, false);
-		digitalWrite(launchOut, false);
-	}
-}
+//void Launch(bool strength)
+//{
+//  long startTime = millis();
+//	if (!strength)
+//	{
+//		digitalWrite(launchIn, true);
+//		while(millis()  < (startTime + 1000)){}
+//		digitalWrite(launchIn, false);
+//	}
+//	else
+//	{
+//		digitalWrite(launchIn, true);
+//		digitalWrite(launchOut, true);
+//		while(millis()  < (startTime + 1000)){}
+//		digitalWrite(launchIn, false);
+//		digitalWrite(launchOut, false);
+//	}
+//}
 
 void setArmAngle(float angle, int speed)
 {

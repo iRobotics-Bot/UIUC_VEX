@@ -109,22 +109,26 @@ void setArmSpeed()
 
 void setLaunch()
 {
-	bool but6U = joystickGetDigital(1, 6, JOY_UP);
-	bool but6D = joystickGetDigital(1, 6, JOY_DOWN); // launches all pistons
-	if (but6U)
+	bool but6U = joystickGetDigital(1, 6, JOY_UP); // tensions cam
+	bool but6D = joystickGetDigital(1, 6, JOY_DOWN); // releases cam
+	if (but6U && digitalRead(catapultDown))
 	{
-		digitalWrite(launchIn, true);
-		delay(1000);
-		digitalWrite(launchIn, false);
+		motorSet(cam1, 127);
+		motorSet(cam2, -127);
 	}
-	if (but6D)
+	else
 	{
-		digitalWrite(launchIn, true);
-		digitalWrite(launchOut, true);
-		delay(1000);
-		digitalWrite(launchIn, false);
-		digitalWrite(launchOut, false);
+		motorSet(cam1, 0);
+		motorSet(cam2, 0);
 	}
+
+	if(but6D)
+	{
+		digitalWrite(camRelease, HIGH);
+		delay(750);
+		digitalWrite(camRelease, LOW);
+	}
+
 }
 
 void setDrive()
@@ -173,15 +177,8 @@ void setDrive()
 	driveOffset = (rOut - (rOut % divisor))/divisor;
 	rOut -= driveOffset;
 
-//	motorSet(driveF1, floor(rOut));
-//	motorSet(driveF2, floor(rOut));
-//	motorSet(driveR1, floor(-fOut));
-//	motorSet(driveR2, floor(-fOut));
-//	motorSet(driveH, floor(hOut));
-	motorSet(driveF1, (rOut));
-	motorSet(driveF2, (rOut));
-	motorSet(driveR1, (-fOut));
-	motorSet(driveR2, (-fOut));
+	motorSet(driveF, (rOut));
+	motorSet(driveR, (-fOut));
 	motorSet(driveH, (hOut));
 }
 
