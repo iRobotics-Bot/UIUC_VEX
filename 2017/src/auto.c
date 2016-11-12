@@ -54,7 +54,7 @@
 //int launchIn = 2; // Port controls launch for inner 2 pistons
 //int launchOut = 3; // Port controls launch for outer 2 pistons
 
-/* void setDriveMotors(int Left, int Right, int H)
+void setDriveMotors(int Left, int Right, int H)
 {
   motorSet(driveF, Right);
   motorSet(driveR, Left);
@@ -242,4 +242,3 @@ void autonomous() {
 //	AutoDrive(0, -35, 127);
 //	AutoRotate(180, 127);
 //	Launch(false);
-*/
