@@ -125,7 +125,6 @@ void setLaunch()
 		digitalWrite(launchIn, false);
 		digitalWrite(launchOut, false);
 	}
-
 }
 
 void setDrive()
@@ -169,8 +168,10 @@ void setDrive()
 		rOut = (rOut/abs(rOut))*127;
 //		rOut = (rOut/fabsf(rOut))*127;
 	}
-
-//	rOut = rOut * (100/127);
+	int divisor = 4;
+	int driveOffset;
+	driveOffset = (rOut - (rOut % divisor))/divisor;
+	rOut -= driveOffset;
 
 //	motorSet(driveF1, floor(rOut));
 //	motorSet(driveF2, floor(rOut));
@@ -191,7 +192,6 @@ void operatorControl()
 		setDrive();
 		setLaunch();
 		setArmSpeed();
-//		autonomous();
 		delay(25);
 	}
 }

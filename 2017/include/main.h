@@ -65,8 +65,8 @@
 #define cubePincer 9
 #define elevator1 1
 #define elevator2 10
-#define launchIn 2 // Port controls launch for inner 2 pistons
-#define launchOut 3 // Port controls launch for outer 2 pistons
+#define launchIn 11 // Port controls launch for inner 2 pistons
+#define launchOut 12 // Port controls launch for outer 2 pistons
 
 //sensor declarations
 #define clawOut 1
