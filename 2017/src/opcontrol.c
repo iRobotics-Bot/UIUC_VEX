@@ -61,7 +61,7 @@ void setArmSpeed()
 	bool but5U = joystickGetDigital(1, 5, JOY_UP);
 	bool but5D = joystickGetDigital(1, 5, JOY_DOWN);
 
-	if (but7D && digitalRead(armStop))
+	if (but7D/* && digitalRead(armStop)*/)
 	{
 		motorSet(armPivot, 127);
 		motorSet(armPivot2, -127);
@@ -111,7 +111,7 @@ void setLaunch()
 {
 	bool but6U = joystickGetDigital(1, 6, JOY_UP); // tensions cam
 	bool but6D = joystickGetDigital(1, 6, JOY_DOWN); // releases cam
-	if (but6U && digitalRead(catapultDown))
+	if (but6U /*&& digitalRead(catapultDown)*/)
 	{
 		motorSet(cam1, 127);
 		motorSet(cam2, -127);
