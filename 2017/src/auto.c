@@ -54,7 +54,7 @@
 //int launchIn = 2; // Port controls launch for inner 2 pistons
 //int launchOut = 3; // Port controls launch for outer 2 pistons
 
-void setDriveMotors(int Left, int Right, int H)
+/* void setDriveMotors(int Left, int Right, int H)
 {
   motorSet(driveF, Right);
   motorSet(driveR, Left);
@@ -106,7 +106,7 @@ void AutoRotate(float degrees, int speed)
 	float arcLength = 16.5*pow(2, 0.5)*M_PI*degrees/360; //25.014 = diameter of turning circle
 	float rad_l = arcLength, rad_r = arcLength;
 	float FL_Dist = 0, FR_Dist = 0;
-		
+
 	//drive gear ratio assumed to be 1:1. Change factor in main declaration
 	const float COUNTDIST = (DRIVE_RATIO*WHEEL_DIA*M_PI)/ENCODER_TICKS;
 	int count_l, count_r;
@@ -242,3 +242,4 @@ void autonomous() {
 //	AutoDrive(0, -35, 127);
 //	AutoRotate(180, 127);
 //	Launch(false);
+*/
