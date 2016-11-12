@@ -169,12 +169,12 @@ void setArmAngle(float angle, int speed)
   motorSet(armPivot, 0);
 }
 
-void setArmAngleSketchy(bool state)
+void setArmAngleSketchy(bool state, long runTime)
 {
 	long startTime = millis();
 	if(state)
 	{
-		while(millis() < startTime + 3000)
+		while(millis() < startTime + runTime)
 		{
 			motorSet(armPivot, 127);
 			motorSet(armPivot2, -127);
@@ -182,7 +182,7 @@ void setArmAngleSketchy(bool state)
 	}
 	else
 	{
-		while(millis() < startTime + 3000)
+		while(millis() < startTime + runTime)
 		{
 			motorSet(armPivot, -127);
 			motorSet(armPivot2, 127);
@@ -209,7 +209,8 @@ void clawSet(bool state)
 }
 
 void autonomous() {
-	setArmAngleSketchy(true);
+	setArmAngleSketchy(true, 2000);
+	setArmAngleSketchy(false, 1000);
 	AutoDrive(0, 36, 127);
 	AutoDrive(-120, -0, 127);
 }
