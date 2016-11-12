@@ -56,6 +56,7 @@ void setArmSpeed()
 {
 	bool but7L = joystickGetDigital(1, 7, JOY_LEFT);
 	bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
+	bool but7R = joystickGetDigital(1, 7, JOY_RIGHT);
 	bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
 	bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
 	bool but5U = joystickGetDigital(1, 5, JOY_UP);
@@ -70,6 +71,11 @@ void setArmSpeed()
 	{
 		motorSet(armPivot, -64);
 		motorSet(armPivot2, 64);
+	}
+	if (but7R/* && digitalRead(armStop)*/)
+	{
+		motorSet(armPivot, 20);
+		motorSet(armPivot2, -20);
 	}
 	else
 	{
