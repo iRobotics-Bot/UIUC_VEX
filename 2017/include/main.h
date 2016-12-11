@@ -43,31 +43,21 @@
 // This prevents multiple inclusion, which isn't bad for this file but is good practice
 #define MAIN_H_
 
-#define FRONT_LEFT_ENCODER 1
-#define FRONT_RIGHT_ENCODER 2
-// #define REAR_LEFT_ENCODER 2
-// #define REAR_RIGHT_ENCODER 3
-#define H_ENCODER 0
+#define FRONT_LEFT_ENCODER 0
+#define FRONT_RIGHT_ENCODER 1
 #define DRIVE_RATIO 1
 #define ENCODER_TICKS 627.2
 #define WHEEL_DIA 4
-#define POT_LOW 0
-#define POT_HIGH 1.5
+//#define POT_LOW 0
+//#define POT_HIGH 1.5
 
 //motor declarations
-#define driveF 2
+#define driveL 2
 #define driveR 3
-#define driveH 6
-#define armPivot 7
-#define armPivot2 8
-#define cubePincer 9
-#define elevator1 1
-#define elevator2 10
-#define cam1 4
-#define cam2 5
-//#define launchIn 11 // Port controls launch for inner 2 pistons
-//#define launchOut 12 // Port controls launch for outer 2 pistons
-#define camRelease 12
+#define armL 4
+#define armR 5
+#define grabberL 6
+#define grabberR 7
 
 //sensor declarations
 //#define clawOut 1

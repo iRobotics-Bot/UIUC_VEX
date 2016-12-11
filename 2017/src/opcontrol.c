@@ -23,19 +23,12 @@
 //arm control deadband = 5 degrees
 #define ARM_DEADBAND 5
 
-bool runAutoDrive = false;
-//#define driveF1 2
-//#define driveF2 3
-//#define driveR1 4
-//#define driveR2 5
-//#define driveH 6
-//#define armPivot 7
-//#define armPivot2 8
-//#define cubePincer 9
-//#define elevator1 1
-//#define elevator2 10
-//#define launchIn 2 // Port controls launch for inner 2 pistons
-//#define launchOut 3 // Port controls launch for outer 2 pistons
+//#define driveL 2
+//#define driveR 3
+//#define armL 4
+//#define armR 5
+//#define grabberL 6
+//#define grabberR 7
 /**
  * Controller Mapping
  *
@@ -52,144 +45,94 @@ bool runAutoDrive = false;
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
-void setArmSpeed()
+void setArmSpeed(int speed)
 {
-	bool but7L = joystickGetDigital(1, 7, JOY_LEFT);
-	bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
-	bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
-	bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
-	bool but5U = joystickGetDigital(1, 5, JOY_UP);
-	bool but5D = joystickGetDigital(1, 5, JOY_DOWN);
-
-	if (but7D/* && digitalRead(armStop)*/)
-	{
-		motorSet(armPivot, 127);
-		motorSet(armPivot2, -127);
-	}
-	else if (but7L)
-	{
-		motorSet(armPivot, -127);
-		motorSet(armPivot2, 127);
-	}
-	else
-	{
-		motorSet(armPivot, 0);
-		motorSet(armPivot2, 0);
-	}
-
-		if (but8R/* && digitalRead(clawOut)*/)
-		{
-			motorSet(cubePincer, 64);
-		}
-		else if (but8D/* && digitalRead(clawIn)*/)
-		{
-			motorSet(cubePincer, -64);
-		}
-		else
-		{
-			motorSet(cubePincer, 0);
-		}
-
-	if (but5U)
-	{
-		motorSet(elevator1, -127);
-		motorSet(elevator2, 127);
-	}
-	else if (but5D)
-	{
-		motorSet(elevator2, -127);
-		motorSet(elevator1, 127);
-	}
-	else
-	{
-		motorSet(elevator1, 0);
-		motorSet(elevator2, 0);
-	}
+	motorSet(armL, speed);
+	motorSet(armR, -speed);
 }
 
-void setLaunch()
+void setClaw(int speed)
 {
-//	bool but6U = joystickGetDigital(1, 6, JOY_UP); // tensions cam
-//	bool but6D = joystickGetDigital(1, 6, JOY_DOWN); // releases cam
-//	if (but6U /*&& digitalRead(catapultDown)*/)
-//	{
-//		motorSet(cam1, 127);
-//		motorSet(cam2, -127);
-//	}
-//	else
-//	{
-//		motorSet(cam1, 0);
-//		motorSet(cam2, 0);
-//	}
-//
-//	if(but6D)
-//	{
-//		digitalWrite(camRelease, HIGH);
-//		delay(750);
-//		digitalWrite(camRelease, LOW);
-//	}
-
+	motorSet(grabberL, speed);
+	motorSet(grabberR, -speed);
 }
 
-void setDrive()
+void Manipulator()
 {
-	int joyLX = joystickGetAnalog(1, 4);
+	//	bool but7L = joystickGetDigital(1, 7, JOY_LEFT);
+	//	bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
+		bool but8R = joystickGetDigital(2, 8, JOY_RIGHT);
+		bool but8D = joystickGetDigital(2, 8, JOY_DOWN);
+		bool but5U = joystickGetDigital(2, 5, JOY_UP);
+		bool but5D = joystickGetDigital(2, 5, JOY_DOWN);
+
+
+	if(but8R)
+	{
+		setArmSpeed(80);
+	}
+	else if(but8D)
+	{
+		setArmSpeed(-80);
+	}
+	else setArmSpeed(0);
+
+	if(but5U)
+	{
+		setClawSpeed(80);
+	}
+	else if(but5D)
+	{
+		setClawSpeed(-80);
+	}
+	else setClawSpeed(0);
+}
+
+void Driver()
+{
 	int joyLY = joystickGetAnalog(1, 3);
 	int joyRX = joystickGetAnalog(1, 1);
-	int fOut;
+	int lOut;
 	int rOut;
-	int hOut;
-//	float fOut;
-//	float rOut;
-//	float hOut;
 
-	if(abs(joyLX) < 10) joyLX = 0;
 	if(abs(joyLY) < 10) joyLY = 0;
 	if(abs(joyRX) < 10) joyRX = 0;
 
-	fOut = (joyLX - joyRX);
-	rOut = (joyLX + joyRX);
-	hOut = joyLX;
+	lOut = (joyLY - joyRX);
+	rOut = (joyLY + joyRX);
 
-	if(joyLX == 0)
+	if(joyLY == 0)
 	{
-		fOut = -joyRX;
+		lOut = -joyRX;
 		rOut = joyRX;
 	}
 	if(joyRX == 0)
 	{
-		fOut = joyLY;
+		lOut = joyLY;
 		rOut = joyLY;
 	}
 
-	if(fOut > 127 || fOut < -127)
+	if(lOut > 127 || lOut < -127)
 	{
-		fOut = (fOut/abs(fOut))*127;
-//		fOut = (fOut/fabsf(fOut))*127;
+		lOut = (lOut/abs(lOut))*127;
 	}
 	if(rOut > 127 || rOut < -127)
 	{
 		rOut = (rOut/abs(rOut))*127;
-//		rOut = (rOut/fabsf(rOut))*127;
 	}
-//	int divisor = 4;
-//	int driveOffset;
-//	driveOffset = (rOut - (rOut % divisor))/divisor;
-//	rOut -= driveOffset;
 
-	motorSet(driveF, (rOut));
-	motorSet(driveR, (-fOut));
-	motorSet(driveH, (hOut));
-//	motorSet(cam1, -hOut);
+
+	motorSet(driveL, (lOut));
+	motorSet(driveR, (-rOut));
+
 }
 
 void operatorControl()
 {
 	while (true)
 	{
-		setDrive();
-		setLaunch();
-		setArmSpeed();
+		Driver();
+		Manipulator();
 		delay(25);
 	}
 }
