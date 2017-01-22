@@ -52,20 +52,17 @@
 //#define POT_HIGH 1.5
 
 //motor declarations
-#define driveL 2
-#define driveR 3
-#define armL 4
-#define armR 5
-#define grabberL 6
-#define grabberR 7
+#define driveLF 2
+#define driveLR 3
+#define driveRF 4
+#define driveRR 5
+#define armL 6
+#define armR 7
+#define grabberL 8
+#define grabberR 9
 
 //sensor declarations
-//#define clawOut 1
-//#define armStop 2
-//#define clawIn 3
-//#define catapultDown 4
 
-//#define pot 8
 
 #include "API.h"
 

@@ -19,19 +19,23 @@
 #include "math.h"
 
 //autonomous drive distance deadband = 1 inch
-#define DRIVE_DEADBAND 1
+//#define DRIVE_DEADBAND 1
 //arm control deadband = 5 degrees
-#define ARM_DEADBAND 5
+//#define ARM_DEADBAND 5
 
-//#define driveL 2
-//#define driveR 3
-//#define armL 4
-//#define armR 5
-//#define grabberL 6
-//#define grabberR 7
+//#define driveLF 2
+//#define driveLR 3
+//#define driveRF 4
+//#define driveRR 5
+//#define armL 6
+//#define armR 7
+//#define grabberL 8
+//#define grabberR 9
 /**
  * Controller Mapping
- *
+ *		8R/8D: Arm Control
+ *		5U/5D: Claw Control
+ *		Drive: Halo
  */
 
 /**
@@ -51,7 +55,7 @@ void setArmSpeed(int speed)
 	motorSet(armR, -speed);
 }
 
-void setClaw(int speed)
+void setClawSpeed(int speed)
 {
 	motorSet(grabberL, speed);
 	motorSet(grabberR, -speed);
@@ -59,12 +63,10 @@ void setClaw(int speed)
 
 void Manipulator()
 {
-	//	bool but7L = joystickGetDigital(1, 7, JOY_LEFT);
-	//	bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
-		bool but8R = joystickGetDigital(2, 8, JOY_RIGHT);
-		bool but8D = joystickGetDigital(2, 8, JOY_DOWN);
-		bool but5U = joystickGetDigital(2, 5, JOY_UP);
-		bool but5D = joystickGetDigital(2, 5, JOY_DOWN);
+		bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
+		bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
+		bool but5U = joystickGetDigital(1, 5, JOY_UP);
+		bool but5D = joystickGetDigital(1, 5, JOY_DOWN);
 
 
 	if(but8R)
@@ -79,11 +81,11 @@ void Manipulator()
 
 	if(but5U)
 	{
-		setClawSpeed(80);
+		setClawSpeed(50);
 	}
 	else if(but5D)
 	{
-		setClawSpeed(-80);
+		setClawSpeed(-50);
 	}
 	else setClawSpeed(0);
 }
@@ -122,9 +124,10 @@ void Driver()
 	}
 
 
-	motorSet(driveL, (lOut));
-	motorSet(driveR, (-rOut));
-
+	motorSet(driveLF, (-lOut));
+	motorSet(driveLR, (-lOut));
+	motorSet(driveRF, (-rOut));
+	motorSet(driveRR, (-rOut));
 }
 
 void operatorControl()
