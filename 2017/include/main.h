@@ -62,7 +62,7 @@
 #define grabberExt 9
 
 //sensor declarations
-
+#define pot 1
 
 #include "API.h"
 

@@ -23,6 +23,7 @@
 //arm control deadband = 5 degrees
 //#define ARM_DEADBAND 5
 
+//motors:
 //#define driveLF 2
 //#define driveLR 3
 //#define driveRF 4
@@ -31,6 +32,9 @@
 //#define armR 7
 //#define grabber 8
 //#define grabberExt 9
+
+//sensors
+//pot: 1
 /**
  * Controller Mapping
  *		8R/8D: Arm Control
@@ -49,6 +53,11 @@
  *
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
+
+#define POT_GOAL 2500
+#define POT_DEADZONE 50 // range is 2 * deadzone
+#define POT_SPEED 50
+
 void setArmSpeed(int speed)
 {
 	motorSet(armL, speed);
@@ -69,22 +78,32 @@ void Manipulator()
 {
 		bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
 		bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
+		bool but7L = joystickGetDigital(1, 7, JOY_LEFT);
 		bool but5U = joystickGetDigital(1, 5, JOY_UP);
 		bool but5D = joystickGetDigital(1, 5, JOY_DOWN);
 		bool but6U = joystickGetDigital(1, 6, JOY_UP);
 		bool but6D = joystickGetDigital(1, 6, JOY_DOWN);
 
-
-	if(but8R)
+    if(!but7L && !potPrimed) { potPrimed = true; }
+    if(but7L && potPrimed)
+    {
+    	potPrimed = false;
+    	potToggled = !potToggled;
+    }
+    
+	if(!potToggled)
 	{
-		setArmSpeed(80);
-	}
-	else if(but8D)
-	{
-		setArmSpeed(-80);
-	}
-	else setArmSpeed(0);
-
+    	if(but8R)
+    	{
+    		setArmSpeed(80);
+		}
+		else if(but8D)
+		{
+			setArmSpeed(-80);
+		}
+		else setArmSpeed(0);
+    }
+    
 	if(but5U)
 	{
 		setClawSpeed(50);
@@ -104,6 +123,12 @@ void Manipulator()
 		setClawExtSpeed(-40);
 	}
 	else setClawExtSpeed(0);
+	
+	int potDifference = POT_GOAL - analogRead(1);
+	if(abs(potDifference) > POT_DEADZONE)
+	{
+		setArmSpeed(POT_SPEED * (potDifference/abs(potDifference)));
+	}
 }
 
 void Driver()
@@ -146,8 +171,16 @@ void Driver()
 	motorSet(driveRR, (rOut));
 }
 
+void potMove()
+{
+	
+}
+
 void operatorControl()
 {
+	bool potToggled = false;
+	bool potPrimed = true;
+	
 	while (true)
 	{
 		Driver();
