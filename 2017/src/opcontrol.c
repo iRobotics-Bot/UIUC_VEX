@@ -29,8 +29,8 @@
 //#define driveRR 5
 //#define armL 6
 //#define armR 7
-//#define grabberL 8
-//#define grabberR 9
+//#define grabber 8
+//#define grabberExt 9
 /**
  * Controller Mapping
  *		8R/8D: Arm Control
@@ -57,8 +57,12 @@ void setArmSpeed(int speed)
 
 void setClawSpeed(int speed)
 {
-	motorSet(grabberL, speed);
-	motorSet(grabberR, -speed);
+	motorSet(grabber, speed);
+}
+
+void setClawExtSpeed(int speed)
+{
+	motorSet(grabberExt, speed);
 }
 
 void Manipulator()
@@ -67,6 +71,8 @@ void Manipulator()
 		bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
 		bool but5U = joystickGetDigital(1, 5, JOY_UP);
 		bool but5D = joystickGetDigital(1, 5, JOY_DOWN);
+		bool but6U = joystickGetDigital(1, 6, JOY_UP);
+		bool but6D = joystickGetDigital(1, 6, JOY_DOWN);
 
 
 	if(but8R)
@@ -88,6 +94,16 @@ void Manipulator()
 		setClawSpeed(-50);
 	}
 	else setClawSpeed(0);
+
+	if(but6U)
+	{
+		setClawExtSpeed(40);
+	}
+	else if(but6D)
+	{
+		setClawExtSpeed(-40);
+	}
+	else setClawExtSpeed(0);
 }
 
 void Driver()
@@ -124,10 +140,10 @@ void Driver()
 	}
 
 
-	motorSet(driveLF, (-lOut));
-	motorSet(driveLR, (-lOut));
-	motorSet(driveRF, (-rOut));
-	motorSet(driveRR, (-rOut));
+	motorSet(driveLF, (lOut));
+	motorSet(driveLR, (lOut));
+	motorSet(driveRF, (rOut));
+	motorSet(driveRR, (rOut));
 }
 
 void operatorControl()

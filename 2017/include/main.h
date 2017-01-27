@@ -58,8 +58,8 @@
 #define driveRR 5
 #define armL 6
 #define armR 7
-#define grabberL 8
-#define grabberR 9
+#define grabber 8
+#define grabberExt 9
 
 //sensor declarations
 
