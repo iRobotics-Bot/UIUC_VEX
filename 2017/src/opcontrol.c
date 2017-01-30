@@ -84,8 +84,8 @@ void Manipulator()
 		bool but6U = joystickGetDigital(1, 6, JOY_UP);
 		bool but6D = joystickGetDigital(1, 6, JOY_DOWN);
 
-    if(!but7L && !potPrimed) { potPrimed = true; }
-    if(but7L && potPrimed)
+    if(!but7L && !potPrimed) potPrimed = true;
+    else if(but7L && potPrimed)
     {
     	potPrimed = false;
     	potToggled = !potToggled;
@@ -125,10 +125,11 @@ void Manipulator()
 	else setClawExtSpeed(0);
 	
 	int potDifference = POT_GOAL - analogRead(1);
-	if(abs(potDifference) > POT_DEADZONE)
+	if(potToggled && abs(potDifference) > POT_DEADZONE)
 	{
 		setArmSpeed(POT_SPEED * (potDifference/abs(potDifference)));
 	}
+	else if(potToggled) setArmSpeed(0);
 }
 
 void Driver()
