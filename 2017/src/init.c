@@ -43,7 +43,9 @@ void initializeIO() {
  * This function must exit relatively promptly, or the operatorControl() and autonomous() tasks will not start. An autonomous mode selection menu like the pre_auton() in other environments can be implemented in this task if desired.
  */
 void initialize() {
-//	  pinMode(camRelease, OUTPUT);
-//	  digitalWrite(camRelease, LOW);
-//	  imeInitializeAll();
+	POT_GOAL_DOWN = analogRead(1);
+	POT_GOAL_UP = POT_GOAL_DOWN + 1200;
+
+	CLAW_CLOSE = analogRead(2);
+	CLAW_OPEN = CLAW_CLOSE + 2500;
 }

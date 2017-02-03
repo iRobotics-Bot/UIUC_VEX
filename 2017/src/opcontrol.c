@@ -56,10 +56,9 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 
-#define POT_GOAL_UP 2500
-#define POT_GOAL_DOWN
 #define POT_DEADZONE 50 // range is 2 * deadzone
-#define POT_SPEED 50
+#define POT_SPEED_MIN 25
+#define POT_P 0.05
 
 	bool raisePotToggled = false;
 	bool raisePrevState = false;
@@ -88,19 +87,29 @@ void Manipulator()
 {
 		bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
 		bool but8D = joystickGetDigital(1, 8, JOY_DOWN);
+		bool but8U = joystickGetDigital(1, 8, JOY_UP);
+		bool but8L = joystickGetDigital(1, 8, JOY_LEFT);
 		bool but7L = joystickGetDigital(1, 7, JOY_LEFT);
 		bool but7D = joystickGetDigital(1, 7, JOY_DOWN);
 		bool but5U = joystickGetDigital(1, 5, JOY_UP);
 		bool but5D = joystickGetDigital(1, 5, JOY_DOWN);
 		bool but6U = joystickGetDigital(1, 6, JOY_UP);
 		bool but6D = joystickGetDigital(1, 6, JOY_DOWN);
-		int potDifference;
+		bool but7U = joystickGetDigital(1, 7, JOY_UP);
+		int potDifference = 0;
 
-	if(but5U)
+//		if(millis() % 100 == 0) printf("arm Pot: %i\n",analogRead(1));
+
+	if(but7U)
+	{
+		POT_GOAL_DOWN = analogRead(1);
+		POT_GOAL_UP = POT_GOAL_DOWN + 1200;
+	}
+	if(but8U)
 	{
 		setClawSpeed(50);
 	}
-	else if(but5D)
+	else if(but8L)
 	{
 		setClawSpeed(-50);
 	}
@@ -116,8 +125,6 @@ void Manipulator()
 	}
 	else setClawExtSpeed(0);
 
-
-
 	if(but7L && but7L != raisePrevState)
 	{
 		lowerPotToggled = false;
@@ -131,11 +138,11 @@ void Manipulator()
 
 	if(but7D && but7D != lowerPrevState)
 	{
-		raisePrevState = false;
+		raisePotToggled = false;
 		lowerPotToggled = !lowerPotToggled;
 		lowerPrevState = but7D;
 	}
-	else if(but7L != raisePrevState)
+	else if(but7L != lowerPrevState)
 	{
 		lowerPrevState = but7D;
 	}
@@ -144,11 +151,15 @@ void Manipulator()
    	{
    		setArmSpeed(80);
    		raisePotToggled = false;
+   		lowerPotToggled = false;
+   		printf("arm Pot: %i\n",analogRead(1));
 	}
     else if(but8D)
 	{
 		setArmSpeed(-80);
 		raisePotToggled = false;
+		lowerPotToggled = false;
+		printf("arm Pot: %i\n",analogRead(1));
 	}
 	else setArmSpeed(0);
     if(raisePotToggled) potDifference = POT_GOAL_UP - analogRead(1);
@@ -156,12 +167,14 @@ void Manipulator()
 
 	if((raisePotToggled || lowerPotToggled) && abs(potDifference) > POT_DEADZONE)
 	{
-		setArmSpeed(POT_SPEED * (potDifference/abs(potDifference)));
+//		setArmSpeed(POT_SPEED * (potDifference/abs(potDifference)));
+		setArmSpeed((POT_SPEED_MIN + POT_P*abs(potDifference))*(potDifference/abs(potDifference)));
 	}
 	else if(raisePotToggled || lowerPotToggled)
 	{
 		setArmSpeed(0);
 	}
+
 }
 
 void Driver()

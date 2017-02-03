@@ -64,6 +64,11 @@
 //sensor declarations
 #define pot 1
 
+int POT_GOAL_UP;
+int POT_GOAL_DOWN;
+int CLAW_CLOSE;
+int CLAW_OPEN;
+
 #include "API.h"
 
 // Allow usage of this file in C++ programs
