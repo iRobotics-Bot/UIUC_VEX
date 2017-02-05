@@ -68,7 +68,7 @@ void resetDriveEncoders()
   imeReset(FRONT_RIGHT_ENCODER);
 }
 
-void AutoDrive(float distX, float distY, int speed)
+void AutoDrive(float distX, int speed)
 {
 	//distX & distY in inches
 	//drive gear ratio assumed to be 1:1. Change factor in main declaration
@@ -205,21 +205,5 @@ void clawSet(bool state)
 
 void autonomous()
 {
-	AutoDrive(-36, 0, 127);
-	clawSet(true);
-	AutoDrive(0, 30, 127);
-	clawSet(false);
-	setArmAngleSketchy(true);
-	clawSet(true);
-	AutoDrive(0, 5, 127);
-	Launch(true);
-	AutoRotate(180, 127);
-	setArmAngleSketchy(false);
-	clawSet(false);
-	AutoDrive(24, 0, 127);
-	AutoDrive(0, 33, 127);
-	setArmAngleSketchy(true);
-	AutoDrive(0, -35, 127);
-	AutoRotate(180, 127);
-	Launch(false);
+	AutoDrive(12, 20);
 }
