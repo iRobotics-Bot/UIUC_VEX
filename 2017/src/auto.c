@@ -119,3 +119,46 @@
 //void autonomous() {
 //
 //}
+void moveMotors(int tickGoalLeft, int tickGoalRight, int speed)
+{
+	encoderReset(FRONT_LEFT_ENCODER);
+	encoderReset(FRONT_RIGHT_ENCODER);
+	
+	bool isBusyLeft = true;
+	bool isBusyRight = true;
+	
+	int leftdir = tickGoalLeft / abs(tickGoalLeft);
+	int rightdir = tickGoalRight / abs(tickGoalRight);
+	
+	while(isBusyLeft || isBusyRight)
+	{
+		if(isBusyLeft)
+		{
+			motorSet(driveLF, speed*leftdir);
+			isBusyLeft = abs(tickGoalLeft) - abs(encoderGet(FRONT_LEFT_ENCODER)) > 0;
+		}
+		else
+		{
+			motorSet(driveLF, 0);
+			motorSet(driveLB, 0);
+			isBusyLeft = false;
+		}
+		
+		if(isBusyRight)
+		{
+			motorSet(driveRF, speed*rightdir);
+			isBusyRight = abs(tickGoalRight) - abs(encoderGet(FRONT_RIGHT_ENCODER)) > 0;
+		}
+		else
+		{  
+			motorSet(driveRF, 0);
+			motorSet(driveRB, 0);
+			isBusyRIght = false;
+		}
+	}
+}
+
+void autonomous()
+{
+	moveMotors(1000, 1000, 50);
+}
