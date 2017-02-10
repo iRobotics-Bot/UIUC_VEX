@@ -189,5 +189,19 @@ void autonomous()
 	setArm(true);
 	setClaw(3);
 	setArm(false);
-
+	AutoDrive(72, 100);
+	setClaw(0);
+	AutoRotate(90, 100);
+	setClaw(1);
+	AutoRotate(55, 100);
+	AutoDrive(36, 100);
+	setClaw(0);
+	AutoRotate(-55, 100);
+	setArm(true);
+	AutoDrive(36, 100);
+	setClaw(3);
+	setClaw(0);
+	AutoDrive(-24, 100);
+	setClaw(2);
+	AutoDrive(24, 100);
 }
