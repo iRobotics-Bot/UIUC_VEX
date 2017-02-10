@@ -56,15 +56,17 @@
  * This task should never exit; it should end with some kind of infinite loop, even if empty.
  */
 
-#define POT_DEADZONE 50 // range is 2 * deadzone
-#define POT_SPEED_MIN 25
-#define POT_P 0.05
-
 	bool raisePotToggled = false;
 	bool raisePrevState = false;
 
 	bool lowerPotToggled = false;
 	bool lowerPrevState = false;
+
+	bool inPotToggled = false;
+	bool inPrevState = false;
+
+	bool outPotToggled = false;
+	bool outPrevState = false;
 
 
 void setArmSpeed(int speed)
@@ -83,6 +85,114 @@ void setClawExtSpeed(int speed)
 	motorSet(grabberExt, speed);
 }
 
+void armP(bool but7L, bool but7D, bool but8R, bool but8D)
+{
+	int armPotDifference = 0;
+
+	if(but7L && but7L != raisePrevState)
+		{
+			lowerPotToggled = false;
+			raisePotToggled = !raisePotToggled;
+			raisePrevState = but7L;
+		}
+		else if(but7L != raisePrevState)
+		{
+			raisePrevState = but7L;
+		}
+
+		if(but7D && but7D != lowerPrevState)
+		{
+			raisePotToggled = false;
+			lowerPotToggled = !lowerPotToggled;
+			lowerPrevState = but7D;
+		}
+		else if(but7D != lowerPrevState)
+		{
+			lowerPrevState = but7D;
+		}
+
+	    if(but8R)
+	   	{
+	   		setArmSpeed(80);
+	   		raisePotToggled = false;
+	   		lowerPotToggled = false;
+		}
+	    else if(but8D)
+		{
+			setArmSpeed(-80);
+			raisePotToggled = false;
+			lowerPotToggled = false;
+		}
+		else setArmSpeed(0);
+
+	    if(raisePotToggled) armPotDifference = POT_GOAL_UP - analogRead(1);
+	    else if(lowerPotToggled) armPotDifference = POT_GOAL_DOWN - analogRead(1);
+
+		if((raisePotToggled || lowerPotToggled) && abs(armPotDifference) > ARM_DEADZONE)
+		{
+	//		setArmSpeed(POT_SPEED * (potDifference/abs(potDifference)));
+			setArmSpeed((ARM_SPEED_MIN + ARM_P*abs(armPotDifference))*(armPotDifference/abs(armPotDifference)));
+		}
+		else if(raisePotToggled || lowerPotToggled)
+		{
+			setArmSpeed(0);
+		}
+}
+
+void clawP(bool but5U, bool but5D, bool but8U, bool but8L)
+{
+	int clawPotDifference = 0;
+
+	if(but5U && but5U != inPrevState)
+	{
+		outPotToggled = false;
+		inPotToggled = !inPotToggled;
+		inPrevState = but5U;
+	}
+	else if(but5U != inPrevState)
+	{
+		inPrevState = but5U;
+	}
+
+	if(but5D && but5D != outPrevState)
+	{
+		inPotToggled = false;
+		outPotToggled = !outPotToggled;
+		outPrevState = but5D;
+	}
+	else if(but5D != outPrevState)
+	{
+		outPrevState = but5D;
+	}
+
+	if(but8U)
+	{
+		setClawSpeed(-50);
+		inPotToggled = false;
+		outPotToggled = false;
+	}
+	else if(but8L)
+	{
+		setClawSpeed(50);
+		inPotToggled = false;
+		outPotToggled = false;
+	}
+	else setClawSpeed(0);
+
+	if(inPotToggled) clawPotDifference = (CLAW_CLOSE - analogRead(2));
+    else if(outPotToggled) clawPotDifference = (CLAW_OPEN - analogRead(2));
+
+	if((inPotToggled || outPotToggled) && abs(clawPotDifference) > CLAW_DEADZONE)
+	{
+		setClawSpeed((CLAW_SPEED_MIN + CLAW_P*abs(clawPotDifference))*(clawPotDifference/abs(clawPotDifference)));
+	}
+	else if(inPotToggled || outPotToggled)
+	{
+		setClawSpeed(0);
+	}
+
+}
+
 void Manipulator()
 {
 		bool but8R = joystickGetDigital(1, 8, JOY_RIGHT);
@@ -96,24 +206,21 @@ void Manipulator()
 		bool but6U = joystickGetDigital(1, 6, JOY_UP);
 		bool but6D = joystickGetDigital(1, 6, JOY_DOWN);
 		bool but7U = joystickGetDigital(1, 7, JOY_UP);
-		int potDifference = 0;
-
-//		if(millis() % 100 == 0) printf("arm Pot: %i\n",analogRead(1));
+		bool but7R = joystickGetDigital(1, 7, JOY_RIGHT);
 
 	if(but7U)
 	{
 		POT_GOAL_DOWN = analogRead(1);
 		POT_GOAL_UP = POT_GOAL_DOWN + 1200;
 	}
-	if(but8U)
+	if(but7R)
 	{
-		setClawSpeed(50);
+		CLAW_CLOSE = analogRead(2);
+		CLAW_OPEN = CLAW_CLOSE + 2450;
 	}
-	else if(but8L)
-	{
-		setClawSpeed(-50);
-	}
-	else setClawSpeed(0);
+
+	armP(but7L, but7D, but8R, but8D);
+	clawP(but5U, but5D, but8U, but8L);
 
 	if(but6U)
 	{
@@ -124,56 +231,6 @@ void Manipulator()
 		setClawExtSpeed(-40);
 	}
 	else setClawExtSpeed(0);
-
-	if(but7L && but7L != raisePrevState)
-	{
-		lowerPotToggled = false;
-		raisePotToggled = !raisePotToggled;
-		raisePrevState = but7L;
-	}
-	else if(but7L != raisePrevState)
-	{
-		raisePrevState = but7L;
-	}
-
-	if(but7D && but7D != lowerPrevState)
-	{
-		raisePotToggled = false;
-		lowerPotToggled = !lowerPotToggled;
-		lowerPrevState = but7D;
-	}
-	else if(but7L != lowerPrevState)
-	{
-		lowerPrevState = but7D;
-	}
-
-    if(but8R)
-   	{
-   		setArmSpeed(80);
-   		raisePotToggled = false;
-   		lowerPotToggled = false;
-   		printf("arm Pot: %i\n",analogRead(1));
-	}
-    else if(but8D)
-	{
-		setArmSpeed(-80);
-		raisePotToggled = false;
-		lowerPotToggled = false;
-		printf("arm Pot: %i\n",analogRead(1));
-	}
-	else setArmSpeed(0);
-    if(raisePotToggled) potDifference = POT_GOAL_UP - analogRead(1);
-    else if(lowerPotToggled) potDifference = POT_GOAL_DOWN - analogRead(1);
-
-	if((raisePotToggled || lowerPotToggled) && abs(potDifference) > POT_DEADZONE)
-	{
-//		setArmSpeed(POT_SPEED * (potDifference/abs(potDifference)));
-		setArmSpeed((POT_SPEED_MIN + POT_P*abs(potDifference))*(potDifference/abs(potDifference)));
-	}
-	else if(raisePotToggled || lowerPotToggled)
-	{
-		setArmSpeed(0);
-	}
 
 }
 
@@ -210,21 +267,14 @@ void Driver()
 		rOut = (rOut/abs(rOut))*127;
 	}
 
-
 	motorSet(driveLF, (lOut));
 	motorSet(driveLR, (lOut));
 	motorSet(driveRF, (rOut));
 	motorSet(driveRR, (rOut));
 }
 
-void potMove()
-{
-	
-}
-
 void operatorControl()
 {
-	
 	while (true)
 	{
 		Driver();

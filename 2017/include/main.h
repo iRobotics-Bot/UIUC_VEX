@@ -48,8 +48,12 @@
 #define DRIVE_RATIO 1
 #define ENCODER_TICKS 627.2
 #define WHEEL_DIA 4
-//#define POT_LOW 0
-//#define POT_HIGH 1.5
+#define ARM_DEADZONE 150 // range is 2 * deadzone
+#define CLAW_DEADZONE 50
+#define ARM_SPEED_MIN 80
+#define CLAW_SPEED_MIN 12
+#define ARM_P 0.05
+#define CLAW_P 0.02
 
 //motor declarations
 #define driveLF 2
@@ -68,6 +72,8 @@ int POT_GOAL_UP;
 int POT_GOAL_DOWN;
 int CLAW_CLOSE;
 int CLAW_OPEN;
+int CLAW_WALL;
+int CLAW_PLOW;
 
 #include "API.h"
 

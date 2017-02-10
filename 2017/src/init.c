@@ -46,6 +46,8 @@ void initialize() {
 	POT_GOAL_DOWN = analogRead(1);
 	POT_GOAL_UP = POT_GOAL_DOWN + 1200;
 
-	CLAW_CLOSE = analogRead(2);
-	CLAW_OPEN = CLAW_CLOSE + 2500;
+	CLAW_OPEN = analogRead(2);
+	CLAW_CLOSE = CLAW_OPEN + 2450;
+	CLAW_WALL = CLAW_OPEN + 980;
+	CLAW_PLOW = CLAW_OPEN + 1470;
 }
