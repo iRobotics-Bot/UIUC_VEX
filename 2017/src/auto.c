@@ -187,6 +187,7 @@ void setWall(bool state)
 void autonomous()
 {
 	setArm(true);
-	setClaw(0);
+	setClaw(3);
+	setArm(false);
 
 }
