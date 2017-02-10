@@ -203,5 +203,6 @@ void autonomous()
 	setClaw(0);
 	AutoDrive(-24, 100);
 	setClaw(2);
+	setWall(true);
 	AutoDrive(24, 100);
 }
