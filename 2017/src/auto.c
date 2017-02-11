@@ -38,18 +38,18 @@
 //FL:1
 //FR:2
 
-void setArmSpeed(int speed)
+void autosetArmSpeed(int speed)
 {
 	motorSet(armL, speed);
 	motorSet(armR, -speed);
 }
 
-void setClawSpeed(int speed)
+void autosetClawSpeed(int speed)
 {
 	motorSet(grabber, speed);
 }
 
-void setClawExtSpeed(int speed)
+void autosetClawExtSpeed(int speed)
 {
 	motorSet(grabberExt, speed);
 }
@@ -87,7 +87,7 @@ void AutoDrive(float distX, int speed)
 		//check to see if all drive directions need to be driven, or if only one axis needs to move still, to prevent overdriving one axis
 		if((((fabsf(FL_Dist) - fabsf(distX)) > DRIVE_DEADBAND) || ((fabsf(FR_Dist) - fabsf(distX)) > DRIVE_DEADBAND)))
 		{
-			setDriveMotors((int)speed*distX/fabsf(distX));
+			setDriveMotors((int)speed*distX/fabsf(distX), (int)speed*distX/fabsf(distX));
 		}
 		else setDriveMotors(0, 0);
 	}
@@ -131,25 +131,39 @@ void AutoRotate(float degrees, int speed)
 	setDriveMotors(0, 0);
 }
 
-void setArm(bool state)
+bool setArm(bool state)
 {
+	int timeout = 2000;
+	long startTime = millis();
 	int armPotDifference = 0;
+
+	while(millis() < startTime + timeout)
+	{
+
 	if(state) armPotDifference = POT_GOAL_UP - analogRead(1);
 	else armPotDifference = POT_GOAL_DOWN - analogRead(1);
 
 	if(abs(armPotDifference) > ARM_DEADZONE)
 	{
-		setArmSpeed((ARM_SPEED_MIN + ARM_P*abs(armPotDifference))*(armPotDifference/abs(armPotDifference)));
+		autosetArmSpeed((ARM_SPEED_MIN + ARM_P*abs(armPotDifference))*(armPotDifference/abs(armPotDifference)));
 	}
 	else
 	{
-		setArmSpeed(0);
+		autosetArmSpeed(0);
+		return true;
 	}
+	}
+	autosetArmSpeed(0);
+	return false;
 }
 
-void setClaw(int state)
+bool setClaw(int state)
 {
+	int timeout = 1500;
+	long startTime = millis();
 	int clawPotDifference = 0;
+	while(millis() < startTime + timeout)
+	{
 	if(state == 0) clawPotDifference = (CLAW_CLOSE - analogRead(2));
     else if(state == 1) clawPotDifference = (CLAW_OPEN - analogRead(2));
     else if(state == 2) clawPotDifference = (CLAW_WALL - analogRead(2));
@@ -157,52 +171,77 @@ void setClaw(int state)
 
 	if(abs(clawPotDifference) > CLAW_DEADZONE)
 	{
-		setClawSpeed((CLAW_SPEED_MIN + CLAW_P*abs(clawPotDifference))*(clawPotDifference/abs(clawPotDifference)));
+		autosetClawSpeed((CLAW_SPEED_MIN + CLAW_P*abs(clawPotDifference))*(clawPotDifference/abs(clawPotDifference)));
 	}
 	else
 	{
-		setClawSpeed(0);
+		autosetClawSpeed(0);
+		return true;
 	}
+	}
+	autosetClawSpeed(0);
+	return false;
 }
 
-void setWall(bool state)
+bool setWall(bool state)
 {
 		long startTime = millis();
 		if(state)
 		{
-			while(millis() < startTime + 1000)
+			while(millis() < startTime + 1500)
 			{
-				setClawExtSpeed(40);
+				autosetClawExtSpeed(-80);
 			}
+			return true;
 		}
 		else
 		{
-			while(millis() < startTime + 3000)
+			while(millis() < startTime + 1500)
 			{
-				setClawExtSpeed(-40);
+				autosetClawExtSpeed(80);
 			}
+			return true;
 		}
 }
 
 void autonomous()
 {
+//	setArm(true);
+//	setClaw(3);
+//	setArm(false);
+//	AutoDrive(72, 100);
+//	setClaw(0);
+//	AutoRotate(90, 100);
+//	setClaw(1);
+//	AutoRotate(55, 100);
+//	AutoDrive(36, 100);
+//	setClaw(0);
+//	AutoRotate(-55, 100);
+//	setArm(true);
+//	AutoDrive(36, 100);
+//	setClaw(3);
+//	setClaw(0);
+//	AutoDrive(-24, 100);
+//	setClaw(2);
+//	setWall(true);
+//	AutoDrive(24, 100);
+
 	setArm(true);
-	setClaw(3);
-	setArm(false);
-	AutoDrive(72, 100);
-	setClaw(0);
-	AutoRotate(90, 100);
-	setClaw(1);
-	AutoRotate(55, 100);
-	AutoDrive(36, 100);
-	setClaw(0);
-	AutoRotate(-55, 100);
-	setArm(true);
-	AutoDrive(36, 100);
-	setClaw(3);
-	setClaw(0);
-	AutoDrive(-24, 100);
 	setClaw(2);
 	setWall(true);
-	AutoDrive(24, 100);
+	taskDelay(1000);
+	setDriveMotors(127, 127);
+	taskDelay(2500);
+	setDriveMotors(-127, -127);
+	taskDelay(1000);
+	setDriveMotors(127, -127);
+	taskDelay(400);
+	setDriveMotors(127, 127);
+	taskDelay(2500);
+	setDriveMotors(-127, 127);
+	taskDelay(1000);
+	setClaw(0);
+	taskDelay(1500);
+	setClaw(2);
+
 }

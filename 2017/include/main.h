@@ -48,12 +48,12 @@
 #define DRIVE_RATIO 1
 #define ENCODER_TICKS 627.2
 #define WHEEL_DIA 4
-#define ARM_DEADZONE 150 // range is 2 * deadzone
+#define ARM_DEADZONE 100 // range is 2 * deadzone
 #define CLAW_DEADZONE 50
 #define ARM_SPEED_MIN 80
-#define CLAW_SPEED_MIN 12
+#define CLAW_SPEED_MIN 20
 #define ARM_P 0.05
-#define CLAW_P 0.02
+#define CLAW_P 0.06
 
 //motor declarations
 #define driveLF 2

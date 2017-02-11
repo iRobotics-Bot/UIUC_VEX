@@ -68,6 +68,9 @@
 	bool outPotToggled = false;
 	bool outPrevState = false;
 
+	bool wallPotToggled = false;
+	bool wallPrevState = false;
+
 
 void setArmSpeed(int speed)
 {
@@ -113,13 +116,13 @@ void armP(bool but7L, bool but7D, bool but8R, bool but8D)
 
 	    if(but8R)
 	   	{
-	   		setArmSpeed(80);
+	   		setArmSpeed(120);
 	   		raisePotToggled = false;
 	   		lowerPotToggled = false;
 		}
 	    else if(but8D)
 		{
-			setArmSpeed(-80);
+			setArmSpeed(-120);
 			raisePotToggled = false;
 			lowerPotToggled = false;
 		}
@@ -139,54 +142,71 @@ void armP(bool but7L, bool but7D, bool but8R, bool but8D)
 		}
 }
 
-void clawP(bool but5U, bool but5D, bool but8U, bool but8L)
+void clawP(bool but7U, bool but7R, bool but5U, bool but8U, bool but8L)
 {
 	int clawPotDifference = 0;
 
-	if(but5U && but5U != inPrevState)
+	if(but7U && but7U != inPrevState)
 	{
 		outPotToggled = false;
+		wallPotToggled = false;
 		inPotToggled = !inPotToggled;
 		inPrevState = but5U;
 	}
-	else if(but5U != inPrevState)
+	else if(but7U != inPrevState)
 	{
-		inPrevState = but5U;
+		inPrevState = but7U;
 	}
 
-	if(but5D && but5D != outPrevState)
+	if(but7R && but7R != outPrevState)
 	{
 		inPotToggled = false;
+		wallPotToggled = false;
 		outPotToggled = !outPotToggled;
-		outPrevState = but5D;
+		outPrevState = but7R;
 	}
-	else if(but5D != outPrevState)
+	else if(but7R != outPrevState)
 	{
-		outPrevState = but5D;
+		outPrevState = but7R;
+	}
+
+	if(but5U && but5U != wallPrevState)
+	{
+		inPotToggled = false;
+		outPotToggled = false;
+		wallPotToggled = !wallPotToggled;
+		wallPrevState = but5U;
+	}
+	else if(but5U != outPrevState)
+	{
+		wallPrevState = but5U;
 	}
 
 	if(but8U)
 	{
-		setClawSpeed(-50);
+		setClawSpeed(-80);
 		inPotToggled = false;
 		outPotToggled = false;
+		wallPotToggled = false;
 	}
 	else if(but8L)
 	{
-		setClawSpeed(50);
+		setClawSpeed(80);
 		inPotToggled = false;
 		outPotToggled = false;
+		wallPotToggled = false;
 	}
 	else setClawSpeed(0);
 
 	if(inPotToggled) clawPotDifference = (CLAW_CLOSE - analogRead(2));
     else if(outPotToggled) clawPotDifference = (CLAW_OPEN - analogRead(2));
+    else if(wallPotToggled) clawPotDifference = (CLAW_WALL - analogRead(2));
 
-	if((inPotToggled || outPotToggled) && abs(clawPotDifference) > CLAW_DEADZONE)
+	if(((inPotToggled || outPotToggled) || wallPotToggled) && abs(clawPotDifference) > CLAW_DEADZONE)
 	{
 		setClawSpeed((CLAW_SPEED_MIN + CLAW_P*abs(clawPotDifference))*(clawPotDifference/abs(clawPotDifference)));
 	}
-	else if(inPotToggled || outPotToggled)
+	else if((inPotToggled || outPotToggled) || wallPotToggled)
 	{
 		setClawSpeed(0);
 	}
@@ -208,19 +228,21 @@ void Manipulator()
 		bool but7U = joystickGetDigital(1, 7, JOY_UP);
 		bool but7R = joystickGetDigital(1, 7, JOY_RIGHT);
 
-	if(but7U)
+//	if(but5U)
+//	{
+//		POT_GOAL_DOWN = analogRead(1);
+//		POT_GOAL_UP = POT_GOAL_DOWN + 1350;
+//	}
+	if(but5D)
 	{
 		POT_GOAL_DOWN = analogRead(1);
-		POT_GOAL_UP = POT_GOAL_DOWN + 1200;
-	}
-	if(but7R)
-	{
+		POT_GOAL_UP = POT_GOAL_DOWN + 1000;
 		CLAW_CLOSE = analogRead(2);
 		CLAW_OPEN = CLAW_CLOSE + 2450;
 	}
 
 	armP(but7L, but7D, but8R, but8D);
-	clawP(but5U, but5D, but8U, but8L);
+	clawP(but7U, but7R, but5U, but8U, but8L);
 
 	if(but6U)
 	{
